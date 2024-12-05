@@ -1,0 +1,103 @@
+<!-- Start Sidebar -->
+<div class="container">
+  <div class="relative lg:flex gap-6">
+    <div id="application-sidebar" class="hs-overlay fixed inset-y-0 start-0 z-60 hidden w-64 -translate-x-full transform overflow-y-auto border-e border-default-200
+      bg-white transition-all duration-300 hs-overlay-open:translate-x-0 dark:bg-default-50 lg:bottom-0 lg:end-auto lg:z-30 lg:block
+      lg:translate-x-0 rtl:translate-x-full rtl:hs-overlay-open:translate-x-0 rtl:lg:translate-x-0 print:hidden">
+      <div class="sticky top-0 flex h-18 items-center justify-start px-6">
+        <a routerLink="/common/home">
+          <img src="../../../../assets/template/logo-dark-1caee452.png" alt="logo" class="flex h-10 dark:hidden" />
+        </a>
+      </div>
+      <p class="border-b border-default-200"></p>
+      <div class="hs-accordion-group h-[calc(100%-72px)] p-4" data-simplebar>
+        <ul class="admin-menu flex w-full flex-col gap-1.5">
+          <!-- <div class="flex justify-end">
+            <a class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle
+            duration-500 text-sm text-center bg-primary hover:bg-primary-700 border-primary
+            hover:border-primary-700 text-white rounded-full float-right" control-id="ControlID-19">
+              <i class="pi pi-plus-circle me-2"></i>
+              <span>新增發布者</span>
+            </a>
+
+          </div> -->
+          <!-- <p class="text-center text-sm text-default-700">預設會員ID={{memId}}</p>用不著了哈哈 -->
+          <div>
+            <a routerLink="/pubmanage/item" class="shrink flex items-center justify-center
+            rounded-lg bg-primary text-white px-6 py-2.5
+            text-center text-sm font-medium shadow-sm transition-all duration-200
+            hover:bg-primary hover:text-white">
+              <i class="pi pi-plus-circle me-2"></i>
+              <span>新增發布者</span></a>
+          </div>
+
+          <!-- <li class="menu-item">
+            <a routerLink="/pubmanage/main"
+              class="flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-accordion-active:bg-default-100">
+              <i class="ti ti-smart-home text-xl"></i>
+              發布者中心 -->
+          <!-- <span class="ms-auto inline-block rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">9+</span> -->
+          <!-- </a>
+          </li> -->
+          <!-- <li class="menu-item hs-accordion"> -->
+          <!-- hs-accordion 下拉選單 -->
+          <!-- <a href="javascript:void(0)"
+              class="hs-accordion-toggle flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-accordion-active:bg-default-100">
+              <i class="ti ti-users text-xl"></i>
+              發布者一覽
+              <i class="ti ti-chevron-right ms-auto text-sm transition-all hs-accordion-active:rotate-90"></i> -->
+          <!-- 下拉選單 -->
+          <!-- </a> -->
+          <!-- API下拉選單發布者列出 -->
+          <!-- <div id="menuCoupons" -->
+          <!-- class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"> -->
+          <ul class="mt-2 flex flex-col gap-2">
+            <li class="menu-item" *ngFor="let p of publisherList" (click)="getPublisherId(p.fPublisherId)">
+              <!-- p.fPublisherId -->>
+              <a routerLink="/pubmanage/profile"
+                class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100">
+                <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                {{p.fPubName}}
+                <!-- call API 該發布者ID的工作流資訊 -->
+              </a>
+            </li>
+          </ul>
+          <!-- </div> -->
+          <!-- </li> -->
+
+
+          <!-- <li class="menu-item hs-accordion">
+            <a href="javascript:void(0)"
+              class="hs-accordion-toggle flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-accordion-active:bg-default-100">
+              <i class="ti ti-building-store text-xl"></i>
+              工作流管理
+              <i class="ti ti-chevron-right ms-auto text-sm transition-all hs-accordion-active:rotate-90"></i>
+               下拉選單
+            </a>
+            <div id="menuCoupons"
+              class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300">
+              <ul class="mt-2 flex flex-col gap-2">
+                <li class="menu-item">
+                  <a href="admin-coupons-list.html"
+                    class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100">
+                    <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                    Coupons List
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li> -->
+
+          <li class="menu-item hs-accordion">
+            <a routerLink="/common/home"
+              class="hs-accordion-toggle flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 hover:bg-default-100">
+              <i class="ti ti-login-2 text-xl"></i>
+              回到首頁
+              <i class="ti ti-chevron-right ms-auto text-sm transition-all hs-accordion-active:rotate-90"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End Sidebar -->

@@ -1,0 +1,111 @@
+<p class="text-4xl font-bold mb-4">發布者中心</p>
+<div class="border-b border-default-200 mb-4"></div>
+<!-- profile頁 start -->
+<div class="container border border-default-200 rounded-lg px-4 py-4">
+  <!-- 外圍範圍內部間距 -->
+  <p class="text-black text-lg text-6xl font-semibold inline-block mb-6" *ngIf="isEdit" (click)="isEditClick()">
+    修改發布者資料</p>
+  <div class="grid lg:grid-cols-2 gap-4 " *ngIf="publisher">
+    <!-- 分空間 -->
+    <div class="border-r border-default-200">
+      <label for="example-palaceholder" class="text-black text-lg font-semibold inline-block mb-6">發布者頭像</label>
+      <div style="display: flex; justify-content: space-between;">
+        <div class="md:w-1/3 border-default-800 mb-6">
+          <!-- 圖片預覽 -->
+          <!-- <div id="pubImg" *ngIf="imagePreview"></div> -->
+          <div style="width: 300px;height: 300px;overflow:hidden;">
+            <img *ngIf="imagePreview" [src]="imagePreview" alt="Loaded Image" id="pubImg"
+              class="w-32 rounded mx-auto" />
+          </div>
+          <!-- <img id="pubImg" src="../../../../assets/template/1-f1564e7c.png" alt="" class="w-32 rounded mx-auto"> -->
+          <!-- 圖片上傳start -->
+          <label class="py-2 ml-5">
+            <input type="file" hidden name="fPubImage" (change)="onFileSelected($event)"
+              accept="image/gif, image/jpeg, image/png" />
+            <div class="flex w-28 h-9 px-2 flex-col bg-primary rounded-md shadow text-white font-semibold
+                leading-4 items-center justify-center cursor-pointer focus:outline-none">
+              上傳圖片</div>
+          </label>
+          <!-- 圖片上傳end -->
+        </div>
+        <div class="">
+          <a routerLink="/publisher/profile/{{publisher.fPublisherId}}"
+            class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-lg text-center
+                bg-default-200 hover:bg-default-300 border-default-200 hover:border-default-200 text-default-900 rounded-md">
+            預覽
+          </a>
+        </div>
+      </div>
+      <div class="mt-4">
+        <label for="example-palaceholder" class="text-black text-lg font-semibold inline-block mb-4">發布者簡介</label>
+      </div>
+      <!-- editor -->
+      <div class="card px-4">
+        <p-editor [(ngModel)]="publisher.fPubDescription" [style]="{ height: '320px' }  "
+          [readonly]="!isEdit"></p-editor>
+      </div>
+
+    </div>
+
+    <div class="lg:col-span-1">
+      <div class="" style="display: flex; justify-content: space-between;">
+        <div class="">
+          <label for="example-palaceholder" class="text-black text-lg font-semibold inline-block mb-6">發布者名稱</label>
+        </div>
+        <div class="flex-1">
+          <button *ngIf="!isEdit" (click)="isEditClick()"
+            class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-lg text-center==
+                bg-default-200 hover:bg-default-300 border-default-200 hover:border-default-200 text-default-900 rounded-md">
+            編輯
+          </button>
+          <div *ngIf="isEdit" (click)="isEditClick()" class="grid grid-cols-2">
+            <button
+              class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-lg text-center
+                  bg-default-200 hover:bg-default-300 border-default-200 hover:border-default-200 text-default-900 rounded-md"
+              (click)="showPubProfile(publisher.fPublisherId)">
+              取消
+            </button>
+            <button class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-lg text-center
+                    bg-primary hover:bg-primary-700 border-primary hover:border-primary-700 text-white rounded-md"
+              (click)="editByPutApi()">
+              儲存
+            </button>
+          </div>
+        </div>
+      </div>
+      <input type="text" id="example-palaceholder" [readOnly]="!isEdit"
+        class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50"
+        placeholder="" control-id="ControlID-10" [(ngModel)]="publisher.fPubName">
+      <!-- 記得限字數 -->
+      <div>
+        <label for="example-palaceholder" class="text-black text-lg font-semibold inline-block mb-6 mt-4">額外連結</label>
+        <div class="mb-2 flex mb-4">
+          <i class="lg:col-span-1 ti ti-mail text-4xl mr-4 "></i>
+          <input type="text" id="leading-icon" name="leading-icon" [readOnly]="!isEdit"
+            class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50 ps-6"
+            placeholder="you@mail.com" control-id="ControlID-27" name="123" [(ngModel)]="linkObj.fEmail">
+        </div>
+        <div class="mb-2 flex mb-4">
+          <i class="lg:col-span-1 ti ti-brand-linkedin text-4xl mr-4 "></i>
+          <input type="email" id="leading-icon" name="leading-icon" [readOnly]="!isEdit"
+            class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50 ps-6"
+            placeholder="linkedin.com" control-id="ControlID-27" [(ngModel)]="linkObj.fLinkin">
+        </div>
+        <div class="mb-2 flex mb-4">
+          <i class="lg:col-span-1 ti ti-brand-github text-4xl mr-4 "></i>
+          <input type="email" id="leading-icon" name="leading-icon" [readOnly]="!isEdit"
+            class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50 ps-6"
+            placeholder="github.com" control-id="ControlID-27" [(ngModel)]="linkObj.fGithub">
+        </div>
+        <!-- 千琇的按鈕 -->
+        <a routerLink="/workflow/publishermanage-workflowlist"
+          class="mt-6 flex items-center justify-center py-2.5 px-8 inline-block font-semibold tracking-wide border align-middle duration-500
+              text-lg text-center bg-primary hover:bg-primary-700 border-primary hover:border-primary-700 text-white rounded-md " control-id="ControlID-81">
+          前往工作流管理
+          <lucide-icon name="arrow-right-from-line" [size]="48" [strokeWidth]="2.25"></lucide-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- profile頁 end -->

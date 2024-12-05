@@ -1,0 +1,120 @@
+<!-- 前台profile -->
+<section class="lg:py-12 py-6">
+  <div class="container">
+    <div class="border border-default-200 rounded-lg bg-white dark:bg-default-50 h-fit">
+      <!-- 分五份 -->
+      <!--會員側邊欄 start-->
+
+      <div class="rounded-lg bg-default-100 p-4 dark:bg-default-100">
+        <div class="py-8 text-center">
+          <ng-container *ngIf="imagePreview; else defaultImage">
+            <img [src]="imagePreview" class="mx-auto h-28 w-28 rounded-full" />
+          </ng-container>
+          <ng-template #defaultImage>
+            <img src="../../../../assets/lecture-publisher/memberDefault.png" class="mx-auto h-28 w-28 rounded-full" />
+          </ng-template>
+          <h3 class="mt-2 text-xl font-medium text-default-900">{{this.Publisher.fPubName}}</h3>
+          <p class="mt-1 text-base text-default-600">
+            <!-- 有想到再加 -->
+          </p>
+        </div>
+      </div>
+
+      <!-- 發布者內容 start-->
+      <div class="border border-default-200 rounded-lg bg-white dark:bg-default-50 h-fit">
+        <!-- <div class="flex items-center justify-between py-4 px-5">
+          <div class="">
+            <h5 class="text-lg font-medium text-default-950 capitalize mb-1"> Tabs Bordered</h5>
+            <p class="text-default-600 text-sm font-medium">A basic form of tabs with underline.</p>
+          </div>
+        </div> -->
+        <!-- tab -->
+        <div class="p-5 border-t border-dashed border-default-200">
+          <nav class="flex space-x-3 border-b border-gray-200 dark:border-gray-600" aria-label="Tabs" role="tablist">
+            <button type="button"
+              class="hs-tab-active:border-primary hs-tab-active:text-primary font-semibold py-4 px-1 inline-flex items-center gap-2 border-b-2 border-transparent -mb-px transition-all whitespace-nowrap hover:text-primary active"
+              id="tabs-with-icons-item-1" data-hs-tab="#tabs-with-icons-1" aria-controls="tabs-with-icons-1" role="tab">
+              關於
+            </button>
+            <button type="button"
+              class="hs-tab-active:border-primary hs-tab-active:text-primary font-semibold py-4 px-1 inline-flex items-center gap-2 border-b-2 border-transparent -mb-px transition-all whitespace-nowrap hover:text-primary"
+              id="tabs-with-icons-item-2" data-hs-tab="#tabs-with-icons-2" aria-controls="tabs-with-icons-2" role="tab">
+              工作流
+            </button>
+          </nav>
+          <div class="mt-3">
+            <div id="tabs-with-icons-1" role="tabpanel" aria-labelledby="tabs-with-icons-item-1" class="">
+              <!-- <p class="text-2xl text-default-600 mb-4 "></p> -->
+              <div class="card">
+                <p-editor [(ngModel)]="this.Publisher.fPubDescription" [readonly]="true" [style]="{ height: '120px' }">
+                  <ng-template pTemplate="header">
+                    <span class="ql-formats text-2xl">
+                      簡介
+                    </span>
+                  </ng-template>
+                </p-editor>
+              </div>
+              <p class="border-b border-default-200 mb-4"></p>
+              <p class="text-2xl text-default-600 mb-4 ">相關連結</p>
+              <div class="flex">
+                <div class="flex mr-4">
+                  <a href="https://www.mail.com/">
+                    <i class="lg:col-span-1 ti ti-mail text-4xl mr-4"></i>
+                  </a>
+                  <p class="mt-1">{{this.linkObj.fEmail}}</p>
+                </div>
+                <div class="flex">
+                  <a href="https://www.linkedin.com/">
+                    <i class="lg:col-span-1 ti ti-brand-linkedin text-4xl mr-4"></i>
+                  </a>
+                  <p class="mt-1">{{this.linkObj.fLinkin}}</p>
+                </div>
+                <div class="flex">
+                  <a href="https://www.github.com/">
+                    <i class="lg:col-span-1 ti ti-brand-github text-4xl mr-4"></i>
+                  </a>
+                  <p class="mt-1">{{this.linkObj.fGithub}}</p>
+                </div>
+              </div>
+            </div>
+            <div id="tabs-with-icons-2" class="hidden" role="tabpanel" aria-labelledby="tabs-with-icons-item-2">
+              <div class="flex items-center justify-between py-4 px-5">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
+                  <!-- 這裡是ngFor起點， -->
+                  <ul *ngFor="let item of pubSopList">
+                    <div
+                      class="border border-default-200 rounded-xl overflow-hidden duration-500 hover:border-primary relative">
+                      <!-- 卡片外框 -->
+                      <div class="p-4">
+                        <!-- 卡片標籤 -->
+                        <div class="relative">
+                          <img [src]="item.fPubSopImageUrl" alt="">
+                        </div>
+                      </div>
+                      <!-- 卡片標題 跳轉在這 -->
+                      <div class="border-t border-dashed border-default-200 p-4">
+                        <div class="mb-4">
+                          <a routerLink="/workflow/workflowmarket-product/{{item.fSOPID}}"
+                            (click)="selectedIdToService(item.fSOPID)"
+                            class="text-default-600 text-xl font-semibold line-clamp-1 after:absolute after:inset-0 after:z-0">{{item.fSopName}}</a>
+                        </div>
+                        <!-- 卡片價錢 & 加入購物車 -->
+                        <div class="flex items-center justify-between gap-2">
+                          <h4 class="font-semibold text-xl text-primary">${{item.fPrice}} <span
+                              class="text-default-400 text-base">{{item.fSalePoints}}P</span> </h4>
+                        </div>
+                      </div>
+                    </div>
+                  </ul>
+                  <!-- ngFor終點 -->
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

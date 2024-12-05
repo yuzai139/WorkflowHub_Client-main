@@ -1,0 +1,220 @@
+<!-- Top Small Navbar Menu -->
+<div class="z-20 hidden h-8 items-center bg-default-100 lg:flex">
+  <div class="container">
+    <div class="flex items-center justify-between gap-4">
+      <ul class="flex items-center justify-end gap-4">
+
+        <li class="menu-item flex">
+          <a class="text-xs font-medium text-default-700 transition-all hover:text-primary"
+            routerLink="/pubmanage/profile" target="_blank">發佈者中心</a>
+        </li>
+
+        <li>
+          <span class="hidden h-4 w-px bg-default-400 lg:flex"></span>
+        </li>
+
+        <li class="menu-item flex">
+          <a class="text-xs font-medium text-default-700 transition-all hover:text-primary"
+            routerLink="/workflow/memberworkflow-index" target="_blank">我的工作流程</a>
+        </li>
+
+      </ul>
+
+      <div class="flex items-center">
+        <ul class="flex items-center justify-end gap-4">
+
+          <!-- <li class="menu-item flex">
+            <a class="text-xs font-semibold text-default-800 transition-all hover:text-primary" routerLink="/workflow/publisher-bankaccount">
+              金融帳戶設定
+            </a>
+          </li>
+
+          <li>
+            <span class="hidden h-4 w-px bg-default-400 lg:flex"></span>
+          </li> -->
+
+          <li class="menu-item flex">
+            <a class="text-xs font-semibold text-default-800 transition-all hover:text-primary"
+              routerLink="/point/record">
+              點數紀錄
+            </a>
+          </li>
+
+          <li>
+            <span class="hidden h-4 w-px bg-default-400 lg:flex"></span>
+          </li>
+
+          <li class="menu-item flex">
+            <a class="text-xs font-semibold text-default-800 transition-all hover:text-primary"
+              routerLink="/order/order">
+              我的訂單
+            </a>
+          </li>
+
+          <li>
+            <span class="hidden h-4 w-px bg-default-400 lg:flex"></span>
+          </li>
+
+          <li class="menu-item flex">
+            <a class="text-xs font-semibold text-default-800 transition-all hover:text-primary" (click)="logout()"
+              style="cursor: pointer;">
+              登出
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Navbar  -->
+<header
+  class="fixed top-0 z-40 flex w-full items-center border-b border-default-100 bg-white transition-all duration-300 dark:bg-default-50 lg:top-8 [&.nav-sticky]:top-0 [&.nav-sticky]:shadow"
+  id="navbar">
+  <nav class="container flex h-16 items-center justify-between gap-4">
+    <div class="flex items-center gap-4">
+      <!-- Mobile Menu Toggle Button -->
+      <button class="block lg:hidden" data-hs-overlay="#mobile-menu">
+        <i class="ti ti-menu-2 text-2xl"></i>
+      </button>
+
+      <!-- Navbar Brand Logo -->
+      <a routerLink="/common/home">
+        <img src="../../../../assets/template/logo-dark-1caee452.png" class="flex h-10 dark:hidden lg:h-12"
+          alt="Brand Logo" />
+        <img src="../../../../assets/template/logo-50f51c55.png" class="hidden h-10 dark:flex lg:h-12"
+          alt="Brand Logo" />
+      </a>
+    </div>
+
+    <!-- Nevigation Menu -->
+    <!-- <div class="relative mx-auto hidden flex-grow lg:block">
+      <ul class="menu flex items-center justify-center"> -->
+
+    <!-- 工作流程商城 開始 -->
+    <!-- <li class="menu-item">
+          <div class="hs-dropdown relative inline-flex [--placement:bottom] [--trigger:hover]">
+            <a class="hs-dropdown-toggle inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-default-700 after:absolute after:inset-0 hover:text-primary hover:after:-bottom-10 lg:text-base"
+                routerLink="/workflow/workflowmarket-index">
+              工作流程商城 <i data-lucide="chevron-down" class="ms-2 h-4 w-4"></i>
+            </a>
+          </div>
+        </li> -->
+    <!-- 工作流程商城 結束 -->
+
+    <!-- 講座商城 開始 -->
+    <!-- <li class="menu-item">
+          <div class="hs-dropdown relative inline-flex [--placement:bottom] [--trigger:hover]">
+            <a class="hs-dropdown-toggle inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-default-700 after:absolute after:inset-0 hover:text-primary hover:after:-bottom-10 lg:text-base"
+                routerLink="/lecture/shop">
+              講座商城 <i data-lucide="chevron-down" class="ms-2 h-4 w-4"></i>
+            </a>
+          </div>
+        </li> -->
+    <!-- 講座商城 結束 -->
+
+    <!-- 發佈者查詢 開始 -->
+    <!-- <li class="menu-item">
+          <div class="hs-dropdown relative inline-flex [--placement:bottom] [--trigger:hover]">
+            <a class="hs-dropdown-toggle inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-default-700 after:absolute after:inset-0 hover:text-primary hover:after:-bottom-10 lg:text-base"
+                routerLink="/publisher/main">
+              發佈者查詢 <i data-lucide="chevron-down" class="ms-2 h-4 w-4"></i>
+            </a>
+          </div>
+        </li> -->
+    <!-- 發佈者查詢 結束 -->
+
+    <!-- 工作討論區 開始 -->
+    <!-- <li class="menu-item">
+          <div class="hs-dropdown relative inline-flex [--placement:bottom] [--trigger:hover]">
+            <a class="hs-dropdown-toggle inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-default-700 after:absolute after:inset-0 hover:text-primary hover:after:-bottom-10 lg:text-base"
+                routerLink="/forum/forum">
+              工作討論區 <i data-lucide="chevron-down" class="ms-2 h-4 w-4"></i>
+            </a>
+          </div>
+        </li> -->
+    <!-- 工作討論區 結束 -->
+
+    <!-- </ul>
+    </div> -->
+
+    <!-- Nav Link -->
+    <ul class="flex items-center justify-center gap-4">
+
+      <li class="menu-item flex">
+        <a routerLink="/forum/forum"
+          class="relative inline-flex h-10 w-10 flex-shrink-0 items-center justify-center gap-2 rounded-full bg-default-100 align-middle font-medium text-default-700 transition-all hover:text-primary">
+          <i class="ti ti-messages text-xl"></i>
+        </a>
+      </li>
+
+      <li class="menu-item flex">
+        <a routerLink="/order/cart"
+          class="relative inline-flex h-10 w-10 flex-shrink-0 items-center justify-center gap-2 rounded-full bg-default-100 align-middle font-medium text-default-700 transition-all hover:text-primary">
+          <i class="ti ti-shopping-cart text-xl"></i>
+        </a>
+      </li>
+
+      <li class="menu-item hidden lg:flex">
+        <a routerLink="/member/favorite"
+          class="relative inline-flex h-10 w-10 flex-shrink-0 items-center justify-center gap-2 rounded-full bg-default-100 align-middle font-medium text-default-700 transition-all hover:text-primary">
+          <i class="ti ti-heart text-xl"></i>
+        </a>
+      </li>
+
+      <!-- 會員 開始-->
+      <li class="menu-item hidden lg:flex">
+        <div class="hs-dropdown relative inline-flex [--placement:bottom-right] [--trigger:hover]">
+          <a class="hs-dropdown-toggle inline-flex h-10 w-10 flex-shrink-0 items-center justify-center gap-2 rounded-full bg-default-100 align-middle font-medium text-default-700 transition-all after:absolute after:inset-0 hover:text-primary hover:after:-bottom-10"
+            routerLink="/member/member-setting">
+            <i class="ti ti-user text-xl"></i>
+          </a>
+
+          <div
+            class="hs-dropdown-menu z-10 mt-4 hidden min-w-[200px] overflow-hidden rounded-lg border border-default-100 bg-white pb-1.5 opacity-0 shadow transition-[opacity,margin] hs-dropdown-open:opacity-100 dark:bg-default-50">
+            <ul class="flex flex-col gap-1">
+              <li class="border-b border-dashed border-default-200 bg-primary/10 p-4">
+                <a routerLink="/member/member-setting" class="flex items-center gap-4">
+                  <div class="relative">
+                    <div class="rounded-full bg-default-200">
+                      <img src="../../../../assets/template/1-f1564e7c.png" alt="" class="h-10 w-10 rounded-full" />
+                    </div>
+                    <span
+                      class="absolute end-0 top-0 h-3 w-3 rounded-full border-2 border-white bg-green-400 dark:border-default-50"></span>
+                  </div>
+                  <div>
+                    <h6 class="text-base text-primary">Paula Keenan</h6>
+                    <small class="text-primary/80">會員</small>
+                  </div>
+                </a>
+              </li>
+              <li class="px-1.5">
+                <a class="flex items-center rounded-md px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700"
+                  routerLink="/member/member-setting">
+                  <i class="ti ti-user-circle me-2 text-lg"></i>會員設定</a>
+              </li>
+              <li class="px-1.5">
+                <a class="flex items-center rounded-md px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700"
+                  routerLink="/workflow/memberworkflow-index" target="_blank">
+                  <i class="ti ti-timeline me-2 text-lg"></i> 我的工作流程</a>
+              </li>
+              <!-- <li class="px-1.5">
+                <a class="flex items-center rounded-md px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700"
+                    routerLink="/lecture/tickets">
+                    <i class="ti ti-ticket me-2 text-lg"></i>我的講座票券</a>
+              </li> -->
+              <li class="px-1.5">
+                <a class="flex items-center rounded-md px-3 py-2 font-normal text-default-600 transition-all hover:bg-red-500/10 hover:text-red-500"
+                  (click)="logout()" style="cursor: pointer;">
+                  <i class="ti ti-logout-2 me-2 text-lg"></i>登出</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <!-- 會員結束 -->
+    </ul>
+  </nav>
+</header>
+<!-- Navbar -->

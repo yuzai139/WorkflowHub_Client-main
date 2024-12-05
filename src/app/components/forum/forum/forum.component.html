@@ -1,0 +1,23 @@
+<div class="forum-page-container">
+  <div class="forum-container">
+    <div class="forum-category-list">
+      <div class="forum-header">
+        <h2>類別清單</h2>
+        <div class="forum-search-container">
+          <input
+            type="text"
+            [(ngModel)]="searchTerm"
+            placeholder="搜尋類別"
+            (input)="filteredCategories()"
+          />
+        </div>
+      </div>
+
+      <ul>
+        <li *ngFor="let category of filteredCategories()" [routerLink]="['/forum/list', category.fCategoryNumber]">
+          {{ category.fCategoryName || '未命名類別' }} <!-- 如果 fCategoryName 為空，顯示替代文字 -->
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

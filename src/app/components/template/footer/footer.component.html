@@ -1,0 +1,437 @@
+<!-- 手機板測攔 Mobile Sidebar Menu -->
+<div id="mobile-menu"
+  class="hs-overlay fixed left-0 top-0 z-60 hidden h-full w-full max-w-[270px] -translate-x-full transform border-e border-e-default-200 bg-white transition-all hs-overlay-open:translate-x-0 dark:bg-default-50"
+  tabindex="-1">
+  <div
+    class="flex h-16 items-center justify-center border-b border-dashed border-b-default-200 transition-all duration-300">
+    <a routerLink="/common/home">
+      <img src="../../../../assets/template/logo-dark-1caee452.png" class="flex h-10 dark:hidden lg:h-12"
+        alt="Brand Logo" />
+      <img src="../../../../assets/template/logo-50f51c55.png" class="hidden h-10 dark:flex lg:h-12" alt="Brand Logo" />
+    </a>
+  </div>
+
+  <div data-simplebar class="h-[calc(100%-4rem)] overflow-y-auto">
+    <nav class="hs-accordion-group flex w-full flex-col flex-wrap p-4">
+      <ul class="admin-menu flex w-full flex-col gap-1.5">
+        <!-- 商城開始 -->
+        <li class="menu-item hs-accordion">
+          <a href="javascript:void(0)"
+            class="hs-accordion-toggle flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-accordion-active:bg-default-100">
+            <i class="ti ti-building-store text-xl"></i>
+            商城
+            <i class="ti ti-chevron-right ms-auto text-sm transition-all hs-accordion-active:rotate-90"></i>
+          </a>
+
+          <div class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300">
+            <ul class="mt-2 flex flex-col gap-2">
+
+              <li class="menu-item">
+                <a routerLink="/workflow/workflowmarket-index"
+                  class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100">
+                  <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                  工作流程商城
+                </a>
+              </li>
+
+              <li class="menu-item">
+                <a routerLink="/lecture/shop"
+                  class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100">
+                  <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                  講座商城
+                </a>
+              </li>
+
+              <li class="menu-item">
+                <a routerLink="/publisher/main"
+                  class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100">
+                  <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                  發佈者查詢
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!-- 商城結束 -->
+        <!-- 工作討論區 -->
+        <li class="menu-item">
+          <a class="flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-collapse-open:bg-default-100"
+              routerLink="/forum/forum">
+            <i class="ti ti-messages text-xl"></i>
+            工作討論區
+          </a>
+        </li>
+        <!-- 工作討論區 結束-->
+
+        <li class="px-4 py-2 text-sm font-medium text-default-600">會員</li>
+
+        <li class="menu-item">
+          <a class="flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-collapse-open:bg-default-100"
+              routerLink="/member/member-setting">
+            <i class="ti ti-user-circle text-xl"></i>
+            會員設定
+          </a>
+        </li>
+
+        <li class="menu-item">
+          <a class="flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-collapse-open:bg-default-100"
+              routerLink="/order/order">
+            <i class="ti ti-receipt text-xl"></i>
+            我的訂單
+          </a>
+        </li>
+
+        <li class="menu-item">
+          <a class="flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-collapse-open:bg-default-100"
+              routerLink="/workflow/memberworkflow-index">
+            <i class="ti ti-timeline text-xl"></i>
+            我的工作流程
+          </a>
+        </li>
+
+        <li class="menu-item">
+          <a class="flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-collapse-open:bg-default-100"
+              routerLink="/lecture/tickets">
+            <i class="ti ti-ticket text-xl"></i>
+            我的講座票券
+          </a>
+        </li>
+
+        <li class="px-4 py-2 text-sm font-medium text-default-600">發佈者</li>
+
+        <li class="menu-item">
+          <a class="flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-collapse-open:bg-default-100"
+              routerLink="/pubmanage/main">
+            <i class="ti ti-building-warehouse text-xl"></i>
+            發佈者中心
+          </a>
+        </li>
+
+        <li class="menu-item">
+          <a class="flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-collapse-open:bg-default-100"
+              routerLink="/workflow/publisher-bankaccount">
+            <i class="ti ti-wallet text-xl"></i>
+            發佈者收款帳號
+          </a>
+        </li>
+
+        <!-- 設定 -->
+        <!-- <li class="menu-item">
+          <a class="flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-collapse-open:bg-default-100"
+            href="account-settings.html">
+            <i class="ti ti-settings text-xl"></i>
+            Settings
+          </a>
+        </li> -->
+
+        <li class="px-4 py-2 text-sm font-medium text-default-600">其他</li>
+
+        <li class="menu-item">
+          <a class="flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-collapse-open:bg-default-100"
+              routerLink="/login">
+            <i class="ti ti-user text-xl"></i>
+            登出
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+
+<!-- Mobile Navbar (Bottom Menu) -->
+<div class="menu fixed inset-x-0 bottom-0 z-40 lg:hidden">
+  <div class="grid h-16 w-full grid-cols-4 items-center border border-default-200 bg-white dark:bg-default-50">
+
+    <a class="flex flex-col items-center justify-center gap-1 text-default-600"
+    routerLink="/workflow/workflowmarket-index">
+      <i class="ti ti-building-store text-xl"></i>
+      <span class="text-xs font-medium tracking-wide sm:text-sm">工作流程商城</span>
+    </a>
+
+    <a class="flex flex-col items-center justify-center gap-1 text-default-600"
+    routerLink="/lecture/shop">
+      <i class="ti ti-user-pentagon text-xl"></i>
+      <span class="text-xs font-medium tracking-wide sm:text-sm">講座商城</span>
+    </a>
+
+    <a class="flex flex-col items-center justify-center gap-1 text-default-600"
+    routerLink="/forum/forum">
+      <i class="ti ti-messages text-xl"></i>
+      <span class="text-xs font-medium tracking-wide sm:text-sm">工作討論區</span>
+    </a>
+
+    <a class="flex flex-col items-center justify-center gap-1 text-default-600"
+    routerLink="/member/member-setting">
+      <i class="ti ti-user-circle text-xl"></i>
+      <span class="text-xs font-medium tracking-wide sm:text-sm">會員</span>
+    </a>
+
+  </div>
+</div>
+
+
+
+<button
+  class="fixed bottom-18 end-4 z-50 inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 text-primary opacity-0 backdrop-blur-xl transition-all duration-500 lg:bottom print:hidden"
+  data-toggle="back-to-top">
+  <i class="ti ti-chevron-up text-xl"></i>
+</button>
+<footer class="">
+  <div class="border-t border-default-200 bg-white dark:bg-default-50">
+    <div class="container">
+      <div class="py-6 xl:py-24">
+        <div class="grid gap-x-6 gap-y-10 xl:grid-cols-8">
+          <div class="xl:col-span-2">
+            <a routerLink="/common/home" class="logo flex items-center gap-2">
+              <img src="../../../../assets/template/logo-50f51c55.png" class="hidden h-10 dark:block" alt="" />
+              <img src="../../../../assets/template/logo-dark-1caee452.png" class="block h-10 dark:hidden" alt="" />
+            </a>
+
+            <p class="mt-6 max-w-xs text-base font-medium text-default-600">
+              您是否曾經為了尋找合適的工作流程而煩惱？</p>
+            <p class="mt-6 max-w-xs text-base font-medium text-default-600">
+              職業搞定王 是一個「各行各業的工作流程交易、交流平台」，您可以輕鬆找到來自不同產業的專業人士所分享的高品質工作流程，無論您是在尋找高效工作流程，還是需要該職業的完整工作流程，我們為每一位專業人士、創業家、以及初入職場的朋友們，提供一個快速、簡單又高效的平台來解決這些問題。在這裡，您同時可以在工作討論區與其他職人共同討論、解決問題，無時無刻，職業搞定王 都能讓您無憂無慮地應對挑戰。
+            </p>
+            <p class="mt-6 max-w-xs text-base font-medium text-default-600">
+              如果您有自己獨到的工作流程，也可以在這裡分享並轉化為收入來源。藉由這個平台，將您的經驗和創意轉化為真正的價值，助力他人同時讓自己成長！
+            </p>
+            <p class="mt-6 max-w-xs text-base font-medium text-default-600">
+              讓 職業搞定王 成為您工作上的最佳助手，無論是省時省力還是突破難題，我們都能幫助您搞定工作上的困難。立即加入，共享與交流，讓工作變得更加輕鬆高效！
+            </p>
+            <div class="mt-6 flex flex-wrap gap-2">
+              <a routerLink="/common/home" target="_blank"
+                class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-primary-600">
+                <i class="ti ti-building-store me-2 text-xl"></i>
+                瀏覽工作流程
+              </a>
+
+              <a routerLink="/forum/forum" target="_blank"
+                class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-primary-600">
+                <i class="ti ti-messages me-2 text-xl"></i>
+                瀏覽工作討論區
+              </a>
+
+            </div>
+          </div>
+          <div class="xl:col-span-6">
+            <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
+              <div class="">
+                <ul class="flex flex-col gap-3">
+                  <h5 class="mb-2 font-semibold text-default-900 lg:text-lg xl:text-xl">
+                    會員
+                  </h5>
+                  <li>
+                    <a routerLink="/member/member-setting"
+                      class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i
+                        class="ti ti-circle-chevron-right text-lg"></i>
+                      會員設定
+                    </a>
+                  </li>
+                  <li>
+                    <a routerLink="/order/order"
+                      class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i
+                        class="ti ti-circle-chevron-right text-lg"></i>
+                      訂單
+                    </a>
+                  </li>
+                  <li>
+                    <a routerLink="/order/cart"
+                      class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i
+                        class="ti ti-circle-chevron-right text-lg"></i>
+                      購物車</a>
+                  </li>
+                  <li>
+                    <a routerLink="/member/favorite"
+                      class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i
+                        class="ti ti-circle-chevron-right text-lg"></i>
+                      收藏清單</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="">
+                <ul class="flex flex-col gap-3">
+                  <h5 class="mb-2 font-semibold text-default-900 lg:text-lg xl:text-xl">
+                    熱門工作流程
+                  </h5>
+                  <li>
+                    <a href="javascript:void(0);"
+                      class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i
+                        class="ti ti-circle-chevron-right text-lg"></i>
+                        網頁設計師工作流程
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0);"
+                      class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i
+                        class="ti ti-circle-chevron-right text-lg"></i>
+                        產品設計師工作流程
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0);"
+                      class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i
+                        class="ti ti-circle-chevron-right text-lg"></i>
+                        產品經理工作流程
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- <div class="">
+                <ul class="flex flex-col gap-3">
+                  <h5 class="mb-2 font-semibold text-default-900 lg:text-lg xl:text-xl">
+                    熱門講座
+                  </h5>
+                  <li>
+                    <a href="javascript:void(0);"
+                      class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i
+                        class="ti ti-circle-chevron-right text-lg"></i>
+                        講座1
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0);"
+                      class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i
+                        class="ti ti-circle-chevron-right text-lg"></i>
+                        講座2
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0);"
+                      class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i
+                        class="ti ti-circle-chevron-right text-lg"></i>
+                        講座3
+                    </a>
+                  </li>
+                </ul>
+              </div> -->
+
+              <div class="">
+                <ul class="flex flex-col gap-3">
+                  <h5 class="mb-2 font-semibold text-default-900 lg:text-lg xl:text-xl">
+                    熱門工作討論區板塊
+                  </h5>
+                  <li>
+                    <a href="javascript:void(0);"
+                      class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i
+                        class="ti ti-circle-chevron-right text-lg"></i>
+                        板塊1
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0);"
+                      class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i
+                        class="ti ti-circle-chevron-right text-lg"></i>
+                        板塊2
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0);"
+                      class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i
+                        class="ti ti-circle-chevron-right text-lg"></i>
+                        板塊3
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Grid End -->
+    </div>
+
+    <div class="border-t border-default-200">
+      <div class="container">
+        <div class="grid items-center gap-6 py-4 lg:grid-cols-3">
+          <p class="flex text-center text-default-900 lg:col-span-2 lg:text-start">
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            © 草根小組製作於 2024
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top button -->
+<a href="javascript: void(0);" data-toggle="back-to-top"
+   class="fixed bottom-4 end-4 size-10 z-50 opacity-0 rounded-full flex items-center justify-center bg-primary text-white transition-all duration-300">
+  <i class="ti ti-chevron-up text-xl"></i>
+</a>
+
+<div id="offer-modal"
+  class="hs-overlay pointer-events-none fixed start-0 top-0 z-[80] hidden size-full overflow-y-auto overflow-x-hidden">
+  <div
+    class="m-3 mt-0 flex min-h-[calc(100%-3.5rem)] items-center opacity-0 transition-all ease-out hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 sm:mx-auto sm:w-full sm:max-w-4xl">
+    <div class="flex max-h-full w-full flex-col overflow-hidden rounded-xl bg-white shadow-sm dark:bg-default-50">
+      <div class="pointer-events-auto relative p-4">
+        <div class="grid items-center gap-6 md:grid-cols-2">
+          <div class="flex flex-col items-start justify-center p-4">
+            <span
+              class="inline-flex items-center gap-1.5 rounded-lg bg-primary/10 px-4 py-1 text-sm font-medium text-primary">Newsletter</span>
+            <h1 class="mb-6 text-4xl/normal font-semibold text-default-900">
+              Subscribe to Our Newsletter
+            </h1>
+            <p class="mb-4 text-base text-default-900">
+              Subscribe to our newsletter and Save your
+              <span class="text-yellow-500">50% money</span> with discount code
+              today.
+            </p>
+            <div class="relative flex w-full">
+              <input type="email" id="emailID"
+                class="block w-full rounded-s-md border-default-200 py-2 pe-5 ps-10 text-sm text-default-800 focus:ring-transparent dark:bg-default-50"
+                placeholder="Enter your email" />
+              <i class="ti ti-mail absolute start-3 top-1/2 -translate-y-1/2 text-lg text-default-800"></i>
+              <button
+                class="inline-flex items-center justify-center rounded-e border border-primary bg-primary px-6 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all">
+                Subscribe
+              </button>
+            </div>
+
+            <ul class="mt-10 flex flex-wrap items-center gap-2">
+              <li>
+                <a href="javascript:void(0);"
+                  class="group inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/20 text-primary backdrop-blur-xl transition-all duration-500 hover:bg-primary/30"><i
+                    class="ti ti-brand-facebook text-2xl"></i></a>
+              </li>
+              <li>
+                <a href="javascript:void(0);"
+                  class="group inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/20 text-primary backdrop-blur-xl transition-all duration-500 hover:bg-primary/30"><i
+                    class="ti ti-brand-x text-2xl"></i></a>
+              </li>
+              <li>
+                <a href="javascript:void(0);"
+                  class="group inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/20 text-primary backdrop-blur-xl transition-all duration-500 hover:bg-primary/30"><i
+                    class="ti ti-brand-instagram text-2xl"></i></a>
+              </li>
+              <li>
+                <a href="javascript:void(0);"
+                  class="group inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/20 text-primary backdrop-blur-xl transition-all duration-500 hover:bg-primary/30"><i
+                    class="ti ti-brand-github text-2xl"></i></a>
+              </li>
+            </ul>
+          </div>
+          <div class="hidden md:flex">
+            <img src="../../../../assets/template/banner-9-83bafd3a.png" class="h-full w-full rounded-lg"
+              alt="offer images" />
+          </div>
+
+          <!-- Modal CLose Button -->
+          <div class="absolute end-4 top-4 z-60">
+            <button data-hs-overlay="#offer-modal"
+              class="flex size-10 items-center justify-center rounded-lg bg-default-300/55">
+              <i data-lucide="x" class="h-6 w-6 text-default-600"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Theme Js -->
+
+

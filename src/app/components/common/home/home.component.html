@@ -1,0 +1,422 @@
+<div class="container">
+  <!--搜尋分類 start -->
+  <div class="flex items-center gap-4 whitespace-nowrap">
+    <!-- primeng 測試 目前失敗 -->
+    <!-- <div class="card flex justify-content-center">
+      <p-treeSelect class="w-full md:w-20rem" containerStyleClass="w-full" [(ngModel)]="selectedNodes" [options]="nodes"
+        display="chip" [metaKeySelection]="false" selectionMode="checkbox" placeholder="Select Item"></p-treeSelect>
+    </div> -->
+    <!-- 篩選選單 start -->
+    <div class="flex-1">
+      <div class="card flex justify-content-center">
+        <select (change)="onJobClassSelect($event)">
+          <option *ngFor="let jobClass of jobClass" [value]="jobClass.fJobClassId" [(ngModel)]="jobClass.fJobClass">
+            {{ jobClass.fJobClass }}
+          </option>
+        </select>
+
+        <select *ngIf="job.length > 0" (change)="onJobSelect($event)">
+          <option *ngFor="let job of job" [value]="job.fJobId">
+            {{ job.fJob }}
+          </option>
+        </select>
+
+        <select *ngIf="jobItem.length > 0" (change)="onJobItemSelect($event)">
+          <option *ngFor="let jobItem of jobItem" [value]="jobItem.fJobItemId">
+            {{ jobItem.fJobItem }}
+          </option>
+        </select>
+      </div>
+      <!-- <select class="" data-trigger name="choices-single-groups" id="choices-single-groups">
+        <option value="">請選擇工作類型</option>
+        <optgroup label="UK">
+          <option value="London">London</option>
+          <option value="Manchester">Manchester</option>
+          <option value="Liverpool">Liverpool</option>
+        </optgroup>
+        <optgroup label="FR">
+          <option value="Paris">Paris</option>
+          <option value="Lyon">Lyon</option>
+          <option value="Marseille">Marseille</option>
+        </optgroup>
+        <optgroup label="DE" disabled>
+          <option value="Hamburg">Hamburg</option>
+          <option value="Munich">Munich</option>
+          <option value="Berlin">Berlin</option>
+        </optgroup>
+        <optgroup label="US">
+          <option value="New York">New York</option>
+          <option value="Washington" disabled>Washington</option>
+          <option value="Michigan">Michigan</option>
+        </optgroup>
+        <optgroup label="SP">
+          <option value="Madrid">Madrid</option>
+          <option value="Barcelona">Barcelona</option>
+          <option value="Malaga">Malaga</option>
+        </optgroup>
+        <optgroup label="CA">
+          <option value="Montreal">Montreal</option>
+          <option value="Toronto">Toronto</option>
+          <option value="Vancouver">Vancouver</option>
+        </optgroup>
+      </select> -->
+    </div>
+    <!-- 篩選選單 end -->
+    <!--搜尋分類 end -->
+
+    <!-- 搜尋欄 start -->
+    <div class="w-full">
+      <form class="relative flex">
+        <input type="text" placeholder="搜尋欄" name="search" [(ngModel)]="searchTerm" (keyup)="filterData()"
+          class="w-full rounded-lg border-none bg-default-100 py-3 pe-6 ps-12 text-sm">
+        <button (click)="filterData()" type="button" aria-label="Click here to search input data"
+          class="absolute inset-y-0 start-2 z-10 flex h-full w-10 items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<!--搜尋欄 end -->
+
+<!-- <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div> -->
+
+
+
+<!-- <div class="p-5 border-t border-dashed border-default-200"> -->
+<div class="mt-2">
+  <app-carousel [images]="images"></app-carousel>
+</div>
+<!-- </div> -->
+<!-- 熱門工作流輪播 end-->
+
+
+<section class="py-6">
+  <div class="container">
+    <div class="">
+      <!--側邊篩選欄排序 start-->
+      <!--<div class="flex lg:flex-row flex-row-reverse items-center justify-between mb-6">
+        <div class="flex items-center justify-center gap-2">
+          <span class="text-base text-default-950 me-3 hidden md:block">Sort By :</span>
+          <div class="relative">
+            <select id="all-select-categories" data-hs-select='{
+                              "placeholder": "Select Category",
+                              "toggleTag": "<button type=\"button\"></button>",
+                              "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 block w-full rounded-md py-2 ps-4 pe-10 text-default-900 text-sm focus:ring-transparent border border-default-200 transition-all duration-300 hover:bg-default-100 before:absolute before:inset-0 before:z-[1]",
+                              "dropdownClasses": "mt-2 z-50 min-w-[200px] max-h-[300px] p-1.5 space-y-0.5 bg-white border border-default-200 rounded-lg overflow-hidden overflow-y-auto end-0 dark:bg-default-50",
+                              "optionClasses": "py-2 px-3 w-full text-sm text-default-800 cursor-pointer rounded-md hover:bg-default-100 focus:outline-none focus:bg-default-100",
+                              "optionTemplate": "<div class=\"flex justify-between items-center w-full\"><span data-title></span><span class=\"hidden hs-selected:block\"><i class=\"ti ti-checks text-lg flex-shrink-0 text-primary\" /></i></span></div>"
+                              }' class="hidden">
+              <option></option>
+              <option>Latest</option>
+              <option>Featured</option>
+              <option>Release Date</option>
+              <option>Avg. Rating</option>
+            </select>
+
+            <div class="absolute -inset-y-0 start-auto end-3 flex items-center">
+              <i class="ti ti-chevron-down shrink text-base/none"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button data-hs-overlay="#filterSidebar"
+            class="xl:hidden relative flex items-center gap-2 font-medium text-default-950 text-sm py-2.5 px-4 xl:px-5 rounded-md border border-default-200 transition-all"
+            type="button">
+            <i class="ti ti-adjustments-horizontal text-xl"></i> Filter <span
+              class="px-2 py-0.5 ms-2 text-xs rounded bg-primary/30 text-primary-400">0</span>
+          </button>
+
+          <div class="2xl:flex relative menu-item hidden">
+            <input
+              class="ps-10 pe-4 py-2.5 block w-64 border border-default-200 rounded-md text-sm text-default-800 bg-transparent focus:ring-transparent"
+              placeholder="Search Here.." type="search">
+            <span class="absolute start-4 top-3">
+              <i class="ti ti-search"></i>
+            </span>
+          </div>
+        </div>
+      </div>-->
+      <!--側邊篩選欄排序 end-->
+    </div>
+    <!--商品區大外框 start-->
+    <p class="text-3xl font-semibold text-default-950 mb-5">熱門工作流</p>
+    <div class="flex justify-center">
+      <!-- 加入外層容器並居中： 可以在這一層的上層增加一個 div，並設定 flex 和 justify-center 屬來居中。 -->
+      <div class="relative lg:flex gap-6">
+        <!--設置了一個相對定位、並在特定螢幕尺寸時切換為彈性布局的 <div> 元素。以下是各個部分的作用：
+        relative：
+        作用：將此 <div> 設置為相對定位，使其位置相對於原始位置可以稍微調整（例如可以用 top, left, right, bottom 調整位置）。
+        效果：這樣設置可以讓內部子元素根據此相對定位的 <div> 作為基準進行絕對定位，通常適合有浮動元素需要特殊排版的情況。
+        lg:flex：
+        作用：這是 Tailwind CSS 的響應式類別，當螢幕尺寸到達 lg（1024px 或更大）時，將此 <div> 設為 彈性布局。
+        效果：在較大的螢幕上，該 <div> 會改為彈性容器，使內部元素自動排列為橫向或縱向（預設是橫向）。在更小螢幕時則不受影響，依然保持塊級元素的布局方式。
+        gap-6：
+        作用：設置內部子元素之間的間距為 6 單位（通常是 6 x 4px = 24px）。
+        效果：在彈性容器內的項目之間增加間距，讓內部項目之間不會緊密排列，更整齊且更具可讀性。 -->
+        <!--側邊篩選欄 start-->
+        <!-- 放在zlittleSpace -->
+        <!--側邊篩選欄 end-->
+
+        <div class="xl:max-w-4x5">
+          <!--在螢幕尺寸達到 xl（通常是 1280px 或更大）時，寬度設為 80%，即相對於父容器的 4/5 寬度。
+           當視窗變大到 xl 尺寸時，內容會有 20% 的邊距，適合顯示更多內容的寬螢幕配置。
+           確保 xl:w-4/5 和 lg:flex 不會造成元素偏移。如果還是偏左，可以將 xl:w-4/5 改為 xl:max-w-4/5 mx-auto，確保內容在 xl 螢幕尺寸上也會居中。-->
+          <div class="sticky top-20">
+            <!--sticky 將這個 <div> 設置為「黏性定位」，讓它在滾動時保持固定位置，直到超出其父容器範圍。
+               top-20：設定距頂部 20 單位的偏移量（通常是 20 x 4px = 80px）。當使用者向下滾動時，此 <div> 會在 80px 的位置「黏著」，直到父容器的滾動範圍結束。
+               適合用於側邊欄或導航欄，讓使用者滾動時可以保持視野內。 -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
+              <!--這個 <div> 使用 grid 布局，根據螢幕大小改變顯示的列數。
+                md:grid-cols-2：在 md 尺寸（768px 或更大）時，設置為 2 列。
+              lg:grid-cols-3：在 lg 尺寸（1024px 或更大）時，設置為 3 列。
+              2xl:grid-cols-4：在 2xl 尺寸（1536px 或更大）時，設置為 4 列。
+              gap-6：網格項之間設置 6 單位的間距（通常是 6 x 4px = 24px），增強布局的可讀性。
+              效果：根據螢幕寬度動態調整顯示列數，使內容在不同裝置上都能獲得良好的呈現效果。 -->
+              <!-- 控制卡片數量 -->
+
+              <!-- 這裡是ngFor起點， -->
+              <ul *ngFor="let item of sopList">
+                <div
+                  class="border border-default-200 rounded-xl overflow-hidden duration-500 hover:border-primary relative">
+                  <!-- 卡片外框 -->
+                  <div class="p-4">
+                    <!-- 卡片標籤 -->
+                    <div class="relative">
+                      <!-- <div class="absolute top-0 start-0">
+                        <span
+                          class="inline-flex items-center gap-1.5 py-1 px-4 rounded-lg text-sm font-medium bg-primary/10 text-primary">Sale</span>
+                      </div>
+                      <div class="absolute top-0 end-0">
+                        <span
+                          class="inline-flex items-center gap-1.5 py-1 px-4 rounded-lg text-sm font-medium bg-red-500/10 text-red-500">Hot</span>
+                      </div> -->
+                      <!-- 商品圖 -->
+                      <!-- <img src="../../../../assets/lecture-publisher/work001.jpg" alt=""> -->
+                      <div>
+                        <img *ngIf="item.fPubSopImageUrl" [src]="item.fPubSopImageUrl" alt="Loaded Image"
+                          class="w-full rounded mx-auto" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 卡片標題 跳轉在這 -->
+                  <div class="border-t border-dashed border-default-200 p-4">
+                    <div class="mb-4">
+                      <a routerLink="/workflow/workflowmarket-product/{{item.fSOPID}}"
+                        (click)="selectedIdToService(item.fSOPID)"
+                        class="text-default-600 text-xl font-semibold line-clamp-1 after:absolute after:inset-0 after:z-0">
+                        {{item.fSopName}}
+                      </a>
+                    </div>
+
+                    <!-- 卡片評分 -->
+                    <!-- <div class="flex items-center justify-between gap-2 mb-4">
+                    <span class="flex items-center gap-2">
+                      <span
+                        class="h-5 w-5 inline-flex items-center justify-center bg-primary text-white rounded-full"><i
+                          class="ti ti-star-filled text-sm"></i></span>
+                      <span class="text-sm text-default-950 from-inherit">4.5</span>
+                    </span>
+
+                    <div class="relative z-10 inline-flex justify-between border border-default-200 p-1 rounded-full"
+                      data-hs-input-number="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-decrement="">
+                        <i class="ti ti-minus"></i>
+                      </button>
+                      <input type="number"
+                        class="w-8 border-0 text-sm text-center text-default-800 focus:ring-0 p-0 bg-transparent"
+                        value="1" data-hs-input-number-input="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-increment="">
+                        <i class="ti ti-plus"></i>
+                      </button>
+                    </div>
+                  </div> -->
+                    <!-- 卡片價錢 & 加入購物車 -->
+                    <div class="flex items-center justify-between gap-2">
+                      <h4 class="font-semibold text-xl text-primary">${{item.fPrice}}
+                        <span class="text-default-400 text-base">{{item.fSalePoints}}P</span>
+                      </h4>
+                      <!-- 加入購物車按鈕 -->
+                      <button (click)="addToCart(item)"
+                        class="shrink flex items-center justify-center rounded-lg bg-primary/20 text-primary px-6 py-2.5 text-center text-sm font-medium shadow-sm transition-all duration-200 hover:bg-primary hover:text-white relative z-10">
+                        <i class="ti ti-shopping-bag text-xl me-2"></i>
+                        <span>加入購物車</span>
+                      </button>
+                    </div>
+                  </div>
+                </div><!-- end card -->
+              </ul>
+              <!-- ngFor終點 -->
+            </div>
+
+
+            <!-- 輪播小商品 -->
+            <!-- <section class="lg:py-10 py-3">
+              <div class="container overflow-hidden">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-2xl font-semibold text-default-800">Featured Categories</h4>
+                </div>
+
+                <div class="relative mt-4">
+                  <div class="swiper featured-categories w-full overflow-y-visible p-2">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <div
+                          class="group border border-default-200 rounded-xl py-2 transition-all duration-500 overflow-hidden hover:border-primary">
+                          <a href="products-grid.html"
+                            class="flex items-center justify-center py-4 gap-10 transition-all duration-500">
+                            <img src="../../../../assets/lecture-publisher/work0001.jpg" alt=""
+                              class="h-28 mx-auto transition-all duration-500 group-hover:scale-125">
+                          </a>
+                          <h5 class="text-base font-semibold text-default-800 text-center mt-2">Vegetables</h5>
+                        </div>
+                      </div>
+
+                      <div class="swiper-slide">
+                        <div
+                          class="group border border-default-200 rounded-xl py-2 transition-all duration-500 overflow-hidden hover:border-primary">
+                          <a href="products-grid.html"
+                            class="flex items-center justify-center py-4 gap-10 transition-all duration-500">
+                            <img src="../../../../assets/lecture-publisher/work002.jpg" alt=""
+                              class="h-28 mx-auto transition-all duration-500 group-hover:scale-125">
+                          </a>
+                          <h5 class="text-base font-semibold text-default-800 text-center mt-2">Fruits</h5>
+                        </div>
+                      </div>
+
+                      <div class="swiper-slide">
+                        <div
+                          class="group border border-default-200 rounded-xl py-2 transition-all duration-500 overflow-hidden hover:border-primary">
+                          <a href="products-grid.html"
+                            class="flex items-center justify-center py-4 gap-10 transition-all duration-500">
+                            <img src="../../../../assets/lecture-publisher/work003.jpg" alt=""
+                              class="h-28 mx-auto transition-all duration-500 group-hover:scale-125">
+                          </a>
+                          <h5 class="text-base font-semibold text-default-800 text-center mt-2">Meat</h5>
+                        </div>
+                      </div>
+
+                      <div class="swiper-slide">
+                        <div
+                          class="group border border-default-200 rounded-xl py-2 transition-all duration-500 overflow-hidden hover:border-primary">
+                          <a href="products-grid.html"
+                            class="flex items-center justify-center py-4 gap-10 transition-all duration-500">
+                            <img src="assets/sea-food-86ecb0e4.png" alt=""
+                              class="h-28 mx-auto transition-all duration-500 group-hover:scale-125">
+                          </a>
+                          <h5 class="text-base font-semibold text-default-800 text-center mt-2">Sea Food</h5>
+                        </div>
+                      </div>
+
+                      <div class="swiper-slide">
+                        <div
+                          class="group border border-default-200 rounded-xl py-2 transition-all duration-500 overflow-hidden hover:border-primary">
+                          <a href="products-grid.html"
+                            class="flex items-center justify-center py-4 gap-10 transition-all duration-500">
+                            <img src="assets/eggs-56f66d58.png" alt=""
+                              class="h-28 mx-auto transition-all duration-500 group-hover:scale-125">
+                          </a>
+                          <h5 class="text-base font-semibold text-default-800 text-center mt-2">Eggs</h5>
+                        </div>
+                      </div>
+
+                      <div class="swiper-slide">
+                        <div
+                          class="group border border-default-200 rounded-xl py-2 transition-all duration-500 overflow-hidden hover:border-primary">
+                          <a href="products-grid.html"
+                            class="flex items-center justify-center py-4 gap-10 transition-all duration-500">
+                            <img src="assets/baking-120dfda7.png" alt=""
+                              class="h-28 mx-auto transition-all duration-500 group-hover:scale-125">
+                          </a>
+                          <h5 class="text-base font-semibold text-default-800 text-center mt-2">Baking</h5>
+                        </div>
+                      </div>
+
+                      <div class="swiper-slide">
+                        <div
+                          class="group border border-default-200 rounded-xl py-2 transition-all duration-500 overflow-hidden hover:border-primary">
+                          <a href="products-grid.html"
+                            class="flex items-center justify-center py-4 gap-10 transition-all duration-500">
+                            <img src="assets/drinks-d6f4f1cf.png" alt=""
+                              class="h-28 mx-auto transition-all duration-500 group-hover:scale-125">
+                          </a>
+                          <h5 class="text-base font-semibold text-default-800 text-center mt-2">Drinks</h5>
+                        </div>
+                      </div>
+
+                      <div class="swiper-slide">
+                        <div
+                          class="group border border-default-200 rounded-xl py-2 transition-all duration-500 overflow-hidden hover:border-primary">
+                          <a href="products-grid.html"
+                            class="flex items-center justify-center py-4 gap-10 transition-all duration-500">
+                            <img src="assets/cheese-9f2bd06a.png" alt=""
+                              class="h-28 mx-auto transition-all duration-500 group-hover:scale-125">
+                          </a>
+                          <h5 class="text-base font-semibold text-default-800 text-center mt-2">Cheese</h5>
+                        </div>
+                      </div>
+
+                      <div class="swiper-slide">
+                        <div
+                          class="group border border-default-200 rounded-xl py-2 transition-all duration-500 overflow-hidden hover:border-primary">
+                          <a href="products-grid.html"
+                            class="flex items-center justify-center py-4 gap-10 transition-all duration-500">
+                            <img src="assets/milk-d6894ce7.png" alt=""
+                              class="h-28 mx-auto transition-all duration-500 group-hover:scale-125">
+                          </a>
+                          <h5 class="text-base font-semibold text-default-800 text-center mt-2">Milk</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div> end swiper
+                  <button
+                    class="featured-categories-next absolute z-30 lg:inline-flex items-center justify-center hidden h-10 w-10 bg-primary-100 hover:bg-primary-200 rounded-full text-primary transition-all duration-200 -end-3 top-1/2 -translate-y-1/2 dark:bg-primary-900 dark:hover:bg-primary-800">
+                    <i class="ti ti-chevron-right text-lg"></i>
+                  </button> end swiper-indicator
+                  <button
+                    class="featured-categories-prev absolute z-30 lg:inline-flex items-center justify-center hidden h-10 w-10 bg-primary-100 hover:bg-primary-200 rounded-full text-primary transition-all duration-200 -start-3 top-1/2 -translate-y-1/2 dark:bg-primary-900 dark:hover:bg-primary-800">
+                    <i class="ti ti-chevron-left text-lg"></i>
+                  </button> end swiper-indicator
+                </div>
+              </div> end container
+            </section> -->
+            <!--下面的空格 & 換頁 start-->
+            <div class="flex gap-x-2 justify-end items-center mt-6">
+              <a href="#"
+                class="w-10 h-10 flex justify-center items-center bg-primary/20 text-primary text-base font-semibold rounded-full hover:bg-primary hover:text-white">
+                <i class="ti ti-chevron-left"></i>
+              </a>
+              <a href="#"
+                class="w-10 h-10 flex justify-center items-center bg-primary text-white text-base font-semibold rounded-full">1</a>
+
+              <a href="#"
+                class="w-10 h-10 flex justify-center items-center bg-primary/20 text-primary text-base font-semibold rounded-full hover:bg-primary hover:text-white">2</a>
+
+              <a href="#"
+                class="w-10 h-10 flex justify-center items-center bg-primary/20 text-primary text-base font-semibold rounded-full hover:bg-primary hover:text-white">...</a>
+
+              <a href="#"
+                class="w-10 h-10 flex justify-center items-center bg-primary/20 text-primary text-base font-semibold rounded-full hover:bg-primary hover:text-white">16</a>
+
+              <a href="#"
+                class="w-10 h-10 flex justify-center items-center bg-primary/20 text-primary text-base font-semibold rounded-full hover:bg-primary hover:text-white">
+                <i class="ti ti-chevron-right"></i>
+              </a>
+            </div><!--下面的空格 & 換頁 end flex -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--商品區大外框 end -->
+  </div>
+</section>

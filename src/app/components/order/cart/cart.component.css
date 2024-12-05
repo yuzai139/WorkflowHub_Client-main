@@ -1,0 +1,77 @@
+.cart-item {
+  border: 1px solid #24a17d;
+  padding: 10px;
+  border-radius: 5px;
+  height: 70px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.cart-item img {
+  width: 90px; /* 設定圖片的寬度 */
+  height: 70px; /* 設定圖片的高度 */
+  object-fit: scale-down ;/* 確保圖片保持比例並填滿容器 */
+  margin-right: 10px;
+}
+
+.cart-item h5, .cart-item p, .cart-item input, .cart-item button {
+  margin: 0 5px;
+}
+
+.item-details {
+  flex-grow: 1;
+}
+
+.item-actions {
+  display: flex;
+  align-items: center;
+}
+
+.item-actions p {
+  margin: 0 5px;
+}
+
+.item-actions input {
+  width: 60px;
+  margin-right: 10px;
+}
+
+.item-actions button {
+  margin-left: 10px;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 2px solid #007bff;
+}
+
+.step.active {
+  font-weight: bold;
+  border-bottom: 2px solid #c61b1b;
+}
+.steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 2px solid #155bbd;
+}
+
+.step.active {
+  font-weight: bold;
+  border-bottom: 2px solid #f70e57ef;
+}

@@ -1,0 +1,99 @@
+<!-- <body> -->
+  <!-- 添加 Header -->
+    <!-- <app-header></app-header> -->
+
+  <!-- 主要購物車區塊 -->
+    <section class="pt-34 mt-10 mb-10">
+    <!-- 添加會員檢查提示 -->
+    <div *ngIf="!memberId" class="container mx-auto px-8 mb-4">
+      <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4" role="alert">
+        <p>請先登入會員才能使用購物車功能</p>
+      </div>
+    </div>
+
+    <!-- 原有的購物車內容 -->
+    <div class="container mx-auto px-8" *ngIf="memberId">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- 購物車商品列表 -->
+        <div class="lg:w-3/4">
+          <div class="bg-white rounded-lg shadow-md p-8 border border-gray-200">
+            <h2 class="text-3xl font-semibold mb-8 flex items-center">
+              <i class="ti ti-shopping-cart text-primary mr-3"></i>
+              購物車
+            </h2>
+
+            <div *ngIf="cartItems.length === 0" class="text-center py-8">
+              <p class="text-gray-500 mb-4">您的購物車是空的</p>
+              <!-- <button (click)="goToMarket()" -->
+
+              <!-- </button> -->
+            </div>
+
+            <div *ngFor="let item of cartItems" class="flex items-center gap-4 py-4 border-b">
+              <img [src]="item.fPubSopImagePath"
+                   [alt]="item.fSopName"
+                   class="h-40 w-40 object-cover">
+
+              <div class="flex-grow">
+                <h3 class="font-semibold">{{item.fSopName}}</h3>
+                <p class="text-primary">NT$ {{item.fPrice}}</p>
+                <p class="text-primary">點數: {{item.fSalePoints}}</p>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <!-- 數量調整區塊 -->
+                <div class="flex items-center border rounded-md p-1">
+                  <span class="text-lg">數量：1</span>
+                </div>
+
+                <button (click)="removeItem(item.fSOPID)"
+                        class="text-red-500 hover:text-red-700">
+                  <i class="ti ti-trash"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- 添加返回按鈕 -->
+            <div class="mt-6 flex justify-end">
+              <button (click)="goBack()"
+                      class="px-6 py-2.5 bg-primary/20 text-primary rounded-md hover:bg-primary hover:text-white transition-all duration-200">
+                返回上一頁
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 結帳摘要 -->
+        <div class="lg:w-1/3">
+          <div class="bg-white rounded-lg shadow-md p-6 sticky top-4 border border-gray-200">
+            <h2 class="text-xl font-semibold mb-4">訂單摘要</h2>
+
+            <div class="space-y-3 mb-4">
+              <div class="flex justify-between">
+                <span>小計</span>
+                <span>NT$ {{getTotal()}}</span>
+              </div>
+              <div class="flex justify-between font-semibold">
+                <span>總計</span>
+                <span class="text-primary">NT$ {{getTotal()}}</span>
+              </div>
+            </div>
+
+
+            <button (click)="proceedToCheckout()"
+                    [disabled]="cartItems.length === 0"
+                    class="w-full px-6 py-2.5 bg-primary text-white rounded-md hover:bg-primary-600 disabled:bg-gray-400 disabled:cursor-not-allowed">
+              前往結帳
+            </button>
+          </div>
+          <app-point-order></app-point-order>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 添加 Footer -->
+  <!-- <app-footer></app-footer> -->
+
+
+<!-- </body> -->

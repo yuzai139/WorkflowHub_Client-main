@@ -1,0 +1,1695 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>GreenCart - Tailwind CSS Grocery Landing Page Template</title>
+  <!-- Theme favicon -->
+  <link rel="icon" type="image/x-icon" href="/greencart/assets/favicon-712e565d.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta content="" name="description" />
+  <meta content="coderthemes" name="author" />
+
+  <!-- Head js -->
+    <script type="module" crossorigin src="/greencart/assets/theme-9c065fc6.js"></script>
+    <link rel="stylesheet" href="/greencart/assets/theme-ecf0ae99.css">
+  </head>
+
+<body>
+
+  <!-- Top Small Navbar Menu -->
+  <div class="z-20 hidden h-8 items-center bg-default-100 lg:flex">
+    <div class="container">
+      <div class="flex items-center justify-between gap-4">
+        <ul class="flex items-center justify-end gap-4">
+          <li class="menu-item flex">
+            <a class="text-xs font-medium text-default-700 transition-all hover:text-primary" href="admin-dashboard.html" target="_blank">Seller Center</a>
+          </li>
+  
+          <li>
+            <span class="hidden h-4 w-px bg-default-400 lg:flex"></span>
+          </li>
+  
+          <li class="menu-item flex">
+            <a class="text-xs font-semibold text-default-800 transition-all hover:text-primary" href="#">Register Seller</a>
+          </li>
+        </ul>
+  
+        <div class="flex items-center">
+          <ul class="flex items-center justify-end gap-4">
+            <li class="menu-item flex">
+              <a class="text-xs font-medium text-default-700 transition-all hover:text-primary" href="#">Help & Contect</a>
+            </li>
+  
+            <li>
+              <span class="hidden h-4 w-px bg-default-400 lg:flex"></span>
+            </li>
+  
+            <li class="menu-item flex">
+              <a class="text-xs font-semibold text-default-800 transition-all hover:text-primary" href="#">Order Tracking</a>
+            </li>
+          </ul>
+  
+          <!-- Language Dropdown -->
+          <div class="relative ms-6 flex">
+            <div class="hs-dropdown relative inline-flex [--placement:bottom] [--trigger:hover]">
+              <a class="hs-dropdown-toggle relative flex items-center text-base after:absolute after:inset-0 hover:after:-bottom-10" href="#">
+                <img alt="Image" class="h-3 rounded-sm" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAA8AAD/4QMpaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjAtYzA2MCA2MS4xMzQ3NzcsIDIwMTAvMDIvMTItMTc6MzI6MDAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzUgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5NTM4RDUxQjYxM0IxMUU3ODM5NTg5Qjc3NkUwNEZFMSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5NTM4RDUxQzYxM0IxMUU3ODM5NTg5Qjc3NkUwNEZFMSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjk1MzhENTE5NjEzQjExRTc4Mzk1ODlCNzc2RTA0RkUxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjk1MzhENTFBNjEzQjExRTc4Mzk1ODlCNzc2RTA0RkUxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQABgQEBAUEBgUFBgkGBQYJCwgGBggLDAoKCwoKDBAMDAwMDAwQDA4PEA8ODBMTFBQTExwbGxscHx8fHx8fHx8fHwEHBwcNDA0YEBAYGhURFRofHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/8AAEQgAKgBAAwERAAIRAQMRAf/EAJkAAQABBQEAAAAAAAAAAAAAAAAHAgMEBQYBAQEAAgMBAQAAAAAAAAAAAAAAAgYBBAUDBxAAAAQBBwkHBAMBAAAAAAAAAQIDBAAREhMFBhYHMaHRkpPTFVVWIUGRIjIzFFFhQtKCIyVFEQAAAgMQAgIBBQAAAAAAAAAAAfACAxEhMVGBoRJSghNTBBRUBRVBcZHRMmHhIkJD/9oADAMBAAIRAxEAPwDlhqtFarm7o4qNFlE3Cx3LoRonRkzgAJthKQRE/b2zhyxa6ThuQwQePY1hmjZ9nxYyXx3cwFDJ8G/6QACFJSiFHMmTs0RvDo+PfiEHBjN6jaGamEywqz/iDxFKcLVr8gRA5HUpJwGCT8YkbQ3fl7yfoBubIVNU94KpSrBVdk0cJuqesREKBaiE4EM3ESAM3ygAy98c7lHFmC1I3nvZDp8O2as8wqbJWku+9G8JNuvhv1Ep4l/SKpdMqwufZcjgFP8AYXXw36iU8S/pC6ZVg7LkcAp/sLr4b9RKeJf0hdMqwdlyOAU/2PS2Zw5KYDFtGoBgGUBASgICH8IXTKsMHyPIn/gSSiHmhQQqZFU4fFBw1dkKu7AF0nAgoUJjYkwaFQMk+XL3hF6WfWjfKDx7jHzobIW3+gNX/GXpQcnPwmcXiRQ+JLSfMo5BT75mbvjzdedd8Q/1hiAWG5iHTSdgoRQjYtXFO/RSAjVsM4fK8b0f95gk9XfJ3xI4o6T3k/R+AGdZo9UNLRVO8rZis4q5Ur0xjJmCgX8yhSnbJf1URSmylljR5JZUmC1J8v4vefEI6fDs2y+YVJidFd9w5PRiR7w4V8iceAb6KreMaqfIueg5TGVSyF4cK+ROPAN9C8Y1U+Q0HKYyqWQvDhXyJx4BvoXjGqnyGg5TGVSyF4cK+ROPAN9C8Y1U+Q0HKYyqWRGhLF2+aNSt2lnHiLgyazd8vNFUqyahgEAKUQEpJACScUe2LrqGRm6axfoPndAxfGylsxcCldR7walFctXeeeCgpUc75E2ky+aTJEb9m5+ZUo/2CgcQoTsviKBSrK2eeKVi2BuWr3YJzQRK2ERApkwLMVl7O02eMm3Y1icfdlCgsNvZCobb1XaJhWwWXcA6blcC7UVA1GsdedIYCSABJANJIWNPkMwrcmSp0jecIb3HZdRdsRNFqCj7piSr0W96YLqH0xXL1pVFk63I7icgvRb3pguofTC9aVQ63I7icgvRb3pguofTC9aVQ63I7icgvRb3pguofTC9aVQ63I7ichXwTFnnTXNuIUG0ZJII6zisJdLYcExZ501zbiFBtGSSBrOKwl0thwTFnnTXNuIUG0ZJIGs4rCXS2HBMWedNc24hQbRkkgazisJdLYcExZ501zbiFBtGSSBrOKwl0thwTFnnTXNuIUG0ZJIGs4rCXS2HBMWedNc24hQbRkkgazisJdLYcExZ501zbiFBtGSSBrOKwl0tjT3Xsd1aO0JpjzulKw6HZZzbTGF17HdWjtCaYXSlYOyzm2mMLr2O6tHaE0wulKwdlnNtMYXXsd1aO0JphdKVg7LObaYwuvY7q0doTTC6UrB2Wc20xhdex3Vo7QmmF0pWDss5tpjC69jurR2hNMLpSsHZZzbTGF17HdWjtCaYXSlYOyzm2mMcE499T2/Ub2/Rl/H7fSNMxaVPxKGWEW9WMCQasADVgAasADVgAasAFxv76ft+ovuejL+X2+sZIRX/ABOGSEf/2Q==" />
+                <i class="ms-2 h-4 w-4" data-lucide="chevron-down"></i>
+              </a>
+  
+              <div class="hs-dropdown-menu z-50 mt-4 hidden min-w-[140px] rounded-lg border border-default-100 bg-white p-1.5 opacity-0 shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] transition-[opacity,margin] hs-dropdown-open:opacity-100 dark:bg-default-50">
+                <ul class="flex flex-col gap-1">
+                  <li>
+                    <a class="flex items-center gap-2 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-400/10 hover:text-default-700" href="#"><img alt="flag" class="h-4" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAA8AAD/4QMpaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjAtYzA2MCA2MS4xMzQ3NzcsIDIwMTAvMDIvMTItMTc6MzI6MDAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzUgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5NTM4RDUxQjYxM0IxMUU3ODM5NTg5Qjc3NkUwNEZFMSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5NTM4RDUxQzYxM0IxMUU3ODM5NTg5Qjc3NkUwNEZFMSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjk1MzhENTE5NjEzQjExRTc4Mzk1ODlCNzc2RTA0RkUxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjk1MzhENTFBNjEzQjExRTc4Mzk1ODlCNzc2RTA0RkUxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQABgQEBAUEBgUFBgkGBQYJCwgGBggLDAoKCwoKDBAMDAwMDAwQDA4PEA8ODBMTFBQTExwbGxscHx8fHx8fHx8fHwEHBwcNDA0YEBAYGhURFRofHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/8AAEQgAKgBAAwERAAIRAQMRAf/EAJkAAQABBQEAAAAAAAAAAAAAAAAHAgMEBQYBAQEAAgMBAQAAAAAAAAAAAAAAAgYBBAUDBxAAAAQBBwkHBAMBAAAAAAAAAQIDBAAREhMFBhYHMaHRkpPTFVVWIUGRIjIzFFFhQtKCIyVFEQAAAgMQAgIBBQAAAAAAAAAAAfACAxEhMVGBoRJSghNTBBRUBRVBcZHRMmHhIkJD/9oADAMBAAIRAxEAPwDlhqtFarm7o4qNFlE3Cx3LoRonRkzgAJthKQRE/b2zhyxa6ThuQwQePY1hmjZ9nxYyXx3cwFDJ8G/6QACFJSiFHMmTs0RvDo+PfiEHBjN6jaGamEywqz/iDxFKcLVr8gRA5HUpJwGCT8YkbQ3fl7yfoBubIVNU94KpSrBVdk0cJuqesREKBaiE4EM3ESAM3ygAy98c7lHFmC1I3nvZDp8O2as8wqbJWku+9G8JNuvhv1Ep4l/SKpdMqwufZcjgFP8AYXXw36iU8S/pC6ZVg7LkcAp/sLr4b9RKeJf0hdMqwdlyOAU/2PS2Zw5KYDFtGoBgGUBASgICH8IXTKsMHyPIn/gSSiHmhQQqZFU4fFBw1dkKu7AF0nAgoUJjYkwaFQMk+XL3hF6WfWjfKDx7jHzobIW3+gNX/GXpQcnPwmcXiRQ+JLSfMo5BT75mbvjzdedd8Q/1hiAWG5iHTSdgoRQjYtXFO/RSAjVsM4fK8b0f95gk9XfJ3xI4o6T3k/R+AGdZo9UNLRVO8rZis4q5Ur0xjJmCgX8yhSnbJf1URSmylljR5JZUmC1J8v4vefEI6fDs2y+YVJidFd9w5PRiR7w4V8iceAb6KreMaqfIueg5TGVSyF4cK+ROPAN9C8Y1U+Q0HKYyqWQvDhXyJx4BvoXjGqnyGg5TGVSyF4cK+ROPAN9C8Y1U+Q0HKYyqWRGhLF2+aNSt2lnHiLgyazd8vNFUqyahgEAKUQEpJACScUe2LrqGRm6axfoPndAxfGylsxcCldR7walFctXeeeCgpUc75E2ky+aTJEb9m5+ZUo/2CgcQoTsviKBSrK2eeKVi2BuWr3YJzQRK2ERApkwLMVl7O02eMm3Y1icfdlCgsNvZCobb1XaJhWwWXcA6blcC7UVA1GsdedIYCSABJANJIWNPkMwrcmSp0jecIb3HZdRdsRNFqCj7piSr0W96YLqH0xXL1pVFk63I7icgvRb3pguofTC9aVQ63I7icgvRb3pguofTC9aVQ63I7icgvRb3pguofTC9aVQ63I7ichXwTFnnTXNuIUG0ZJII6zisJdLYcExZ501zbiFBtGSSBrOKwl0thwTFnnTXNuIUG0ZJIGs4rCXS2HBMWedNc24hQbRkkgazisJdLYcExZ501zbiFBtGSSBrOKwl0thwTFnnTXNuIUG0ZJIGs4rCXS2HBMWedNc24hQbRkkgazisJdLYcExZ501zbiFBtGSSBrOKwl0tjT3Xsd1aO0JpjzulKw6HZZzbTGF17HdWjtCaYXSlYOyzm2mMLr2O6tHaE0wulKwdlnNtMYXXsd1aO0JphdKVg7LObaYwuvY7q0doTTC6UrB2Wc20xhdex3Vo7QmmF0pWDss5tpjC69jurR2hNMLpSsHZZzbTGF17HdWjtCaYXSlYOyzm2mMcE499T2/Ub2/Rl/H7fSNMxaVPxKGWEW9WMCQasADVgAasADVgAasAFxv76ft+ovuejL+X2+sZIRX/ABOGSEf/2Q==" />
+                      English</a>
+                  </li>
+                  <li>
+                    <a class="flex items-center gap-2 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-400/10 hover:text-default-700" href="#"><img alt="flag" class="h-4" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAA8AAD/4QMpaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjAtYzA2MCA2MS4xMzQ3NzcsIDIwMTAvMDIvMTItMTc6MzI6MDAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzUgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxMEY3OTk0MDYxM0MxMUU3ODQ3Rjk5RTY5NjQzOEY2MyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoxMEY3OTk0MTYxM0MxMUU3ODQ3Rjk5RTY5NjQzOEY2MyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjEwRjc5OTNFNjEzQzExRTc4NDdGOTlFNjk2NDM4RjYzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjEwRjc5OTNGNjEzQzExRTc4NDdGOTlFNjk2NDM4RjYzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQABgQEBAUEBgUFBgkGBQYJCwgGBggLDAoKCwoKDBAMDAwMDAwQDA4PEA8ODBMTFBQTExwbGxscHx8fHx8fHx8fHwEHBwcNDA0YEBAYGhURFRofHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/8AAEQgAKgBAAwERAAIRAQMRAf/EAIAAAAMBAAMAAAAAAAAAAAAAAAAGBwgBAgMBAAIDAQEBAAAAAAAAAAAAAAAHAwUGBAECEAABAwAIBAMJAAAAAAAAAAAAAQIDMbEyM3Q2BwgRUbM0kgREIWFxEkJicwYWEQEAAAMJAQEAAAAAAAAAAAAAATGBwTKCAzMENAUGEQL/2gAMAwEAAhEDEQA/AEB8sj3ue96ue5VVzlVVVVWlVU2PxyOvzO5qAU3b2qr+9zcV9BN1Iyu7PSqky5tIGfTgAjWrKr/VJ7fTR1uKzd3zE8xxcUbCXxXmcrRfHLXva5HNcrXNXiiovBUVAeRhCKcjOI8AFO2957mwE3UjK7tNKqTLm0gZ9OACM6s5rTDR1uKzd3zE8xxcUbCYcrRAAnQziOABTtvee5sBN1Iyu7TSqky5tIGfTgAjOrOa0w0dbis3d8xPMcXFGwmHK0QAJ0M4jgAU7b3nubATdSMru00qpMubSBn04AIzqzmtMNHW4rN3fMTzHFxRsJhytEACdDOI4AFO2957mwE3UjK7tNKqTLm0gZ9OACM6s5rTDR1uKzd3zE8xxcUbCYcrRAAQ/N91Nc23XV3Stj7eQzISI55eA9Cmbfc9S2exmo/JGV3Z6VUmXNo8oE4AI1qxmpKO2jp+Lis3d8w/McXFGwmeE5Whenl7+O7tNvLFP1e7mewfP7uxnSb/2Q==" />
+                      French</a>
+                  </li>
+                  <li>
+                    <a class="flex items-center gap-2 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-400/10 hover:text-default-700" href="#"><img alt="flag" class="h-4" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAA8AAD/4QMpaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjAtYzA2MCA2MS4xMzQ3NzcsIDIwMTAvMDIvMTItMTc6MzI6MDAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzUgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpENEQyQjUxRTYxM0IxMUU3QThGRDlFNzgyMDM4RjBCQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpENEQyQjUxRjYxM0IxMUU3QThGRDlFNzgyMDM4RjBCQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkQ0RDJCNTFDNjEzQjExRTdBOEZEOUU3ODIwMzhGMEJDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkQ0RDJCNTFENjEzQjExRTdBOEZEOUU3ODIwMzhGMEJDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQABgQEBAUEBgUFBgkGBQYJCwgGBggLDAoKCwoKDBAMDAwMDAwQDA4PEA8ODBMTFBQTExwbGxscHx8fHx8fHx8fHwEHBwcNDA0YEBAYGhURFRofHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/8AAEQgAKgBAAwERAAIRAQMRAf/EAHkAAQEBAAMAAAAAAAAAAAAAAAABBgIFBwEBAAIDAQAAAAAAAAAAAAAAAAEFAgQGBxAAAQIBDQADAQAAAAAAAAAAAAECAzFRkRKi0qPjVAVVFhchQYEyEQEAAAMHBQEAAAAAAAAAAAAA4WKiUaGx0QJSFgEDBBQVMf/aAAwDAQACEQMRAD8A82fFive573uc9yqrnKqqqqvyqqqmwhKzp1JCs6dQFZ06gKzp1AVnTqArOnUCsixWPa9j3Ne1UVrkVUVFT5RUVCB2XWd701uHeNb3O1biuePebsq05nWd701uHeHudq3E495uyrTmdZ3vTW4d4e52rcTj3m7KtOZ1ne9Nbh3h7natxOPebsq05nWd701uHeHudq3E495uyrTmdZ3vTW4d4e52rcTj3m7KtOZ1ne9Nbh3h7natxOPebsq05nWd701uHeHudq3E495uyrTm3RRvTgAAAAAAADd+XpyeBmFJ9iS+Dm+QyVQPL05PAzB9iS+ByGSqB5enJ4GYPsSXwOQyVQPL05PAzB9iS+ByGSqB5enJ4GYPsSXwOQyVQPL05PAzB9iS+ByGSqB5enJ4GYPsSXwOQyVQPL05PAzB9iS+ByGSqDdlI5sAAAAAAAA5O/pZJfqT8M9f71/EdEoMQoAUAKAFACgCt/pJJfuT9MtH70/Dq//Z" />
+                      German</a>
+                  </li>
+                  <li>
+                    <a class="flex items-center gap-2 rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-400/10 hover:text-default-700" href="#"><img alt="flag" class="h-4" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAA8AAD/4QMpaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjAtYzA2MCA2MS4xMzQ3NzcsIDIwMTAvMDIvMTItMTc6MzI6MDAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzUgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoyODQ3Mjc2MTYxM0MxMUU3ODJENDgwMDE3MDIxNjRGOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoyODQ3Mjc2MjYxM0MxMUU3ODJENDgwMDE3MDIxNjRGOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjI4NDcyNzVGNjEzQzExRTc4MkQ0ODAwMTcwMjE2NEY4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjI4NDcyNzYwNjEzQzExRTc4MkQ0ODAwMTcwMjE2NEY4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQABgQEBAUEBgUFBgkGBQYJCwgGBggLDAoKCwoKDBAMDAwMDAwQDA4PEA8ODBMTFBQTExwbGxscHx8fHx8fHx8fHwEHBwcNDA0YEBAYGhURFRofHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/8AAEQgAKgBAAwERAAIRAQMRAf/EAI4AAQACAgMAAAAAAAAAAAAAAAAEBQEDAgYHAQEAAgMBAQAAAAAAAAAAAAAAAgYDBAUBBxAAAQMBBgMFCAMAAAAAAAAAAQIDBAAREpMFVQZR0RYyktIzFTFBIkJiExQ0YXGREQACAQEGBQMDBQAAAAAAAAAAAQIDETGRUhMUIUFREgRxoSJhgTLwscHRBf/aAAwDAQACEQMRAD8ApFOOLUVKUVKUbVKJJJJ95rln0xIxeVxNALyuJoBeVxNALyuJoBeVxNALyuJoDKXHEKCkqKVJNqVAkEEe8UDR7x6BkWnRcFvw1R9zVzSxZXdafV4nFeS7babW7Ihw2GGkqW46tlsJSlItJPw1m8edarNRU2rfqzx1qnJybKyBL2JNnrhNxGmXb9xhciGGkOKtu3bxT8JvggBVnD2105+FUsfbVeN/D1/SJz14xUndzslbYWvoGRadFwW/DXG3NXNLFkdafV4j0DItOi4LfhpuauaWLGtPq8R6BkWnRcFvw03NXNLFjWn1eI9AyLTouC34abmrmlixrT6vEegZFp0XBb8NNzVzSxY1p9XiT6wGM6vuF8QkFMWJLiflvoVmMlX47iS2oFF5KG1POAKCRZeb/wAqwLxYqEJW2vstSfX6Xe7Njxvm+Li+26/+bFgzOxsz2q4p9qQuL+XFlqBelXY6xHKQEFJIZBVeCrRZaKsFD/LhoRlWj+azP+zR8rynOpKFNy+KuSt+XuXMERVyHpbUKQw7IN2Q+6uOptZaN1ASGnHFAhJ+YCqr53jqnRptO3jL0v5cLfW37Gbul+LaaXrbx9V+xOrkgUAoBQCgKSREczGG9CGVpyq8QtUkfaV91YcCiVhtRUSeJrt1/JppU7JqXarOCljxSRHx6s1NuSl92vYhP7FQiOlMaW0VvtluaS0oG0qcsWiwi8brtnxe8A/xWat51Hsj8pSceXLl1uuNil5Vkm3CzD3LmKsmXc9ITF+2lSDmFrRW6kKF0KuEr/q2tTy6sJUIRU4uUeSUrePHmrOF15pwlPudttnqrPtx5k+uSZhQCgFAeFdUbj1OVjL51dtnRyRwLDoU8qHVG49TlYy+dNnRyRwGhTyodUbj1OVjL502dHJHAaFPKh1RuPU5WMvnTZ0ckcBoU8qHVG49TlYy+dNnRyRwGhTyodUbj1OVjL502dHJHAaFPKh1RuPU5WMvnTZ0ckcBoU8qHVG49TlYy+dNnRyRwGhTyohyf2XfK7avK7Ht+T6eFbTJRuV5r7teEh3aAd2gHdoB3aAd2gNkb9lryu2nzex7fn+njXqIyud5/9k=" />
+                      Spanish</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Navbar  -->
+  <header class="fixed top-0 z-40 flex w-full items-center border-b border-default-100 bg-white transition-all duration-300 dark:bg-default-50 lg:top-8 [&.nav-sticky]:top-0 [&.nav-sticky]:shadow" id="navbar">
+    <nav class="container flex h-16 items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <!-- Mobile Menu Toggle Button -->
+        <button class="block lg:hidden" data-hs-overlay="#mobile-menu">
+          <i class="ti ti-menu-2 text-2xl"></i>
+        </button>
+  
+        <!-- Navbar Brand Logo -->
+        <a href="home.html">
+          <img src="/greencart/assets/logo-dark-1caee452.png" class="flex h-10 dark:hidden lg:h-12" alt="Brand Logo" />
+          <img src="/greencart/assets/logo-50f51c55.png" class="hidden h-10 dark:flex lg:h-12" alt="Brand Logo" />
+        </a>
+      </div>
+  
+      <!-- Nevigation Menu -->
+      <div class="relative mx-auto hidden flex-grow lg:block">
+        <ul class="menu flex items-center justify-center">
+          <!-- Home Menu -->
+          <li class="menu-item">
+            <div class="hs-dropdown relative inline-flex [--trigger:hover]">
+              <a class="hs-dropdown-toggle inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-default-700 after:absolute after:inset-0 hover:text-primary hover:after:-bottom-10 lg:text-base" href="#">
+                Home <i data-lucide="chevron-down" class="ms-2 h-4 w-4"></i>
+              </a>
+  
+              <div class="hs-dropdown-menu z-10 hidden min-w-48 rounded-lg border border-default-100 bg-white p-1.5 opacity-0 shadow transition-[opacity,margin] hs-dropdown-open:opacity-100 dark:bg-default-50">
+                <ul class="flex flex-col gap-1">
+                  <li>
+                    <a class="flex items-center rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="home.html">Home One</a>
+                  </li>
+                  <li>
+                    <a class="flex items-center rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="home-2.html">Home Two</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+  
+          <!-- Product Menu -->
+          <li class="menu-item">
+            <div class="hs-dropdown relative inline-flex [--placement:bottom] [--trigger:hover]">
+              <a class="hs-dropdown-toggle inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-default-700 after:absolute after:inset-0 hover:text-primary hover:after:-bottom-10 lg:text-base" href="#">
+                Product <i data-lucide="chevron-down" class="ms-2 h-4 w-4"></i>
+              </a>
+  
+              <div class="hs-dropdown-menu z-10 mt-4 hidden min-w-[200px] rounded-lg border border-default-100 bg-white p-1.5 opacity-0 shadow transition-[opacity,margin] hs-dropdown-open:opacity-100 dark:bg-default-50">
+                <ul class="flex flex-col gap-1">
+                  <li>
+                    <a class="flex items-center rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="products-grid.html">Products Grid</a>
+                  </li>
+                  <li>
+                    <a class="flex items-center rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="products-list.html">Products List</a>
+                  </li>
+                  <li>
+                    <a class="flex items-center rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="product-details.html">Product Details</a>
+                  </li>
+                  <li>
+                    <a class="flex items-center rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="product-filter.html">Product Filter</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+  
+          <!-- Mega Menu -->
+          <li class="menu-item">
+            <div class="hs-dropdown relative inline-flex [--trigger:hover] [--auto-close:inside]">
+              <a class="hs-dropdown-toggle inline-flex items-center whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium text-default-700 after:absolute after:inset-0 hover:text-primary hover:after:-bottom-10 lg:text-base" href="#">
+                Mega Menu <i data-lucide="chevron-down" class="ms-2 h-4 w-4"></i>
+              </a>
+  
+              <div class="hs-dropdown-menu z-10 mt-4 hidden w-full min-w-full opacity-0 transition-[opacity,margin] duration-300 hs-dropdown-open:opacity-100">
+                <div class="container">
+                  <div class="overflow-hidden rounded-xl border border-default-200 bg-white shadow-lg dark:bg-default-50">
+                    <div class="grid grid-cols-12">
+                      <div class="col-span-2 text-sm">
+                        <div class="h-full w-full bg-default-100 px-6 py-10">
+                          <nav class="flex flex-col space-y-3.5" aria-label="Tabs" role="tablist" data-hs-tabs-vertical="true">
+                            <button type="button" class="active inline-flex items-center !bg-transparent text-base font-medium text-default-600 transition-all hover:text-primary hs-tab-active:text-primary" data-hs-tab="#fruits-vegetables" role="tab">
+                              Fruits & Vegetables
+                              <i data-lucide="chevron-right" class="ms-auto h-5 w-5"></i>
+                            </button>
+                            <button type="button" class="inline-flex items-center !bg-transparent text-base font-medium text-default-600 transition-all hover:text-primary hs-tab-active:text-primary" data-hs-tab="#bakery-dairy" role="tab">
+                              Bakery & Dairy
+                              <i data-lucide="chevron-right" class="ms-auto h-5 w-5"></i>
+                            </button>
+                            <button type="button" class="inline-flex items-center !bg-transparent text-base font-medium text-default-600 transition-all hover:text-primary hs-tab-active:text-primary" data-hs-tab="#beverages" role="tab">
+                              Beverages
+                              <i data-lucide="chevron-right" class="ms-auto h-5 w-5"></i>
+                            </button>
+                            <button type="button" class="inline-flex items-center !bg-transparent text-base font-medium text-default-600 transition-all hover:text-primary hs-tab-active:text-primary" data-hs-tab="#snacks-munchies" role="tab">
+                              Snacks & Munchies
+                              <i data-lucide="chevron-right" class="ms-auto h-5 w-5"></i>
+                            </button>
+                            <button type="button" class="inline-flex items-center !bg-transparent text-base font-medium text-default-600 transition-all hover:text-primary hs-tab-active:text-primary" data-hs-tab="#eggs-meat-fish" role="tab">
+                              Eggs, Meat & Fish
+                              <i data-lucide="chevron-right" class="ms-auto h-5 w-5"></i>
+                            </button>
+                          </nav>
+                        </div>
+                      </div>
+  
+                      <div class="col-span-10">
+                        <div>
+                          <div id="fruits-vegetables" role="tabpanel">
+                            <div class="grid grid-cols-4 divide-x divide-default-200">
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Fresh Vegetables
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Potato, Onion & Tomato</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Cucumber & Capsicum</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Leafy Vegetables</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Root Vegetables</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Beans & Egg Plants</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Cabbage & Cauliflower</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Pumpkin & Drumstick</a>
+                                  </li>
+                                </ul>
+                              </div>
+  
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Herbs & Seasoning
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Lemon, Ginger & Garlic</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Indian & Exotic Herbs</a>
+                                  </li>
+                                </ul>
+                              </div>
+  
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Fresh Fruits
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Banana, Sapota & Papaya</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Kiwi & Melons</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Apples & Seasonal Fruits</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Mangos</a>
+                                  </li>
+                                </ul>
+                              </div>
+  
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Organic Fruits & Vegs
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Organic Fruits</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Organic Vegetables</a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+  
+                          <div id="bakery-dairy" class="hidden" role="tabpanel">
+                            <div class="grid grid-cols-4 divide-x divide-default-200">
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Dairy
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Milk & Curd</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Paneer & Cream</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Butter & Margarine</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Condensed & Butter Milk</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Cheese</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Yogurt & Shrikhand</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Flavoured & Soya Milk</a>
+                                  </li>
+                                </ul>
+                              </div>
+  
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Cakes Pastries
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Tea Cakes & Slice Cakes</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Muffins & Cup Cakes</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Doughnuts & Mousses</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Pastries & Brownies</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Birthday & Party Cakes</a>
+                                  </li>
+                                </ul>
+                              </div>
+  
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Bakery Snacksgs
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Bread Sticks & Lavash</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Cheese & Garlic Bread</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Puffs, Patties & Sandwiches</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Breadcrumbs</a>
+                                  </li>
+                                </ul>
+                              </div>
+  
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Cookies & Rusk
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Rusks</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Khari & Cream Rolls</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Premium Cookies</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Bakery Biscuits & Cookies</a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+  
+                          <div id="beverages" class="hidden" role="tabpanel">
+                            <div class="grid grid-cols-4 divide-x divide-default-200">
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Energy & Soft Drinks
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Soda & Mocktail Mix</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Cold Drinks</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Sports &Energy Drinks</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Non-Alcoholic Drinks</a>
+                                  </li>
+                                </ul>
+                              </div>
+  
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Water
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Packed Water</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Spring Water</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Flavoured Water</a>
+                                  </li>
+                                </ul>
+                              </div>
+  
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Tea & Coffee
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Leaf & Dust Tea</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Green Tea</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Exotic Tea</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Tea Bags</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Ground Coffee</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Cold Coffee</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Instant Coffee</a>
+                                  </li>
+                                </ul>
+                              </div>
+  
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Fruit Juice
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Unsweetened</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Juices</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Syrup</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Cold Press</a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+  
+                          <div id="snacks-munchies" class="hidden" role="tabpanel">
+                            <div class="grid grid-cols-4 divide-x divide-default-200">
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Snacks & Biscuits
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Chips & Corn Snacks</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Salted Biscuit</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Marie, Health & Digestive</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Cream & Wafer Biscuits</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Glucose & Milk Biscuits</a>
+                                  </li>
+                                </ul>
+                              </div>
+  
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Sauce & Ketchup
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Honey</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Tomato Ketchup & Sauces</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Jam & Marmalade</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Chilli & Soya Sauce</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Vinegar</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Dips & Dressings</a>
+                                  </li>
+                                </ul>
+                              </div>
+  
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Chocolates & Candies
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Chocolates</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Toffee, Cady & Lollypop</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Mints & Chewing Gum</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Gift Box</a>
+                                  </li>
+                                </ul>
+                              </div>
+  
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Breakfast Cereals
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Oats & Porridge</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Kids Cereal</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Muesli</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Flakes</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Granola</a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+  
+                          <div id="eggs-meat-fish" class="hidden" role="tabpanel">
+                            <div class="grid grid-cols-4 divide-x divide-default-200">
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Eggs
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Farm Eggs</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Country Eggs</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Protein Eggs</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Organic Eggs</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Other Eggs</a>
+                                  </li>
+                                </ul>
+                              </div>
+  
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Fish & Seafood
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Fresh Water Fish</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Dry Fish</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Frozen Fish & Seafood</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Marine Water Fish</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Prawns & Shrimps</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Other Seafood</a>
+                                  </li>
+                                </ul>
+                              </div>
+  
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Sausages & Salami
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Chicken Sausages</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Pork & Ham</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Turkey & Dusk</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Lamb</a>
+                                  </li>
+                                </ul>
+                              </div>
+  
+                              <div class="px-6 py-10">
+                                <h6 class="text-base font-medium text-default-800">
+                                  Poultry & Muttons
+                                </h6>
+                                <ul class="mt-4 grid space-y-3">
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Turkey</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Fresh Chicken</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Frozen Chicken</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Fresh Mutton</a>
+                                  </li>
+                                  <li>
+                                    <a class="text-sm font-medium text-default-600 transition-all hover:text-primary" href="#">Frozen Mutton</a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+  
+          <!-- Pages Menu -->
+          <li class="menu-item">
+            <div class="hs-dropdown relative inline-flex [--placement:bottom] [--trigger:hover]">
+              <a class="hs-dropdown-toggle inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-default-700 after:absolute after:inset-0 hover:text-primary hover:after:-bottom-10 lg:text-base" href="#">
+                Pages <i data-lucide="chevron-down" class="ms-2 h-4 w-4"></i>
+              </a>
+  
+              <div class="hs-dropdown-menu z-10 mt-4 hidden min-w-[200px] rounded-lg border border-default-100 bg-white p-1.5 opacity-0 shadow-md transition-[opacity,margin] hs-dropdown-open:opacity-100 dark:bg-default-50">
+                <ul class="flex flex-col gap-1">
+                  <li>
+                    <a class="flex items-center rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="account-profile.html">Account Profile</a>
+                  </li>
+                  <li>
+                    <a class="flex items-center rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="pages-cart.html">Cart</a>
+                  </li>
+                  <li>
+                    <a class="flex items-center rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="pages-checkout.html">Checkout</a>
+                  </li>
+                  <li>
+                    <a class="flex items-center rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="pages-wishlist.html">Wishlist</a>
+                  </li>
+                  <li>
+                    <a class="flex items-center rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="pages-faqs.html">FAQs</a>
+                  </li>
+                  <li>
+                    <a class="flex items-center rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="pages-404.html">Error 404</a>
+                  </li>
+                  <li>
+                    <a class="flex items-center rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="auth-login.html">Login</a>
+                  </li>
+                  <li>
+                    <a class="flex items-center rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="auth-register.html">Register</a>
+                  </li>
+                  <li>
+                    <a class="flex items-center rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="auth-recoverpw.html">Forgot Password</a>
+                  </li>
+                  <li>
+                    <a class="flex items-center rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="auth-reset-password.html">Reset Password</a>
+                  </li>
+                  <li>
+                    <a class="flex items-center rounded px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="auth-logout.html">Logout</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+  
+          <!-- Contact us Link -->
+          <li class="menu-item">
+            <div class="flex items-center">
+              <a class="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-default-700 hover:text-primary lg:text-base" href="pages-contact.html">Contact Us</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+  
+      <!-- Nav Link -->
+      <ul class="flex items-center justify-center gap-4">
+        <li class="menu-item flex lg:hidden">
+          <a href="#" data-hs-overlay="#search-drawer" class="relative inline-flex h-10 w-10 flex-shrink-0 items-center justify-center gap-2 rounded-full bg-default-100 align-middle font-medium text-default-700 transition-all hover:text-primary">
+            <i class="ti ti-search text-xl"></i>
+          </a>
+        </li>
+  
+        <li class="menu-item flex">
+          <a href="pages-cart.html" class="relative inline-flex h-10 w-10 flex-shrink-0 items-center justify-center gap-2 rounded-full bg-default-100 align-middle font-medium text-default-700 transition-all hover:text-primary">
+            <i class="ti ti-shopping-bag text-xl"></i>
+          </a>
+        </li>
+  
+        <li class="menu-item hidden lg:flex">
+          <a href="pages-wishlist.html" class="relative inline-flex h-10 w-10 flex-shrink-0 items-center justify-center gap-2 rounded-full bg-default-100 align-middle font-medium text-default-700 transition-all hover:text-primary">
+            <i class="ti ti-heart text-xl"></i>
+          </a>
+        </li>
+  
+        <li class="menu-item hidden lg:flex">
+          <div class="hs-dropdown relative inline-flex [--placement:bottom-right] [--trigger:hover]">
+            <a class="hs-dropdown-toggle inline-flex h-10 w-10 flex-shrink-0 items-center justify-center gap-2 rounded-full bg-default-100 align-middle font-medium text-default-700 transition-all after:absolute after:inset-0 hover:text-primary hover:after:-bottom-10" href="#">
+              <i class="ti ti-user text-xl"></i>
+            </a>
+  
+            <div class="hs-dropdown-menu z-10 mt-4 hidden min-w-[200px] overflow-hidden rounded-lg border border-default-100 bg-white pb-1.5 opacity-0 shadow transition-[opacity,margin] hs-dropdown-open:opacity-100 dark:bg-default-50">
+              <ul class="flex flex-col gap-1">
+                <li class="border-b border-dashed border-default-200 bg-primary/10 p-4">
+                  <a href="account-profile.html" class="flex items-center gap-4">
+                    <div class="relative">
+                      <div class="rounded-full bg-default-200">
+                        <img src="/greencart/assets/1-f1564e7c.png" alt="" class="h-10 w-10 rounded-full" />
+                      </div>
+                      <span class="absolute end-0 top-0 h-3 w-3 rounded-full border-2 border-white bg-green-400 dark:border-default-50"></span>
+                    </div>
+                    <div>
+                      <h6 class="text-base text-primary">Paula Keenan</h6>
+                      <small class="text-primary/80">User</small>
+                    </div>
+                  </a>
+                </li>
+                <li class="px-1.5">
+                  <a class="flex items-center rounded-md px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="account-profile.html"><i class="ti ti-user-circle me-2 text-lg"></i> My Account</a>
+                </li>
+                <li class="px-1.5">
+                  <a class="flex items-center rounded-md px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="admin-dashboard.html" target="_blank"><i class="ti ti-dashboard me-2 text-lg"></i> Become a
+                    Seller</a>
+                </li>
+                <li class="px-1.5">
+                  <a class="flex items-center rounded-md px-3 py-2 font-normal text-default-600 transition-all hover:bg-default-100 hover:text-default-700" href="pages-cart.html"><i class="ti ti-shopping-cart me-2 text-lg"></i> Cart</a>
+                </li>
+                <li class="px-1.5">
+                  <a class="flex items-center rounded-md px-3 py-2 font-normal text-default-600 transition-all hover:bg-red-500/10 hover:text-red-500" href="auth-login.html"><i class="ti ti-logout-2 me-2 text-lg"></i> Log Out</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  
+  <!-- Navbar -->
+  <div class="mt-16">
+    <div class="hidden h-16 items-center border-b border-default-100 bg-white dark:bg-default-50 lg:flex">
+      <div class="container">
+        <div class="flex items-center gap-4 whitespace-nowrap">
+          <div class="hs-dropdown flex [--trigger:hover]">
+            <a href="#" class="hs-dropdown-toggle relative flex items-center gap-2 rounded-md bg-primary/10 px-4 py-2.5 text-base font-semibold text-primary transition-all duration-300 after:absolute after:inset-x-0 after:-bottom-3 after:top-0 hover:bg-primary hover:text-white">
+              <i class="ti ti-layout-grid text-xl/none"></i>
+              <span>Browse All Categories</span>
+              <i class="ti ti-chevron-down"></i>
+            </a>
+  
+            <div class="hs-dropdown-menu z-10 mt-4 hidden min-w-[260px] rounded-b-lg border border-t-0 border-default-100 bg-white opacity-0 shadow transition-[opacity,margin] hs-dropdown-open:opacity-100 dark:bg-default-50">
+              <div class="divide-y divide-default-100">
+                <a class="flex items-center gap-3 px-4 py-2.5 font-normal text-default-600 transition-all hover:bg-primary/10 hover:text-primary" href="#"><i class="ti ti-cup text-lg"></i> Food & Beverage
+                  <i class="ti ti-chevron-right ms-auto"></i></a>
+                <a class="flex items-center gap-3 px-4 py-2.5 font-normal text-default-600 transition-all hover:bg-primary/10 hover:text-primary" href="#"><i class="ti ti-shopping-bag text-lg"></i> Fruits & Vegetables
+                  <i class="ti ti-chevron-right ms-auto"></i></a>
+                <a class="flex items-center gap-3 px-4 py-2.5 font-normal text-default-600 transition-all hover:bg-primary/10 hover:text-primary" href="#"><i class="ti ti-shopping-cart text-lg"></i> Nuts & Berries
+                  <i class="ti ti-chevron-right ms-auto"></i></a>
+                <a class="flex items-center gap-3 px-4 py-2.5 font-normal text-default-600 transition-all hover:bg-primary/10 hover:text-primary" href="#"><i class="ti ti-meat text-lg"></i> Meat
+                  <i class="ti ti-chevron-right ms-auto"></i></a>
+                <a class="flex items-center gap-3 px-4 py-2.5 font-normal text-default-600 transition-all hover:bg-primary/10 hover:text-primary" href="#"><i class="ti ti-fish text-lg"></i> SeaFood
+                  <i class="ti ti-chevron-right ms-auto"></i></a>
+                <a class="flex items-center gap-3 px-4 py-2.5 font-normal text-default-600 transition-all hover:bg-primary/10 hover:text-primary" href="#"><i class="ti ti-eggs text-lg"></i> Eggs
+                  <i class="ti ti-chevron-right ms-auto"></i></a>
+                <a class="flex items-center gap-3 px-4 py-2.5 font-normal text-default-600 transition-all hover:bg-primary/10 hover:text-primary" href="#"><i class="ti ti-bread text-lg"></i> Baking
+                  <i class="ti ti-chevron-right ms-auto"></i></a>
+                <a class="flex items-center gap-3 px-4 py-2.5 font-normal text-default-600 transition-all hover:bg-primary/10 hover:text-primary" href="#"><i class="ti ti-beer-filled text-lg"></i> Drinks
+                  <i class="ti ti-chevron-right ms-auto"></i></a>
+                <a class="flex items-center gap-3 px-4 py-2.5 font-normal text-default-600 transition-all hover:bg-primary/10 hover:text-primary" href="#"><i class="ti ti-cheese text-lg"></i> Cheese
+                  <i class="ti ti-chevron-right ms-auto"></i></a>
+              </div>
+            </div>
+          </div>
+  
+          <div class="group relative">
+            <select id="all-select-categories" data-hs-select='{
+                              "placeholder": "Select Country",
+                              "toggleTag": "<button type=\"button\"></button>",
+                              "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 rounded-md bg-primary/10 text-primary text-base flex items-center font-semibold gap-2 px-10 py-2.5 transition-all duration-300 group-hover:bg-primary group-hover:text-white before:absolute before:inset-0 before:z-[1]",
+                              "dropdownClasses": "mt-2 z-50 min-w-[200px] max-h-[300px] p-1.5 space-y-0.5 bg-white border border-default-200 rounded-lg overflow-hidden overflow-y-auto end-0 dark:bg-default-50 custom-scroll overflow-hidden",
+                              "optionClasses": "py-2 px-3 w-full text-sm text-default-600 cursor-pointer rounded-md hover:bg-default-100 focus:outline-none focus:bg-default-100",
+                              "optionTemplate": "<div class=\"flex justify-between items-center font-medium w-full\"><span data-title></span><span class=\"hidden hs-selected:block\"><i class=\"ti ti-checks text-lg flex-shrink-0 text-primary\" /></i></span></div>"
+                              }' class="hidden shadow">
+              <option></option>
+              <option value="United States">United States</option>
+              <option value="Canada">Canada</option>
+              <option value="California" selected>California</option>
+              <option value="Australia">Australia</option>
+              <option value="Germany">Germany</option>
+              <option value="Bangladesh">Bangladesh</option>
+              <option value="China">China</option>
+              <option value="Argentina">Argentina</option>
+              <option value="Bharat">Bharat</option>
+              <option value="Afghanistan">Afghanistan</option>
+              <option value="France">France</option>
+              <option value="India">India</option>
+              <option value="Brazil">Brazil</option>
+              <option value="Belgium">Belgium</option>
+              <option value="Colombia">Colombia</option>
+              <option value="Albania">Albania</option>
+            </select>
+  
+            <div class="absolute -inset-y-0 end-3 start-3 flex items-center text-primary group-hover:text-white">
+              <i class="ti ti-map-pin text-xl"></i>
+            </div>
+            <div class="absolute -inset-y-0 end-3 start-auto flex items-center text-primary group-hover:text-white">
+              <i class="ti ti-chevron-down shrink text-base/none"></i>
+            </div>
+          </div>
+          <!-- End Select -->
+  
+          <form class="relative mx-auto flex min-w-80">
+            <input id="data-input" type="search" placeholder="Search for items..." class="w-full rounded-lg border-none bg-default-100 py-3 pe-6 ps-12 text-sm text-default-900 transition placeholder:text-default-600 focus:outline-none focus:ring-transparent" />
+            <button type="button" aria-label="Click here to search input data" class="absolute inset-y-0 start-2 z-10 flex h-full w-10 shrink-0 cursor-default items-center justify-center focus:outline-none">
+              <i data-lucide="search" class="h-5 w-5"></i>
+            </button>
+          </form>
+  
+          <div class="flex">
+            <a href="tel:+XXXXXXXX" class="flex items-center gap-2">
+              <i class="ti ti-headset text-4xl text-default-600"></i>
+              <div>
+                <h4 class="text-xl font-medium text-primary">1900 789 564</h4>
+                <p class="text-xs font-medium text-default-600">
+                  24/7 Support Center
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mobile Sidebar Menu -->
+  <div id="mobile-menu" class="hs-overlay fixed left-0 top-0 z-60 hidden h-full w-full max-w-[270px] -translate-x-full transform border-e border-e-default-200 bg-white transition-all hs-overlay-open:translate-x-0 dark:bg-default-50" tabindex="-1">
+    <div class="flex h-16 items-center justify-center border-b border-dashed border-b-default-200 transition-all duration-300">
+      <a href="home.html">
+        <img src="/greencart/assets/logo-dark-1caee452.png" class="flex h-10 dark:hidden lg:h-12" alt="Brand Logo" />
+        <img src="/greencart/assets/logo-50f51c55.png" class="hidden h-10 dark:flex lg:h-12" alt="Brand Logo" />
+      </a>
+    </div>
+  
+    <div data-simplebar class="h-[calc(100%-4rem)] overflow-y-auto">
+      <nav class="hs-accordion-group flex w-full flex-col flex-wrap p-4">
+        <ul class="admin-menu flex w-full flex-col gap-1.5">
+          <li class="menu-item hs-accordion">
+            <a href="javascript:void(0)" class="hs-accordion-toggle flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-accordion-active:bg-default-100">
+              <i class="ti ti-smart-home text-xl"></i>
+              Home
+              <i class="ti ti-chevron-right ms-auto text-sm transition-all hs-accordion-active:rotate-90"></i>
+            </a>
+  
+            <div class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300">
+              <ul class="mt-2 flex flex-col gap-2">
+                <li class="menu-item">
+                  <a href="home.html" class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100">
+                    <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                    Home One
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="home-2.html" class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100">
+                    <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                    Home Two
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+  
+          <li class="menu-item hs-accordion">
+            <a href="javascript:void(0)" class="hs-accordion-toggle flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-accordion-active:bg-default-100">
+              <i class="ti ti-list-details text-xl"></i>
+              Product
+              <i class="ti ti-chevron-right ms-auto text-sm transition-all hs-accordion-active:rotate-90"></i>
+            </a>
+  
+            <div class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300">
+              <ul class="mt-2 flex flex-col gap-2">
+                <li class="menu-item">
+                  <a class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100" href="products-grid.html">
+                    <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                    Products Grid
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100" href="products-list.html">
+                    <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                    Products List
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100" href="product-details.html">
+                    <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                    Product Details
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100" href="product-filter.html">
+                    <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                    Product Filter
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+  
+          <li class="menu-item hs-accordion">
+            <a href="javascript:void(0)" class="hs-accordion-toggle flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-accordion-active:bg-default-100">
+              <i class="ti ti-clipboard-text text-xl"></i>
+              Pages
+              <i class="ti ti-chevron-right ms-auto text-sm transition-all hs-accordion-active:rotate-90"></i>
+            </a>
+  
+            <div class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300">
+              <ul class="mt-2 flex flex-col gap-2">
+                <li class="menu-item">
+                  <a href="pages-cart.html" class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100">
+                    <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                    Cart
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="pages-checkout.html" class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100">
+                    <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                    Checkout
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="pages-wishlist.html" class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100">
+                    <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                    Wishlist
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="pages-faqs.html" class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100">
+                    <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                    FAQs
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="pages-404.html" class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100">
+                    <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                    Error 404
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+  
+          <li class="menu-item">
+            <a class="flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-collapse-open:bg-default-100" href="pages-contact.html">
+              <i class="ti ti-phone-call text-xl"></i>
+              Contact Us
+            </a>
+          </li>
+  
+          <li class="px-4 py-2 text-sm font-medium text-default-600">Account</li>
+  
+          <li class="menu-item">
+            <a class="flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-collapse-open:bg-default-100" href="account-profile.html">
+              <i class="ti ti-user-circle text-xl"></i>
+              Personal Info
+            </a>
+          </li>
+  
+          <li class="menu-item hs-accordion" id="mobile-menu-order">
+            <a href="javascript:void(0)" class="hs-accordion-toggle flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-accordion-active:bg-default-100">
+              <i class="ti ti-box text-xl"></i>
+              My Orders
+              <i class="ti ti-chevron-right ms-auto text-sm transition-all hs-accordion-active:rotate-90"></i>
+            </a>
+  
+            <div id="mobile-menu-order" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300">
+              <ul class="mt-2 flex flex-col gap-2">
+                <li class="menu-item">
+                  <a href="account-order-list.html" class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100">
+                    <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                    Order List
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="account-order-details.html" class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100">
+                    <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                    Order Detail
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+  
+          <li class="menu-item">
+            <a class="flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-collapse-open:bg-default-100" href="account-address.html">
+              <i class="ti ti-map-pin text-xl"></i>
+              My Addresses
+            </a>
+          </li>
+  
+          <li class="menu-item">
+            <a class="flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-collapse-open:bg-default-100" href="account-wallet.html">
+              <i class="ti ti-wallet text-xl"></i>
+              Wallet
+            </a>
+          </li>
+  
+          <li class="menu-item">
+            <a class="flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-collapse-open:bg-default-100" href="account-settings.html">
+              <i class="ti ti-settings text-xl"></i>
+              Settings
+            </a>
+          </li>
+  
+          <li class="menu-item">
+            <a class="flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-collapse-open:bg-default-100" href="auth-login.html">
+              <i class="ti ti-user text-xl"></i>
+              Logout
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  
+  <!-- Mobile Search Drawer -->
+  <div id="search-drawer" class="hs-overlay fixed inset-x-0 bottom-0 z-60 hidden h-full w-full max-w-full translate-y-full transform bg-white transition-all duration-300 hs-overlay-open:translate-y-0 dark:bg-default-50" tabindex="-1">
+    <div class="flex h-16 items-center justify-between gap-4 border-b border-dashed border-default-200 px-4 transition-all duration-300">
+      <button type="button" class="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center gap-2 rounded-full bg-default-100 align-middle font-medium text-default-700 transition-all hover:text-primary" data-hs-overlay="#search-drawer">
+        <i class="ti ti-x text-xl"></i>
+      </button>
+  
+      <form class="relative mx-auto flex w-full">
+        <input id="data-input" type="search" placeholder="Search for items..." class="w-full rounded-lg border-none bg-default-100 py-3 pe-6 ps-12 text-sm text-default-900 transition placeholder:text-default-600 focus:outline-none focus:ring-transparent" />
+        <button type="button" aria-label="Click here to search input data" class="absolute inset-y-0 start-2 z-10 flex h-full w-10 shrink-0 cursor-default items-center justify-center focus:outline-none">
+          <i data-lucide="search" class="h-5 w-5"></i>
+        </button>
+      </form>
+    </div>
+  
+    <div class="">
+      <div class="p-4 lg:p-8">
+        <h4 class="text-base font-medium text-default-900">Recent</h4>
+      </div>
+      <div class="mb-4 px-4 pb-4">
+        <div class="flex flex-col gap-2">
+          <div id="close" class="flex items-center gap-2 rounded-md bg-default-100 px-4 py-3">
+            <i class="ti ti-clock shrink text-lg text-default-700"></i>
+            <span class="inline-block grow text-base font-medium text-default-700 transition-all hover:text-default-900">Fruits</span>
+            <div class="flex items-center gap-2">
+              <a href="#">
+                <i class="ti ti-arrow-up-right-circle align-middle text-lg text-default-700 transition-all hover:text-default-950"></i>
+              </a>
+              <span class="shrink" data-hs-remove-element="#close" role="button">
+                <i class="ti ti-x align-middle text-lg text-default-700 hover:text-red-500"></i>
+              </span>
+            </div>
+          </div>
+          <div id="close-two" class="flex items-center gap-2 rounded-md bg-default-100 px-4 py-3">
+            <i class="ti ti-clock shrink text-lg text-default-700"></i>
+            <span class="inline-block grow text-base font-medium text-default-700 transition-all hover:text-default-900">Fresh Vegetables</span>
+            <div class="flex items-center gap-2">
+              <a href="#">
+                <i class="ti ti-arrow-up-right-circle align-middle text-lg text-default-700 transition-all hover:text-default-950"></i>
+              </a>
+              <span class="shrink" data-hs-remove-element="#close-two" role="button">
+                <i class="ti ti-x align-middle text-lg text-default-700 hover:text-red-500"></i>
+              </span>
+            </div>
+          </div>
+          <div id="close-three" class="flex items-center gap-2 rounded-md bg-default-100 px-4 py-3">
+            <i class="ti ti-clock shrink text-lg text-default-700"></i>
+            <span class="inline-block grow text-base font-medium text-default-700 transition-all hover:text-default-900">Nuts And Berries</span>
+            <div class="flex items-center gap-2">
+              <a href="#">
+                <i class="ti ti-arrow-up-right-circle align-middle text-lg text-default-700 transition-all hover:text-default-950"></i>
+              </a>
+              <span class="shrink" data-hs-remove-element="#close-three" role="button">
+                <i class="ti ti-x align-middle text-lg text-default-700 hover:text-red-500"></i>
+              </span>
+            </div>
+          </div>
+          <div id="close-four" class="flex items-center gap-2 rounded-md bg-default-100 px-4 py-3">
+            <i class="ti ti-clock shrink text-lg text-default-700"></i>
+            <span class="inline-block grow text-base font-medium text-default-700 transition-all hover:text-default-900">Best Instructors</span>
+            <div class="flex items-center gap-2">
+              <a href="#">
+                <i class="ti ti-arrow-up-right-circle align-middle text-lg text-default-700 transition-all hover:text-default-950"></i>
+              </a>
+              <span class="shrink" data-hs-remove-element="#close-four" role="button">
+                <i class="ti ti-x align-middle text-lg text-default-700 hover:text-red-500"></i>
+              </span>
+            </div>
+          </div>
+          <div id="close-five" class="flex items-center gap-2 rounded-md bg-default-100 px-4 py-3">
+            <i class="ti ti-clock shrink text-lg text-default-700"></i>
+            <span class="inline-block grow text-base font-medium text-default-700 transition-all hover:text-default-900">Contact</span>
+            <div class="flex items-center gap-2">
+              <a href="#">
+                <i class="ti ti-arrow-up-right-circle align-middle text-lg text-default-700 transition-all hover:text-default-950"></i>
+              </a>
+              <span class="shrink" data-hs-remove-element="#close-five">
+                <i class="ti ti-x align-middle text-lg text-default-700 hover:text-red-500"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile Navbar (Bottom Menu) -->
+  <div class="menu fixed inset-x-0 bottom-0 z-40 lg:hidden">
+    <div class="grid h-16 w-full grid-cols-4 items-center border border-default-200 bg-white dark:bg-default-50">
+      <a class="flex flex-col items-center justify-center gap-1 text-default-600" href="home.html">
+        <i class="ti ti-shopping-bag text-xl"></i>
+        <span class="text-xs font-medium tracking-wide sm:text-sm">Home</span>
+      </a>
+      <a class="flex flex-col items-center justify-center gap-1 text-default-600" href="products-grid.html">
+        <i class="ti ti-layout-2 text-xl"></i>
+        <span class="text-xs font-medium tracking-wide sm:text-sm">Categories</span>
+      </a>
+      <a class="flex flex-col items-center justify-center gap-1 text-default-600" href="pages-wishlist.html">
+        <i class="ti ti-heart text-xl"></i>
+        <span class="text-xs font-medium tracking-wide sm:text-sm">Wishlist</span>
+      </a>
+      <a class="flex flex-col items-center justify-center gap-1 text-default-600" href="account-profile.html">
+        <i class="ti ti-user-circle text-xl"></i>
+        <span class="text-xs font-medium tracking-wide sm:text-sm">Profile</span>
+      </a>
+    </div>
+  </div>
+  <section class="hidden bg-default-100 lg:block">
+    <div class="container">
+      <div class="relative flex py-4">
+        <ol aria-label="Breadcrumb" class="flex min-w-0 items-center gap-2 whitespace-nowrap">
+          <li class="text-sm/loose">
+            <a class="flex items-center gap-2 align-middle text-base leading-none text-default-800 transition-all hover:text-primary" href="#">
+              <i class="ti ti-brand-google-home text-lg"></i>
+              Home
+              <i class="ti ti-chevron-right text-base"></i>
+            </a>
+          </li>
+          <li class="text-sm/loose">
+            <a class="flex items-center gap-2 align-middle text-base leading-none text-default-800 transition-all hover:text-primary" href="#">
+              Pages
+              <i class="ti ti-chevron-right text-base"></i>
+            </a>
+          </li>
+           
+          <li aria-current="page" class="text-base/loose font-medium leading-none text-primary hover:text-primary">
+            Checkout
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  <section class="lg:py-10 py-3">
+    <div class="container">
+      <div class="grid xl:grid-cols-3 gap-10">
+        <div class="xl:col-span-2">
+          <div class="border border-default-200 p-10 rounded-2xl">
+            <nav class="flex flex-col sm:flex-row gap-2" aria-label="Tabs" role="tablist">
+              <button type="button" class="hs-tab-active:bg-primary hs-tab-active:text-white bg-primary/20 text-primary flex-auto py-3 px-4 inline-flex justify-center items-center gap-2 text-sm font-medium text-center rounded-md hover:text-primary active" id="personal-detail" data-hs-tab="#personal-detail-item" aria-controls="personal-detail-item" role="tab">
+                <i data-lucide="users" class="h-5 w-5"></i> Personal Detail
+              </button><!-- end tab btn -->
+              <button type="button" class="hs-tab-active:bg-primary hs-tab-active:text-white bg-primary/20 text-primary flex-auto py-3 px-4 inline-flex justify-center items-center gap-2 text-sm font-medium text-center rounded-md hover:text-primary" id="shipping-detail" data-hs-tab="#shipping-detail-item" aria-controls="shipping-detail-item" role="tab">
+                <i data-lucide="truck" class="h-5 w-5"></i> Shipping Detail
+              </button><!-- end tab btn -->
+              <button type="button" class="hs-tab-active:bg-primary hs-tab-active:text-white bg-primary/20 text-primary flex-auto py-3 px-4 inline-flex justify-center items-center gap-2 text-sm font-medium text-center rounded-md hover:text-primary" id="payment-detail" data-hs-tab="#payment-detail-item" aria-controls="payment-detail-item" role="tab">
+                <i data-lucide="badge-dollar-sign" class="h-5 w-5"></i> Payment Detail
+              </button><!-- end tab btn -->
+            </nav><!-- end nav -->
+
+            <div class="mt-10">
+              <div id="personal-detail-item" role="tabpanel" aria-labelledby="personal-detail">
+                <form action="">
+                  <div class="grid md:grid-cols-12 gap-6">
+                    <div class="md:col-span-6">
+                      <label for="f_name" class="mb-2.5 block text-sm font-medium text-default-700">First Name</label>
+                      <input type="text" id="f_name" class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50" placeholder="Enter First Name" />
+                    </div>
+                    <div class="md:col-span-6">
+                      <label for="l_name" class="mb-2.5 block text-sm font-medium text-default-700">Last Name</label>
+                      <input type="text" id="l_name" class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50" placeholder="Enter Last Name" />
+                    </div>
+                    <div class="md:col-span-12">
+                      <label for="address" class="mb-2.5 block text-sm font-medium text-default-700">Address</label>
+                      <input type="text" id="address" class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50" placeholder="203 Miceses Ave. st. Mountain View, San Francisco" />
+                    </div>
+                    <div class="md:col-span-6">
+                      <label for="phone" class="mb-2.5 block text-sm font-medium text-default-700">Phone</label>
+                      <input type="text" id="phone" class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50" placeholder="Phone No." />
+                    </div>
+                    <div class="md:col-span-6">
+                      <label for="password" class="mb-2.5 block text-sm font-medium text-default-700">Password</label>
+                      <input type="password" id="password" class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50" />
+                    </div>
+                    <div class="md:col-span-12">
+                      <div class="flex justify-end gap-2">
+                        <a href="auth-register.html" class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-primary-600">Register</a>
+                        <a href="auth-login.html" class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-primary-600">Login</a>
+                      </div>
+
+                      <div class="flex justify-end gap-2 mt-6">
+                        <button type="button" class="inline-flex items-center justify-center rounded-lg bg-primary/20 px-6 py-2.5 text-center text-sm font-medium text-primary shadow-sm transition-all duration-200 hover:text-white hover:bg-primary">Cancel Order</button>
+                        <button type="button" class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-primary-600">Shipping Address</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div><!-- end personal detail -->
+
+              <div id="shipping-detail-item" class="hidden" role="tabpanel" aria-labelledby="shipping-detail">
+                <form action="">
+                  <div class="grid md:grid-cols-12 gap-6">
+                    <div class="md:col-span-6">
+                      <label for="f_name" class="mb-2.5 block text-sm font-medium text-default-700">First Name</label>
+                      <input type="text" id="f_name" class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50" placeholder="Enter First Name" />
+                    </div>
+                    <div class="md:col-span-6">
+                      <label for="l_name" class="mb-2.5 block text-sm font-medium text-default-700">Last Name</label>
+                      <input type="text" id="l_name" class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50" placeholder="Enter Last Name" />
+                    </div>
+                    <div class="md:col-span-12">
+                      <label for="e_mail" class="mb-2.5 block text-sm font-medium text-default-700">Address</label>
+                      <input type="email" id="e_mail" class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50" placeholder="Address here" />
+                    </div>
+                    <div class="md:col-span-6 space-y-1">
+
+                      <!-- Select -->
+                      <label for="country-select" class="text-sm mb-1 text-default-900">Country/Region</label>
+                      <div class="relative">
+                        <select id="country-select" data-hs-select='{
+                                                    "placeholder": "Select Country",
+                                                    "toggleTag": "<button type=\"button\"></button>",
+                                                    "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 form-input block w-full rounded-md py-2.5 ps-4 pe-10 text-default-800 text-start text-sm focus:ring-transparent border-default-200 overflow-hidden focus:border-primary dark:bg-default-50 before:absolute before:inset-0 before:z-[1]",
+                                                    "dropdownClasses": "mt-2 z-50 w-full max-h-[300px] p-1.5 space-y-0.5 bg-white border border-default-200 rounded-md overflow-hidden overflow-y-auto dark:bg-default-50 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-default-300",
+                                                    "optionClasses": "py-2 px-3 w-full text-sm text-default-800 cursor-pointer rounded-md hover:bg-default-100 focus:outline-none focus:bg-default-100",
+                                                    "optionTemplate": "<div class=\"flex justify-between items-center w-full\"><span data-title></span><span class=\"hidden hs-selected:block\"><i class=\"ti ti-checks text-lg flex-shrink-0 text-primary\" /></i></span></div>"
+                                                    }' class="hidden">
+                          <option></option>
+                          <option value="America US">America US</option>
+                          <option value="Australia">Australia</option>
+                          <option value="London">London</option>
+                          <option value="Canada">Canada</option>
+                          <option value="Japan">Japan</option>
+                        </select>
+
+                        <div class="absolute -inset-y-0 end-3 flex items-center">
+                          <i class="ti ti-selector shrink text-base/none text-default-500"></i>
+                        </div>
+                      </div>
+                      <!-- End Select -->
+
+                    </div>
+                    <div class="md:col-span-6 space-y-1">
+
+                      <!-- Select -->
+                      <label for="state-select" class="text-sm mb-1 text-default-900">State</label>
+                      <div class="relative">
+                        <select id="state-select" data-hs-select='{
+                                                    "placeholder": "Select State",
+                                                    "toggleTag": "<button type=\"button\"></button>",
+                                                    "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 form-input block w-full rounded-md py-2.5 ps-4 pe-10 text-default-800 text-start text-sm focus:ring-transparent border-default-200 overflow-hidden focus:border-primary dark:bg-default-50 before:absolute before:inset-0 before:z-[1]",
+                                                    "dropdownClasses": "mt-2 z-50 w-full max-h-[300px] p-1.5 space-y-0.5 bg-white border border-default-200 rounded-md overflow-hidden overflow-y-auto dark:bg-default-50 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-default-300",
+                                                    "optionClasses": "py-2 px-3 w-full text-sm text-default-800 cursor-pointer rounded-md hover:bg-default-100 focus:outline-none focus:bg-default-100",
+                                                    "optionTemplate": "<div class=\"flex justify-between items-center w-full\"><span data-title></span><span class=\"hidden hs-selected:block\"><i class=\"ti ti-checks text-lg flex-shrink-0 text-primary\" /></i></span></div>"
+                                                    }' class="hidden">
+                          <option></option>
+                          <option value="Texas">Texas</option>
+                          <option value="Florida">Florida</option>
+                          <option value="Hawaii">Hawaii</option>
+                          <option value="Alaska">Alaska</option>
+                          <option value="Washington">Washington</option>
+                          <option value="Arizona">Arizona</option>
+                          <option value="New York">New York</option>
+                        </select>
+                        <div class="absolute -inset-y-0 end-3 flex items-center">
+                          <i class="ti ti-selector shrink text-base/none text-default-500"></i>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="md:col-span-12 flex items-center space-x-2">
+                      <input type="checkbox" id="example6" class="form-checkbox rounded bg-transparent border-default-200 text-primary ring-0 focus:ring-transparent" />
+                      <label for="example6" class="text-sm font-medium text-default-700">Remember me</label>
+                    </div>
+                    <div class="md:col-span-12">
+                      <div class="flex justify-end gap-2">
+                        <button type="button" class="inline-flex items-center justify-center rounded-lg bg-primary/20 px-6 py-2.5 text-center text-sm font-medium text-primary shadow-sm transition-all duration-200 hover:bg-primary hover:text-white">Back</button>
+                        <button type="button" class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-primary-600">Payment Method</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div><!-- end shipping detail -->
+
+              <div id="payment-detail-item" class="hidden" role="tabpanel" aria-labelledby="payment-detail">
+                <form action="">
+                  <div class="grid md:grid-cols-12 gap-6">
+                    <div class="md:col-span-6">
+                      <label for="f_name" class="mb-2.5 block text-sm font-medium text-default-700">Card Holder Name</label>
+                      <input type="text" id="f_name" class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50" placeholder="Enter Card Holder Name" />
+                    </div>
+                    <div class="md:col-span-6">
+                      <label for="l_name" class="mb-2.5 block text-sm font-medium text-default-700">Card Number</label>
+                      <input type="number" id="l_name" class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50" placeholder="Enter Card Holder Number" />
+                    </div>
+                    <div class="md:col-span-12">
+                      <label for="address" class="mb-2.5 block text-sm font-medium text-default-700">Address</label>
+                      <input type="email" id="address" class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50" placeholder="Enter Brief Address" />
+                    </div>
+                    <div class="md:col-span-6">
+                      <label for="expiration" class="mb-2.5 block text-sm font-medium text-default-700">Expiration</label>
+                      <input type="text" id="expiration" class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50" placeholder="Card Expire Date" />
+                    </div>
+                    <div class="md:col-span-6">
+                      <label for="CVV" class="mb-2.5 block text-sm font-medium text-default-700">CVV</label>
+                      <input type="text" id="CVV" class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50" placeholder="Enter Card CVV Number" />
+                    </div>
+                    <div class="md:col-span-12 flex items-center space-x-2">
+                      <input type="checkbox" id="address_confirm" class="form-checkbox rounded bg-transparent border-default-200 text-primary ring-0 focus:ring-transparent" />
+                      <label for="address_confirm" class="text-sm font-medium text-default-700">Ship to a different address</label>
+                    </div>
+                    <div class="md:col-span-12">
+                      <div class="flex justify-end gap-2">
+                        <button type="button" class="inline-flex items-center justify-center rounded-lg bg-primary/20 px-6 py-2.5 text-center text-sm font-medium text-primary shadow-sm transition-all duration-200 hover:text-white hover:bg-primary">Back</button>
+                        <button type="button" class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-primary-600">Complete Order</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div><!-- end payment detail -->
+            </div>
+          </div>
+        </div><!-- end grid-cols -->
+
+        <div class="xl:col-span-1">
+          <div class="border border-default-200 rounded-lg">
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-default-800">Order Summery</h3>
+              <div class="my-6">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-4">
+                    <img src="/greencart/assets/1-2ca96552.png" alt="" class="h-16 w-16">
+                    <a href="products-grid.html" class="text-base font-medium text-default-800">Banana x5 kg</a>
+                  </div>
+                  <h3 class="text-base font-medium text-default-800">$35.00</h3>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-4">
+                    <img src="/greencart/assets/2-423cfe2a.png" alt="" class="h-16 w-16">
+                    <a href="products-grid.html" class="text-base font-medium text-default-800">Shale Snacks x2 kg</a>
+                  </div>
+                  <h3 class="text-base font-medium text-default-800">$17.00</h3>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-4">
+                    <img src="/greencart/assets/3-eb4bb056.png" alt="" class="h-16 w-16">
+                    <a href="products-grid.html" class="text-base font-medium text-default-800">Grapes x6 kg</a>
+                  </div>
+                  <h3 class="text-base font-medium text-default-800">$24.00</h3>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <label for="coupon" class="text-base text-default-700">Coupon Code</label>
+                <div class="relative">
+                  <input type="text" name="coupon" id="coupon" class="block w-full rounded-md py-3 ps-4 pe-12 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50" placeholder="Enter code" autocomplete="off">
+                  <button class="absolute top-1/2 -translate-y-1/2 end-1 py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center bg-default-200 hover:bg-default-300 border-default-200 hover:border-default-300 text-default-900 rounded-md">
+                    Apply Coupon
+                  </button>
+                </div>
+              </div><!-- end coupon input -->
+
+              <div class="flex flex-col gap-4 mt-6">
+                <div class="flex items-center space-x-2">
+                  <input type="radio" id="debit_card" name="radioGroup1" class="h-4 w-4 rounded-full border-default-300 text-primary shadow-sm focus:ring-2 focus:ring-primary bg-transparent focus:ring-offset-default-50" />
+                  <label for="debit_card" class="text-sm font-medium text-default-700">Debit Card</label>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <input type="radio" id="cash_on_delivery" checked name="radioGroup1" class="h-4 w-4 rounded-full border-default-300 text-primary shadow-sm focus:ring-2 focus:ring-primary bg-transparent focus:ring-offset-default-50" />
+                  <label for="cash_on_delivery" class="text-sm font-medium text-default-700">Cash on Delivery</label>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <input type="radio" id="amazo_npay" checked name="radioGroup1" class="h-4 w-4 rounded-full border-default-300 text-primary shadow-sm focus:ring-2 focus:ring-primary bg-transparent focus:ring-offset-default-50" />
+                  <label for="amazo_npay" class="text-sm font-medium text-default-700">Amazon Pay</label>
+                </div>
+              </div><!-- end flex -->
+            </div>
+
+            <div class="*:border-b *:border-default-200">
+              <div class="flex items-center justify-between p-3">
+                <h6 class="text-base text-default-800 font-medium">Subtotal :</h6>
+                <h6 class="text-base text-default-800 font-medium">$204.00</h6>
+              </div>
+              <div class="flex items-center justify-between p-3">
+                <h6 class="text-base text-default-800 font-medium">Shipping :</h6>
+                <h6 class="text-base text-default-800 font-medium">Free</h6>
+              </div>
+              <div class="flex items-center justify-between p-3">
+                <h6 class="text-base text-default-800 font-medium">Total :</h6>
+                <h4 class="text-xl text-default-800 font-medium">$204.00</h4>
+              </div>
+            </div>
+
+            <div class="px-4 py-3">
+              <button type="button" class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-primary-600">Place Order</button>
+            </div>
+          </div>
+        </div><!-- end grid-cols -->
+      </div><!-- end grid -->
+    </div><!--  end container -->
+  </section>
+
+  <button class="fixed bottom-18 end-4 z-50 inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 text-primary opacity-0 backdrop-blur-xl transition-all duration-500 lg:bottom-4 print:hidden" data-toggle="back-to-top">
+    <i class="ti ti-chevron-up text-xl"></i>
+  </button>
+  <footer class="">
+    <div class="border-t border-default-200 bg-white dark:bg-default-50">
+      <div class="container">
+        <div class="py-6 xl:py-24">
+          <div class="grid gap-x-6 gap-y-10 xl:grid-cols-8">
+            <div class="xl:col-span-2">
+              <a href="#" class="logo flex items-center gap-2">
+                <img src="/greencart/assets/logo-50f51c55.png" class="hidden h-10 dark:block" alt="" />
+                <img src="/greencart/assets/logo-dark-1caee452.png" class="block h-10 dark:hidden" alt="" />
+              </a>
+  
+              <p class="mt-6 max-w-xs text-base font-medium text-default-600">
+                A supermarket is a self-service shop offering a wide variety of
+                food, beverages & household products.
+              </p>
+              <div class="mt-6 flex flex-wrap gap-2">
+                <a href="admin-dashboard.html" target="_blank" class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-primary-600">
+                  <i class="ti ti-brand-appgallery me-2 text-xl"></i> Become a
+                  Seller
+                </a>
+  
+                <!-- Newsletter banner modal button-->
+                <button data-hs-overlay="#offer-modal" class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-primary-600">
+                  <i class="ti ti-news me-2 text-xl"></i> Newsletter
+                </button>
+              </div>
+            </div>
+            <div class="xl:col-span-6">
+              <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
+                <div class="">
+                  <ul class="flex flex-col gap-3">
+                    <h5 class="mb-2 font-semibold text-default-900 lg:text-lg xl:text-xl">
+                      My Account
+                    </h5>
+                    <li>
+                      <a href="javascript:void(0);" class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i class="ti ti-circle-chevron-right text-lg"></i> My
+                        Profile</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);" class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i class="ti ti-circle-chevron-right text-lg"></i> Order
+                        History</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);" class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i class="ti ti-circle-chevron-right text-lg"></i>
+                        Shopping Cart</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);" class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i class="ti ti-circle-chevron-right text-lg"></i>
+                        Wishlist</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);" class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i class="ti ti-circle-chevron-right text-lg"></i>
+                        Settings</a>
+                    </li>
+                  </ul>
+                </div>
+  
+                <div class="">
+                  <ul class="flex flex-col gap-3">
+                    <h5 class="mb-2 font-semibold text-default-900 lg:text-lg xl:text-xl">
+                      Information
+                    </h5>
+                    <li>
+                      <a href="javascript:void(0);" class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i class="ti ti-circle-chevron-right text-lg"></i>
+                        Contact</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);" class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i class="ti ti-circle-chevron-right text-lg"></i>
+                        FAQs</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);" class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i class="ti ti-circle-chevron-right text-lg"></i> Terms
+                        & Conditions</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);" class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i class="ti ti-circle-chevron-right text-lg"></i> Return
+                        Policy</a>
+                    </li>
+                  </ul>
+                </div>
+  
+                <div class="">
+                  <ul class="flex flex-col gap-3">
+                    <h5 class="mb-2 font-semibold text-default-900 lg:text-lg xl:text-xl">
+                      Policy
+                    </h5>
+                    <li>
+                      <a href="javascript:void(0);" class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i class="ti ti-circle-chevron-right text-lg"></i> Deal
+                        of the day</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);" class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i class="ti ti-circle-chevron-right text-lg"></i>
+                        Fruits</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);" class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i class="ti ti-circle-chevron-right text-lg"></i>
+                        Grocery products</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);" class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i class="ti ti-circle-chevron-right text-lg"></i>
+                        Vegetables</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);" class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i class="ti ti-circle-chevron-right text-lg"></i> Frozen
+                        items</a>
+                    </li>
+                  </ul>
+                </div>
+  
+                <div class="">
+                  <ul class="flex flex-col gap-3">
+                    <h5 class="mb-2 font-semibold text-default-900 lg:text-lg xl:text-xl">
+                      Help Center
+                    </h5>
+                    <li>
+                      <a href="javascript:void(0);" class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i class="ti ti-circle-chevron-right text-lg"></i>
+                        Payments</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);" class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i class="ti ti-circle-chevron-right text-lg"></i>
+                        Refund</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);" class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i class="ti ti-circle-chevron-right text-lg"></i>
+                        Checkout</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);" class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i class="ti ti-circle-chevron-right text-lg"></i>
+                        Shipping</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);" class="inline-flex items-center gap-2 text-base font-semibold text-default-600 transition-all hover:text-primary"><i class="ti ti-circle-chevron-right text-lg"></i>
+                        Privacy Policy</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Grid End -->
+      </div>
+  
+      <div class="border-t border-default-200">
+        <div class="container">
+          <div class="grid items-center gap-6 py-4 lg:grid-cols-3">
+            <p class="flex text-center text-default-900 lg:col-span-2 lg:text-start">
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              © GreenCart. Designed & Crafted With
+              <a class="text-primary" href="https://coderthemes.com/" target="_blank">&nbsp;Coderthemes</a>
+            </p>
+            <ul class="flex flex-wrap items-center justify-center gap-2 lg:justify-end">
+              <li>
+                <a href="javascript:void(0);" class="group inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/20 text-primary backdrop-blur-xl transition-all duration-500 hover:bg-primary/30"><i class="ti ti-brand-facebook text-2xl"></i></a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" class="group inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/20 text-primary backdrop-blur-xl transition-all duration-500 hover:bg-primary/30"><i class="ti ti-brand-x text-2xl"></i></a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" class="group inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/20 text-primary backdrop-blur-xl transition-all duration-500 hover:bg-primary/30"><i class="ti ti-brand-instagram text-2xl"></i></a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" class="group inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/20 text-primary backdrop-blur-xl transition-all duration-500 hover:bg-primary/30"><i class="ti ti-brand-github text-2xl"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <div id="offer-modal" class="hs-overlay pointer-events-none fixed start-0 top-0 z-[80] hidden size-full overflow-y-auto overflow-x-hidden">
+    <div class="m-3 mt-0 flex min-h-[calc(100%-3.5rem)] items-center opacity-0 transition-all ease-out hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 sm:mx-auto sm:w-full sm:max-w-4xl">
+      <div class="flex max-h-full w-full flex-col overflow-hidden rounded-xl bg-white shadow-sm dark:bg-default-50">
+        <div class="pointer-events-auto relative p-4">
+          <div class="grid items-center gap-6 md:grid-cols-2">
+            <div class="flex flex-col items-start justify-center p-4">
+              <span class="inline-flex items-center gap-1.5 rounded-lg bg-primary/10 px-4 py-1 text-sm font-medium text-primary">Newsletter</span>
+              <h1 class="mb-6 text-4xl/normal font-semibold text-default-900">
+                Subscribe to Our Newsletter
+              </h1>
+              <p class="mb-4 text-base text-default-900">
+                Subscribe to our newsletter and Save your
+                <span class="text-yellow-500">50% money</span> with discount code
+                today.
+              </p>
+              <div class="relative flex w-full">
+                <input type="email" id="emailID" class="block w-full rounded-s-md border-default-200 py-2 pe-5 ps-10 text-sm text-default-800 focus:ring-transparent dark:bg-default-50" placeholder="Enter your email" />
+                <i class="ti ti-mail absolute start-3 top-1/2 -translate-y-1/2 text-lg text-default-800"></i>
+                <button class="inline-flex items-center justify-center rounded-e border border-primary bg-primary px-6 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all">
+                  Subscribe
+                </button>
+              </div>
+  
+              <ul class="mt-10 flex flex-wrap items-center gap-2">
+                <li>
+                  <a href="javascript:void(0);" class="group inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/20 text-primary backdrop-blur-xl transition-all duration-500 hover:bg-primary/30"><i class="ti ti-brand-facebook text-2xl"></i></a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);" class="group inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/20 text-primary backdrop-blur-xl transition-all duration-500 hover:bg-primary/30"><i class="ti ti-brand-x text-2xl"></i></a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);" class="group inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/20 text-primary backdrop-blur-xl transition-all duration-500 hover:bg-primary/30"><i class="ti ti-brand-instagram text-2xl"></i></a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);" class="group inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/20 text-primary backdrop-blur-xl transition-all duration-500 hover:bg-primary/30"><i class="ti ti-brand-github text-2xl"></i></a>
+                </li>
+              </ul>
+            </div>
+            <div class="hidden md:flex">
+              <img src="/greencart/assets/banner-9-83bafd3a.png" class="h-full w-full rounded-lg" alt="offer images" />
+            </div>
+  
+            <!-- Modal CLose Button -->
+            <div class="absolute end-4 top-4 z-60">
+              <button data-hs-overlay="#offer-modal" class="flex size-10 items-center justify-center rounded-lg bg-default-300/55">
+                <i data-lucide="x" class="h-6 w-6 text-default-600"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Theme Js -->
+  
+  <!-- Light Dark theme -->
+  <button class="fixed end-0 top-1/4 z-50">
+    <span class="relative inline-flex h-10 w-10 items-center justify-center gap-2 overflow-hidden rounded-s-xl bg-primary align-middle font-medium text-white transition-all hover:bg-primary-600">
+      <i class="ti ti-sun text-xl after:absolute after:inset-0" id="dark-theme"></i>
+      <i class="ti ti-moon text-xl after:absolute after:inset-0" id="light-theme"></i>
+    </span>
+  </button>
+</body>
+
+</html>

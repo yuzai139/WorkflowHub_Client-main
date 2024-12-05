@@ -1,0 +1,34 @@
+/*  */
+
+input,
+select,
+textarea {
+    @apply focus:!border-primary;
+}
+
+html {
+    @apply relative scroll-smooth;
+}
+
+body {
+    -webkit-tap-highlight-color: transparent;
+    @apply overflow-x-hidden antialiased font-body text-base font-normal text-default-500 bg-white dark:bg-default-50;
+}
+
+.dark {
+    color-scheme: dark;
+}
+
+::selection {
+    @apply bg-primary text-white;
+}
+
+.pristine-error.text-help {
+    @apply text-red-500;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

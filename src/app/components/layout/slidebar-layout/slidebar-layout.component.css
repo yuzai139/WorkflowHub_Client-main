@@ -1,0 +1,24 @@
+
+#slide {
+  display: flex;
+  height: 100vh; /* 确保占满整个视口高度 */
+}
+
+app-slidebar {
+  width: 16rem; /* 固定宽度 */
+  background-color: black; /* 深灰色背景 */
+  color: white;
+
+}
+
+#container {
+  flex: 1; /* 占据剩余空间 */
+  padding: 1.5rem; /* 内边距 */
+  overflow-y: auto; /* 确保内容可滚动 */
+}
+@media (max-width: 1024px) {
+  app-slidebar {
+    display: none;
+  }
+  /* 偵測多寬會消失 */
+}

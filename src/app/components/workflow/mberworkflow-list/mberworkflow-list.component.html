@@ -1,0 +1,48 @@
+<!-- 此Component當作CopyMemberSopToPublisherSop 的 pup up 使用 -->
+<div class="card">
+  <p-dialog
+    header="選擇會員工作流程，複製為新的發佈者工作流程"
+    [modal]="true"
+    [maximizable]="true"
+    [(visible)]="dialogVisible"
+    [style]="{width: '75vw'}"
+    [contentStyle]="{height: '300px'}"
+    (onHide)="closeDialog()">
+
+    <!-- 表格顯示 SOP 資料 -->
+    <p-table [value]="sops" selectionMode="single" [(selection)]="selectedSop" dataKey="FSopid">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>會員工作流程</th>
+          <th>職業</th>
+          <th>行業</th>
+          <th>狀態</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-sop>
+        <tr [pSelectableRow]="sop">
+          <td>
+            <p style="display: flex; justify-content: left;">
+              <img src="/assets/workflow/icon/member-workflow-icon24.png" style="margin-right: 8px;" alt="sopIcon">
+              {{ sop.FSopName }}
+            </p>
+          </td>
+          <td>{{ sop.JobItem }}</td>
+          <td>{{ sop.Industry }}</td>
+          <td>{{ sop.FFileStatus }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+    <ng-template pTemplate="footer">
+      <div style="display: flex; justify-content: space-between; padding: 16px 24px 0 16px;">
+        <button type="button" pButton label="複製"
+        (click)="selectSop()" class="p-button-text">
+        </button>
+        <button type="button" pButton label="取消"
+        (click)="closeDialog()" class="p-button-secondary">
+        </button>
+      </div>
+    </ng-template>
+  </p-dialog>
+</div>

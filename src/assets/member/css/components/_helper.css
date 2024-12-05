@@ -1,0 +1,68 @@
+.ti {
+    @apply !leading-none;
+}
+
+
+/* Custom Scroll */
+.custom-scroll {
+    @apply overflow-y-auto;
+
+    &::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+
+    &::-webkit-scrollbar:vertical {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar:horizontal {
+        height: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        @apply bg-default-900/10 border-2 border-default-900/10 rounded-lg;
+        opacity: 0.5;
+    }
+
+    &::-webkit-scrollbar-track {
+        @apply bg-transparent rounded-lg;
+    }
+
+    &::-webkit-scrollbar-corner {
+        @apply bg-transparent;
+    }
+}
+
+
+/* Ring Animation */
+.animate-ring {
+    animation: tada 1.5s ease infinite;
+}
+
+@keyframes tada {
+    0% {
+        transform: scaleZ(1);
+    }
+
+    10%,
+    20% {
+        transform: scale3d(.95, .95, .95) rotate3d(0, 0, 1, -10deg);
+    }
+
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: scaleZ(1) rotate3d(0, 0, 1, 10deg);
+    }
+
+    40%,
+    60%,
+    80% {
+        transform: rotate3d(0, 0, 1, -10deg);
+    }
+
+    100% {
+        transform: scaleZ(1);
+    }
+}

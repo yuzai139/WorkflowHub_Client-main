@@ -1,0 +1,50 @@
+<!-- src/app/member-setting/member-setting.component.html -->
+<div class="member-form">
+  <!-- <div class="button-container"></div>
+    <button [routerLink]="['/login']" class="forum-button return-button">返回登入頁面</button>
+  </div> -->
+  <h2>會員資料設定</h2>
+  <form (ngSubmit)="updateMember()">
+    <!-- <label for="fMemberID">會員ID</label>
+    <input type="text" id="fMemberID" [(ngModel)]="iMemberSignin.fMemberID" name="fMemberID" required /> -->
+
+    <label for="fName">姓名</label>
+    <input type="text" id="fName" [(ngModel)]="iMemberSignin.fName" name="fName" required />
+
+    <!-- <label for="fBirthday">生日</label>
+    <input type="date" id="fBirthday" [(ngModel)]="iMemberSignin.fBirthday" name="fBirthday" required /> -->
+
+    <label for="fPhone">電話</label>
+    <input type="tel" id="fPhone" [(ngModel)]="iMemberSignin.fPhone" name="fPhone" required />
+
+    <label for="Email">Email</label>
+    <input type="email" id="Email" [(ngModel)]="iMemberSignin.fEmail" name="Email" required />
+
+    <label for="fAddress">地址</label>
+    <input type="text" id="fAddress" [(ngModel)]="iMemberSignin.fAddress" name="fAddress" required />
+
+    <label for="fPassword">密碼</label>
+    <input type="password" id="fPassword" [(ngModel)]="iMemberSignin.fPassword" name="fPassword" required />
+
+    <!-- <label for="fPermissions">權限</label>
+    <input type="text" id="fPermissions" [(ngModel)]="iMemberSignin.fPermissions" name="fPermissions" />
+
+    <label for="fMemberPoints">會員點數</label>
+    <input type="number" id="fMemberPoints" [(ngModel)]="iMemberSignin.fMemberPoints" name="fMemberPoints" />
+
+    <label for="fMemberShip">會員等級</label>
+    <input type="text" id="fMemberShip" [(ngModel)]="iMemberSignin.fMemberShip" name="fMemberShip" />
+
+    <label for="fMailVerify">郵件驗證</label>
+    <input type="checkbox" id="fMailVerify" [(ngModel)]="iMemberSignin.fMailVerify" name="fMailVerify" />
+
+    <label for="fSOPExp">SOP過期日期</label>
+    <input type="date" id="fSOPExp" [(ngModel)]="iMemberSignin.fSOPExp" name="fSOPExp" /> -->
+
+    <button type="submit">更新資料</button>
+    <div class="button-container">
+      <button [routerLink]="['/common/home']" class="forum-button return-button">返回首頁</button>
+    </div>
+  </form>
+  <p>{{ message }}</p>
+</div>

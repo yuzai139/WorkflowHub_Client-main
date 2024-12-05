@@ -1,0 +1,25 @@
+.my-box {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  padding: 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.my-box:hover {
+  background-color: #bdc3c7; /* hover 時的背景顏色 */
+  color: #34495e; /* hover 時的文字顏色 */
+}
+
+.confirm-button {
+  background-color: #10B981;
+  color: #fafafa;
+  padding: 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.confirm-button:hover {
+  background-color: #059669; /* hover 時的背景顏色 */
+  color: #fafafa; /* hover 時的文字顏色 */
+}

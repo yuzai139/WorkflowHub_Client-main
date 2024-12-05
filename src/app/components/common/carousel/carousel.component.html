@@ -1,0 +1,12 @@
+<!-- <div id="carousel">
+  <div id="wrapper">
+    <button id="previous" (click)="prev()"><i class="ti ti-chevron-left text-xl"></i></button>
+    <button id="next" (click)="next()"><i class="ti ti-chevron-right text-xl"></i></button>
+    <img [src]="images[currentIndex]" alt="Image" />
+  </div>
+</div> -->
+<div class="carousel">
+  <button (click)="prev()"><lucide-icon name="arrow-left"></lucide-icon></button>
+  <img [src]="images[currentIndex]" alt="Image" />
+  <button (click)="next()"><lucide-icon name="arrow-right"></lucide-icon></button>
+</div>

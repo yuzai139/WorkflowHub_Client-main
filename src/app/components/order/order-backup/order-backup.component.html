@@ -1,0 +1,202 @@
+<!-- <body> -->
+   <!-- 添加 Header -->
+   <!-- <app-header></app-header> -->
+
+
+    <section class="pt-34 mt-10 mb-10">
+    <div class="container">
+
+
+      <!-- 添加會員檢查提示 -->
+      <div *ngIf="!memberId" class="container mb-4">
+        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4" role="alert">
+          <p>請先登入會員才能進行結帳</p>
+        </div>
+      </div>
+
+      <!-- 原有的結帳內容 -->
+
+      <div class="container" *ngIf="memberId">
+        <div class="grid xl:grid-cols-3 gap-10">
+          <!-- 左側表單區塊 開始 -->
+          <div class="xl:col-span-2">
+            <div class="border border-default-200 p-10 rounded-2xl">
+              <!-- 頁籤導航列 開始 -->
+              <div class="text-base mb-5">
+                <h5 class="text-3xl font-bold border-gray-200">商品結帳</h5>
+              </div>
+              <nav class="flex flex-col sm:flex-row gap-2" aria-label="Tabs" role="tablist">
+                <button type="button" class="hs-tab-active:bg-primary hs-tab-active:text-white bg-primary/20 text-primary flex-auto py-3 px-4 inline-flex justify-center items-center gap-2 text-sm font-medium text-center rounded-md hover:text-primary active" id="payment-detail" data-hs-tab="#payment-detail-item" aria-controls="payment-detail-item" role="tab">
+                  <i data-lucide="badge-dollar-sign" class="h-5 w-5"></i> 付款資料
+                </button>
+              </nav>
+
+            <div class="mt-10">
+              <!-- 付款資料表單 開始 -->
+              <div id="payment-detail-item" role="tabpanel" aria-labelledby="payment-detail">
+                <form #orderForm="ngForm" (ngSubmit)="submitOrder()" *ngIf="selectedPaymentMethod === 'credit_card'">
+
+                  <div class="grid md:grid-cols-12 gap-6">
+                    <div class="md:col-span-6">
+                      <label for="f_name" class="mb-2.5 block text-sm font-medium text-default-700">持卡人姓名</label>
+                      <input type="text"
+                             id="f_name"
+                             [(ngModel)]="paymentForm.cardHolderName"
+                             name="cardHolderName"
+                             required
+                             class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50"
+                             placeholder="請輸入持卡人姓名" />
+                    </div>
+                    <div class="md:col-span-6">
+                      <label for="l_name" class="mb-2.5 block text-sm font-medium text-default-700">卡號</label>
+                      <input type="number"
+                             id="l_name"
+                             [(ngModel)]="paymentForm.cardNumber"
+                             name="cardNumber"
+                             class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50"
+                             placeholder="請輸入信用卡號碼" />
+                    </div>
+                    <div class="md:col-span-12">
+                      <label for="address" class="mb-2.5 block text-sm font-medium text-default-700">帳單地址</label>
+                      <input type="text"
+                             id="address"
+                             [(ngModel)]="paymentForm.billingAddress"
+                             name="billingAddress"
+                             class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50"
+                             placeholder="請輸入帳單地址" />
+                    </div>
+                    <div class="md:col-span-6">
+                      <label for="expiration" class="mb-2.5 block text-sm font-medium text-default-700">有效期限</label>
+                      <input type="text"
+                             id="expiration"
+                             [(ngModel)]="paymentForm.expirationDate"
+                             name="expirationDate"
+                             class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50"
+                             placeholder="MM/YY" />
+                    </div>
+                    <div class="md:col-span-6">
+                      <label for="CVV" class="mb-2.5 block text-sm font-medium text-default-700">安全碼</label>
+                      <input type="text"
+                             id="CVV"
+                             [(ngModel)]="paymentForm.cvv"
+                             name="cvv"
+                             class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50"
+                             placeholder="請輸入卡片背面三位數字" />
+                    </div>
+                    <div class="md:col-span-12 flex items-center space-x-2">
+                      <input type="checkbox" id="address_confirm" class="form-checkbox rounded bg-transparent border-default-200 text-primary ring-0 focus:ring-transparent" />
+                      <label for="address_confirm" class="text-sm font-medium text-default-700">記住我</label>
+                    </div>
+                    <div class="md:col-span-12">
+                      <div class="flex justify-end gap-2">
+                      <button type="button"
+                              (click)="fillDemoData()"
+                              class="inline-flex items-center justify-center rounded-lg bg-primary/20 px-6 py-2.5 text-center text-sm font-medium text-primary shadow-sm transition-all duration-200 hover:text-white hover:bg-primary">
+                              demo
+                      </button>
+                      <button type="button"
+                                (click)="goBack()"
+                                class="inline-flex items-center justify-center rounded-lg bg-primary/20 px-6 py-2.5 text-center text-sm font-medium text-primary shadow-sm transition-all duration-200 hover:text-white hover:bg-primary">
+                          返回
+                        </button>
+                    </div>
+                    </div>
+                    <div class="md:col-span-12">
+                      <div class="flex justify-end gap-2">
+
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+                <!-- LINE Pay 說明訊息 -->
+                <div *ngIf="selectedPaymentMethod === 'line_pay'" class="text-center p-4">
+                  <p class="text-lg text-default-700">選擇 LINE Pay 付款無需填寫信用卡資料</p>
+                  <p class="text-sm text-default-600 mt-2">點擊右側「使用 LINE Pay 付款」按鈕即可進行結帳</p>
+                </div>
+              </div><!-- end payment detail -->
+            </div>
+          </div>
+        </div><!-- end grid-cols -->
+
+        <!-- 右側訂單摘要區塊 開始 -->
+        <div class="xl:col-span-1">
+          <div class="border border-default-200 rounded-lg">
+            <!-- 訂單商品列表 開始 -->
+            <div class="p-6">
+              <h3 class="text-xl font-semibold border-gray-200">訂單摘要</h3>
+              <div class="my-6">
+                <div *ngFor="let item of cartItems" class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-4">
+                    <img [src]="item.fPubSopImagePath"
+                         [alt]="item.fSopName"
+                         class="h-16 w-16 object-cover">
+                    <a href="#" class="text-base font-medium text-default-800">{{item.fSopName}}</a>
+                  </div>
+                  <h3 class="text-base font-medium text-default-800">NT$ {{item.fPrice}}</h3>
+                </div>
+              </div>
+
+              <!-- 訂單金額明細區塊 -->
+              <div class="*:border-b *:border-default-200">
+                <div class="flex items-center justify-between p-3">
+                  <h6 class="text-base text-default-800 font-medium">金額：</h6>
+                  <h6 class="text-base text-default-800 font-medium">NT$ {{totalAmount}}</h6>
+                </div>
+                <div class="flex items-center justify-between p-3">
+                  <h6 class="text-base text-default-800 font-medium">數量：</h6>
+                  <h6 class="text-base text-default-800 font-medium">{{totalQuantity}}</h6>
+                </div>
+                <div class="flex items-center justify-between p-3">
+                  <h6 class="text-base text-default-800 font-medium">小計：</h6>
+                  <h4 class="text-xl text-default-800 font-medium">NT$ {{totalAmount}}</h4>
+                </div>
+              </div>
+            </div>
+
+            <!-- 付款方式選擇區塊 開始 -->
+            <div class="flex flex-col gap-4 mt-6 px-8">
+              <div class="flex items-center space-x-2">
+                <input type="radio"
+                       id="line_pay"
+                       name="paymentMethod"
+                       value="line_pay"
+                       [(ngModel)]="selectedPaymentMethod"
+                       class="h-4 w-4 rounded-full border-default-300 text-primary shadow-sm focus:ring-2 focus:ring-primary bg-transparent focus:ring-offset-default-50" />
+                <label for="line_pay" class="text-sm font-medium text-default-700">
+                  <img src="assets/order/images/line.jpg" alt="LINE Pay" class="h-6 inline-block mr-2">LINE Pay
+                </label>
+              </div>
+              <div class="flex items-center space-x-2">
+                <input type="radio"
+                       id="credit_card"
+                       name="paymentMethod"
+                       value="credit_card"
+                       [(ngModel)]="selectedPaymentMethod"
+                       class="h-4 w-4 rounded-full border-default-300 text-primary shadow-sm focus:ring-2 focus:ring-primary bg-transparent focus:ring-offset-default-50" />
+                <label for="credit_card" class="text-sm font-medium text-default-700">
+                  <img src="assets/order/images/card.png" alt="card" class="h-6 inline-block mr-2">信用卡</label>
+              </div>
+            </div><!-- 付款方式選擇區塊 結束 -->
+
+            <!-- 確認下單按鈕區塊 開始 -->
+            <div class="px-4 py-3">
+              <button type="button"
+                      (click)="selectedPaymentMethod === 'line_pay' ? initiateLinePay() : submitOrder()"
+                      [disabled]="!isFormValid()"
+                      class="w-full inline-flex items-center justify-center rounded-lg bg-primary px-6 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-primary-600 disabled:bg-gray-400 disabled:cursor-not-allowed">
+                {{ selectedPaymentMethod === 'line_pay' ? '使用 LINE Pay 付款' : '確認下單' }}
+              </button>
+            </div><!-- 確認下單按鈕區塊 結束 -->
+          </div>
+        </div><!-- 右側訂單摘要區塊 結束 -->
+      </div><!-- end grid -->
+    </div><!--  end container -->
+  <!-- </section> -->
+
+  <!-- 添加 Footer -->
+  <!-- <app-footer></app-footer> -->
+
+<!-- </body> -->
+
+

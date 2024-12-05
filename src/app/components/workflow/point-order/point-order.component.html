@@ -1,0 +1,109 @@
+<!-- <p>暫時當作購物車測試畫面使用</p> -->
+ <!-- 當作這個元件 app-purchase-by-point 使用-->
+<!-- 主要購物車區塊 -->
+<!-- <section class="py-10">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col lg:flex-row gap-6">
+      <div class="lg:w-2/3">
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h2 class="text-2xl font-semibold mb-6">購物車</h2>
+
+          <div      class="text-center py-8">
+            <p class="text-gray-500 mb-4">您的購物車是空的</p>
+                    class="bg-primary text-white px-6 py-2 rounded-md hover:bg-primary-600">
+              繼續購物
+          </div>
+
+          <div       class="flex items-center gap-4 py-4 border-b">
+            <img src="assets/images/default-product.png" alt="" class="h-40 w-40">
+
+            <div class="flex-grow">
+              <h3 class="font-semibold"> </h3>
+              <p class="text-primary">NT$ </p>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div class="flex items-center border rounded-md">
+                <button
+
+                        class="px-2">
+                  -
+                </button>
+                <input type="text"
+                       class="w-8 border-0 text-sm text-center text-default-800 focus:ring-0 p-0 bg-transparent">
+                <button
+                        class="px-2">
+                  +
+                </button>
+              </div>
+
+              <button
+                      class="text-red-500 hover:text-red-700">
+                <i class="ti ti-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="lg:w-1/3">
+        <div class="bg-white rounded-lg shadow-md p-6 sticky top-4">
+          <h2 class="text-xl font-semibold mb-4">訂單摘要</h2>
+
+          <div class="space-y-3 mb-4">
+            <div class="flex justify-between">
+              <span>小計</span>
+              <span>NT$     </span>
+            </div>
+            <div class="flex justify-between font-semibold">
+              <span>總計</span>
+              <span class="text-primary">NT$   </span>
+            </div>
+          </div>
+
+          <button
+                  class="w-full px-6 py-2.5 bg-primary text-white rounded-md hover:bg-primary-600 disabled:bg-gray-400 disabled:cursor-not-allowed">
+            前往結帳
+          </button>
+        </div> -->
+        <!-- 點數購買放下面這行 -->
+        <!-- <app-purchase-by-point></app-purchase-by-point> -->
+
+        <!--=================點數購買  開始===============-->
+        <div class="bg-white rounded-lg shadow-md p-6 sticky top-4" style="margin-top: 32px;">
+          <h2 class="text-xl font-semibold mb-4">點數購買</h2>
+
+          <div class="space-y-3 mb-4">
+
+            <div class="flex justify-between font-semibold">
+              <span>總計</span>
+              <span class="text-primary" style="color: black;">{{totalPoint}}點</span>
+            </div>
+          </div>
+
+          <p-button (onClick)="op.toggle($event)" icon="ti ti-pentagram" label="使用點數結帳" class="my-box" />
+          <p-overlayPanel #op>
+            <div class="flex flex-column gap-3 w-25rem">
+                <div>
+                    <span class="font-medium text-900 block mb-2">會員目前點數 : {{memberPoint}}點</span>
+                </div>
+            </div>
+            <!-- 使用點數結帳按鈕 -->
+            <ng-container *ngIf="isPointEnough; else insufficientPoints">
+              <button (click)="reduceMemberPoints()" class="w-full px-6 py-2 bg-primary text-white rounded-md hover:bg-primary-600">
+                扣除{{totalPoint}}點並結帳
+              </button>
+            </ng-container>
+            <!-- 點數不足訊息 -->
+            <ng-template #insufficientPoints>
+              <p style="color: brown;">您的點數不足以支付此訂單</p>
+            </ng-template>
+        </p-overlayPanel>
+        </div>
+        <!--=========點數購買  結束===========-->
+      <!-- </div>
+      <p-messages />
+    </div>
+  </div>
+</section> -->

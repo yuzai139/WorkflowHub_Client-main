@@ -1,0 +1,512 @@
+<div id="slide" class="flex">
+  <!-- slidebar start -->
+  <div class="container" id="slideBar">
+    <div class="relative lg:flex gap-6">
+      <div id="application-sidebar" class="hs-overlay fixed inset-y-0 start-0 z-60 hidden w-64 -translate-x-full transform overflow-y-auto border-e border-default-200
+        bg-white transition-all duration-300 hs-overlay-open:translate-x-0 dark:bg-default-50 lg:bottom-0 lg:end-auto lg:z-30 lg:block
+        lg:translate-x-0 rtl:translate-x-full rtl:hs-overlay-open:translate-x-0 rtl:lg:translate-x-0 print:hidden">
+        <div class="sticky top-0 flex h-18 items-center justify-start px-6">
+          <a routerLink="/common/home">
+            <img src="../../../../assets/template/logo-dark-1caee452.png" alt="logo" class="flex h-10 dark:hidden" />
+          </a>
+        </div>
+        <p class="border-b border-default-200"></p>
+        <div class="hs-accordion-group h-[calc(100%-72px)] p-4" data-simplebar>
+          <ul class="admin-menu flex w-full flex-col gap-1.5">
+            <!-- <div class="flex justify-end">
+              <a class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle
+              duration-500 text-sm text-center bg-primary hover:bg-primary-700 border-primary
+              hover:border-primary-700 text-white rounded-full float-right" control-id="ControlID-19">
+                <i class="pi pi-plus-circle me-2"></i>
+                <span>新增發布者</span>
+              </a>
+
+            </div> -->
+            <!-- <p class="text-center text-sm text-default-700">預設會員ID={{memId}}</p>用不著了哈哈 -->
+            <div>
+              <ul (click)="isEditClick()">
+                <button class="shrink flex items-center justify-center
+              rounded-lg bg-primary text-white px-6 py-2.5
+              text-center text-sm font-medium shadow-sm transition-all duration-200
+              hover:bg-primary hover:text-white" (click)="changePage()">
+                  <i class="pi pi-plus-circle me-2"></i>
+                  <span>新增發布者</span></button>
+              </ul>
+            </div>
+
+            <!-- <li class="menu-item">
+              <a routerLink="/pubmanage/main"
+                class="flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-accordion-active:bg-default-100">
+                <i class="ti ti-smart-home text-xl"></i>
+                發布者中心
+                 <span class="ms-auto inline-block rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">9+</span>
+              </a>
+            </li> -->
+            <li class="menu-item hs-accordion">
+              <!-- hs-accordion 下拉選單 -->
+              <a href="javascript:void(0)"
+                class="hs-accordion-toggle flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-accordion-active:bg-default-100">
+                <i class="ti ti-users text-xl"></i>
+                發布者一覽
+                <i class="ti ti-chevron-right ms-auto text-sm transition-all hs-accordion-active:rotate-90"></i>
+                <!-- 下拉選單 -->
+              </a>
+              <!-- API下拉選單發布者列出 -->
+              <div id="menuCoupons"
+                class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300">
+                <ul class="mt-2 flex flex-col gap-2">
+                  <li class="menu-item" *ngFor="let p of publisherList" (click)="showPubProfile(p.fPublisherId)">
+                    <!-- p.fPublisherId -->>
+                    <a routerLink="/pubmanage/profile"
+                      class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100">
+                      <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                      {{p.fPubName}}
+                      <!-- call API 該發布者ID的工作流資訊 -->
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+
+            <!-- <li class="menu-item hs-accordion">
+              <a href="javascript:void(0)"
+                class="hs-accordion-toggle flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-accordion-active:bg-default-100">
+                <i class="ti ti-building-store text-xl"></i>
+                工作流管理
+                <i class="ti ti-chevron-right ms-auto text-sm transition-all hs-accordion-active:rotate-90"></i>
+                 下拉選單
+              </a>
+              <div id="menuCoupons"
+                class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300">
+                <ul class="mt-2 flex flex-col gap-2">
+                  <li class="menu-item">
+                    <a href="admin-coupons-list.html"
+                      class="flex items-center gap-x-3.5 rounded-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100">
+                      <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
+                      Coupons List
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li> -->
+
+            <li class="menu-item hs-accordion">
+              <a routerLink="/common/home"
+                class="hs-accordion-toggle flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 hover:bg-default-100">
+                <i class="ti ti-login-2 text-xl"></i>
+                回到首頁
+                <i class="ti ti-chevron-right ms-auto text-sm transition-all hs-accordion-active:rotate-90"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- slidebar end -->
+  <div id="container" class="container flex-1 mt-4 ">
+    <main class="">
+      <p class="text-4xl font-bold mb-4">發布者中心</p>
+      <div class="border-b border-default-200 mb-4"></div>
+
+      <!-- profile頁 start -->
+      <div class="container border border-default-200 rounded-lg px-4 py-4" *ngIf="!isCreate">
+        <!-- 外圍範圍內部間距 -->
+        <div class="grid lg:grid-cols-2 gap-4 " *ngIf="publisher">
+          <!-- 分空間 -->
+          <div class="border-r border-default-200">
+            <label for="example-palaceholder" class="text-black text-lg font-semibold inline-block mb-6">發布者頭像</label>
+            <div style="display: flex; justify-content: space-between;">
+              <div class="md:w-1/3 border-default-800 mb-6">
+                <!-- 圖片預覽 -->
+                <img id="pubImg" src="../../../../assets/template/1-f1564e7c.png" alt="" class="w-32 rounded mx-auto">
+                <!-- 圖片上傳start -->
+                <form action="/somewhere/to/upload" enctype="multipart/form-data">
+                  <input name="progressbarTW_img" type="file" name="上傳圖片" accept="image/gif, image/jpeg, image/png">
+                </form>
+                <!-- 圖片上傳end -->
+                <div class="px-5 mt-2">
+                  <button type="button" class="bg-primary text-white rounded-md px-2 py-1">上傳圖片</button>
+                </div>
+
+              </div>
+              <div class="">
+                <a routerLink="/publisher/profile"
+                  class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-lg text-center
+                bg-default-200 hover:bg-default-300 border-default-200 hover:border-default-200 text-default-900 rounded-md">
+                  預覽
+                </a>
+              </div>
+            </div>
+            <div class="mt-4">
+              <label for="example-palaceholder" class="text-black text-lg font-semibold inline-block mb-4">發布者簡介</label>
+            </div>
+            <!-- editor -->
+            <div class="card px-4">
+              <p-editor [(ngModel)]="publisher.fPubDescription" [style]="{ height: '320px' }  "></p-editor>
+            </div>
+
+          </div>
+
+          <div class="lg:col-span-1">
+            <div class="" style="display: flex; justify-content: space-between;">
+              <div class="">
+                <label for="example-palaceholder"
+                  class="text-black text-lg font-semibold inline-block mb-6">發布者名稱</label>
+              </div>
+              <div class="flex-1">
+                <button *ngIf="!isEdit" (click)="isEditClick()"
+                  class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-lg text-center==
+                bg-default-200 hover:bg-default-300 border-default-200 hover:border-default-200 text-default-900 rounded-md">
+                  編輯
+                </button>
+                <div *ngIf="isEdit" (click)="isEditClick()" class="grid grid-cols-2">
+                  <button
+                    class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-lg text-center
+                  bg-default-200 hover:bg-default-300 border-default-200 hover:border-default-200 text-default-900 rounded-md"
+                    (click)="showPubProfile(publisher.fPublisherId)">
+                    取消
+                  </button>
+                  <button class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-lg text-center
+                    bg-primary hover:bg-primary-700 border-primary hover:border-primary-700 text-white rounded-md"
+                    (click)="saveByPostApi()">
+                    儲存
+                  </button>
+                </div>
+              </div>
+            </div>
+            <input type="text" id="example-palaceholder" [readOnly]="!isEdit"
+              class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50"
+              placeholder="請輸入置多16字" control-id="ControlID-10" [(ngModel)]="publisher.fPubName">
+            <!-- 記得限字數 -->
+            <div>
+              <label for="example-palaceholder"
+                class="text-black text-lg font-semibold inline-block mb-6 mt-4">額外連結</label>
+              <div class="mb-2 flex mb-4">
+                <i class="lg:col-span-1 ti ti-mail text-4xl mr-4 "></i>
+                <input type="text" id="leading-icon" name="leading-icon" [readOnly]="!isEdit"
+                  class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50 ps-6"
+                  placeholder="you@mail.com" control-id="ControlID-27" name="123" [(ngModel)]="linkObj.fEmail">
+              </div>
+              <div class="mb-2 flex mb-4">
+                <i class="lg:col-span-1 ti ti-brand-linkedin text-4xl mr-4 "></i>
+                <input type="email" id="leading-icon" name="leading-icon" [readOnly]="!isEdit"
+                  class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50 ps-6"
+                  placeholder="linkedin.com" control-id="ControlID-27" [(ngModel)]="linkObj.fLinkin">
+              </div>
+              <div class="mb-2 flex mb-4">
+                <i class="lg:col-span-1 ti ti-brand-github text-4xl mr-4 "></i>
+                <input type="email" id="leading-icon" name="leading-icon" [readOnly]="!isEdit"
+                  class="block w-full rounded-md py-2.5 px-4 text-default-800 text-sm focus:ring-transparent border-default-200 dark:bg-default-50 ps-6"
+                  placeholder="github.com" control-id="ControlID-27" [(ngModel)]="linkObj.fGithub">
+              </div>
+              <!-- 千琇的按鈕 -->
+              <a routerLink="/pubmanage/workflowlist"
+                class="mt-6 flex items-center justify-center py-2.5 px-8 inline-block font-semibold tracking-wide border align-middle duration-500
+              text-lg text-center bg-primary hover:bg-primary-700 border-primary hover:border-primary-700 text-white rounded-md " control-id="ControlID-81">
+                前往工作流管理
+                <lucide-icon name="arrow-right-from-line" [size]="48" [strokeWidth]="2.25"></lucide-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- profile頁 end -->
+    </main>
+  </div>
+</div>
+<div>
+  slideBar和profile寫同一頁的CSS
+  #slide {
+  display: flex;
+  height: 100vh; /* 确保占满整个视口高度 */
+  }
+
+  #slideBar {
+  width: 16rem; /* 固定宽度 */
+  background-color: white; /* 深灰色背景 */
+  color: white;
+
+  }
+
+  #container {
+  flex: 1; /* 占据剩余空间 */
+  padding: 1.5rem; /* 内边距 */
+  overflow-y: auto; /* 确保内容可滚动 */
+  }
+  @media (max-width: 1024px) {
+  #slideBar {
+  display: none;
+  }
+  /* 偵測多寬會消失 */
+  }
+</div>
+
+<!-- 前台profile -->
+<section class="lg:py-12 py-6">
+  <div class="container">
+    <div class="border border-default-200 rounded-lg bg-white dark:bg-default-50 h-fit">
+      <!-- 分五份 -->
+      <!--會員側邊欄 start-->
+      <div class="hidden lg:block">
+        <div class="rounded-lg bg-default-100 p-4 dark:bg-default-100">
+          <div class="py-8 text-center">
+            <ng-container *ngIf="imagePreview; else defaultImage">
+              <img [src]="imagePreview" class="mx-auto h-28 w-28 rounded-full" />
+            </ng-container>
+            <ng-template #defaultImage>
+              <img src="../../../../assets/lecture-publisher/memberDefault.png"
+                class="mx-auto h-28 w-28 rounded-full" />
+            </ng-template>
+            <h3 class="mt-2 text-xl font-medium text-default-900">{{this.Publisher.fPubName}}</h3>
+            <p class="mt-1 text-base text-default-600">
+              <!-- 有想到再加 -->
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- 發布者內容 start-->
+      <div class="border border-default-200 rounded-lg bg-white dark:bg-default-50 h-fit">
+        <div class="flex items-center justify-between py-4 px-5">
+          <div class="">
+            <h5 class="text-lg font-medium text-default-950 capitalize mb-1"> Tabs Bordered</h5>
+            <p class="text-default-600 text-sm font-medium">A basic form of tabs with underline.</p>
+          </div>
+        </div>
+        <div class="p-5 border-t border-dashed border-default-200">
+          <nav class="flex space-x-3 border-b border-gray-200 dark:border-gray-600" aria-label="Tabs" role="tablist">
+            <button type="button"
+              class="hs-tab-active:border-primary hs-tab-active:text-primary font-semibold py-4 px-1 inline-flex items-center gap-2 border-b-2 border-transparent -mb-px transition-all whitespace-nowrap hover:text-primary active"
+              id="tabs-with-icons-item-1" data-hs-tab="#tabs-with-icons-1" aria-controls="tabs-with-icons-1" role="tab">
+              關於
+            </button>
+            <button type="button"
+              class="hs-tab-active:border-primary hs-tab-active:text-primary font-semibold py-4 px-1 inline-flex items-center gap-2 border-b-2 border-transparent -mb-px transition-all whitespace-nowrap hover:text-primary"
+              id="tabs-with-icons-item-2" data-hs-tab="#tabs-with-icons-2" aria-controls="tabs-with-icons-2" role="tab">
+              工作流
+            </button>
+          </nav>
+          <div class="mt-3">
+            <div id="tabs-with-icons-1" role="tabpanel" aria-labelledby="tabs-with-icons-item-1" class="">
+              <p class="text-2xl text-default-600 mb-4 ">簡介</p>
+              <p class="text-default-600 mb-4">{{this.Publisher.fPubDescription}}</p>
+              <p class="border-b border-default-200 mb-4"></p>
+              <p class="text-2xl text-default-600 mb-4 ">相關連結</p>
+              <div class="flex">
+                <div class="flex mr-4">
+                  <a href="https://www.mail.com/">
+                    <i class="lg:col-span-1 ti ti-mail text-4xl mr-4"></i>
+                  </a>
+                  <p class="mt-1">{{this.linkObj.fEmail}}</p>
+                </div>
+                <div class="flex">
+                  <a href="https://www.linkedin.com/">
+                    <i class="lg:col-span-1 ti ti-brand-linkedin text-4xl mr-4"></i>
+                  </a>
+                  <p class="mt-1">{{this.linkObj.fLinkin}}</p>
+                </div>
+                <div class="flex">
+                  <a href="https://www.github.com/">
+                    <i class="lg:col-span-1 ti ti-brand-github text-4xl mr-4"></i>
+                  </a>
+                  <p class="mt-1">{{this.linkObj.fGithub}}</p>
+                </div>
+              </div>
+            </div>
+            <div id="tabs-with-icons-2" class="hidden" role="tabpanel" aria-labelledby="tabs-with-icons-item-2">
+              <div class="flex items-center justify-between py-4 px-5">
+                <div class="">
+                  <h5 class="text-lg font-medium text-default-950 capitalize mb-1"> Tabs Bordered</h5>
+                  <ul>4444</ul>
+                  <ul>
+                    <li *ngFor="let item of pubSopList" class="text-default-600 text-sm font-medium">
+                      {{ item.fSopName }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between py-4 px-5">
+
+
+          <!-- 這裡是ngFor起點， -->
+          <ul *ngFor="let item of pubSopList">
+            <div
+              class="border border-default-200 rounded-xl overflow-hidden duration-500 hover:border-primary relative">
+              <!-- 卡片外框 -->
+              <div class="p-4">
+                <!-- 卡片標籤 -->
+                <div class="relative">
+                  <div class="absolute top-0 start-0">
+                    <span
+                      class="inline-flex items-center gap-1.5 py-1 px-4 rounded-lg text-sm font-medium bg-primary/10 text-primary">Sale</span>
+                  </div>
+                  <div class="absolute top-0 end-0">
+                    <span
+                      class="inline-flex items-center gap-1.5 py-1 px-4 rounded-lg text-sm font-medium bg-red-500/10 text-red-500">Hot</span>
+                  </div>
+                  <img src="../../../../assets/lecture-publisher/work001.jpg" alt="">
+                </div>
+              </div>
+
+              <!-- 卡片標題 跳轉在這 -->
+              <div class="border-t border-dashed border-default-200 p-4">
+                <div class="mb-4">
+                  <a routerLink="/workflow/workflowmarket-product/{{item.fSOPID}}"
+                    (click)="selectedIdToService(item.fSOPID)"
+                    class="text-default-600 text-xl font-semibold line-clamp-1 after:absolute after:inset-0 after:z-0">{{item.fSopName}}</a>
+                </div>
+                <!-- 卡片價錢 & 加入購物車 -->
+                <div class="flex items-center justify-between gap-2">
+                  <h4 class="font-semibold text-xl text-primary">${{item.fPrice}} <span
+                      class="text-default-400 text-base">{{item.fSalePoints}}P</span> </h4>
+                  <a href="pages-cart.html "
+                    class="shrink flex items-center justify-center rounded-lg bg-primary/20 text-primary px-6 py-2.5 text-center text-sm font-medium shadow-sm transition-all duration-200 hover:bg-primary hover:text-white relative z-10">
+                    <i class="ti ti-shopping-bag text-xl me-2"></i>
+                    <span>加入購物車</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </ul>
+          <!-- ngFor終點 -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 第二版 -->
+<div class="p-6 space-y-6">
+
+  <!-- 外框 -->
+  <div class="grid lg:grid-cols-3 grid-cols-1 gap-6 p-6 space-y-6">
+    <!-- 左邊 -->
+    <div class="lg:col-span-1">
+      <div class="p-6 rounded-lg border border-default-200">
+        <!-- <img src="assets/8-b8444411.png" alt=""
+          class="w-24 mx-auto rounded-full p-1 border-2 border-dashed border-default-300 bg-default-100"> -->
+        <div class="py-8 text-center bg-default-100">
+          <ng-container *ngIf=" imagePreview; else defaultImage">
+            <img [src]="imagePreview" class="mx-auto h-28 w-28 rounded-full" />
+          </ng-container>
+          <ng-template #defaultImage>
+            <img src="../../../../assets/lecture-publisher/memberDefault.png" class="mx-auto h-28 w-28 rounded-full" />
+          </ng-template>
+          <h3 class="mt-2 text-xl font-medium text-default-900">{{this.Publisher.fPubName}}</h3>
+          <p class="mt-1 text-base text-default-600">
+            <!-- 有想到再加 -->
+          </p>
+        </div>
+
+        <div class="text-start mt-6">
+          <p class="text-2xl text-default-600 mb-4 ">簡介</p>
+          <p class="text-default-600 mb-4">{{this.Publisher.fPubDescription}}</p>
+          <p class="border-b border-default-200 mb-4"></p>
+          <p class="text-2xl text-default-600 mb-4 ">相關連結</p>
+          <div class="">
+            <div class="flex mb-2">
+              <a href="https://www.mail.com/">
+                <i class="lg:col-span-1 ti ti-mail text-4xl mr-4"></i>
+              </a>
+              <p class="mt-1">{{this.linkObj.fEmail}}</p>
+            </div>
+            <div class="flex mb-2">
+              <a href="https://www.linkedin.com/">
+                <i class="lg:col-span-1 ti ti-brand-linkedin text-4xl mr-4"></i>
+              </a>
+              <p class="mt-1">{{this.linkObj.fLinkin}}</p>
+            </div>
+            <div class="flex">
+              <a href="https://www.github.com/">
+                <i class="lg:col-span-1 ti ti-brand-github text-4xl mr-4"></i>
+              </a>
+              <p class="mt-1">{{this.linkObj.fGithub}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右邊 -->
+    <div class="lg:col-span-2">
+      <div class="border rounded-lg border-default-200">
+        <!-- 標題 -->
+        <div class="px-6 py-4">
+          <div class="flex flex-wrap justify-between items-center gap-6">
+            <h4 class="text-xl font-medium text-3xl text-default-900">{{Publisher.fPubName}} 的發布工作流程</h4>
+          </div>
+        </div>
+        <!-- 表格 -->
+        <div class="overflow-x-auto">
+          <div class="min-w-full inline-block align-middle">
+            <div class="rounded-lg divide-y divide-default-200">
+              <div class="overflow-hidden">
+                <table class="min-w-full divide-y divide-default-200">
+                  <!-- 表格標題 -->
+                  <thead class="bg-default-100">
+                    <tr class="text-start">
+                      <th class="px-6 py-3 text-start text-sm whitespace-nowrap font-medium text-default-800">發布時間
+                      </th>
+                      <th class="px-6 py-3 text-start text-sm whitespace-nowrap font-medium text-default-800"></th>
+                      <th class="px-6 py-3 text-start text-sm whitespace-nowrap font-medium text-default-800 min-w">
+                        工作流名稱</th>
+                      <th class="px-6 py-3 text-start text-sm whitespace-nowrap font-medium text-default-800">
+                      </th>
+                      <th
+                        class="px-6 py-3 text-start text-sm whitespace-nowrap font-medium text-default-800 min-w-[10rem]">
+                        售價</th>
+                    </tr><!-- end table-head-row -->
+                  </thead><!-- end t-head -->
+                  <!-- 表格內容 -->
+                  <tbody class="divide-y divide-default-200">
+                    <tr *ngFor="let item of this.pubSopList">
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-default-700">{{item.fReleaseTime}}
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-default-700">
+                        <!-- #4357 -->
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-default-800">
+                        <div class="flex items-center gap-4">
+                          <!-- <div class="shrink">
+                            <div class="h-11 w-11">
+                              <img src="assets/1-2ca96552.png" class="max-w-full h-full">
+                            </div>
+                          </div> -->
+                          <div class="grow">
+                            <p class="text-sm text-default-800 mb-1">{{item.fSopName}}</p>
+                            <!-- 評分 -->
+                            <!-- <div class="flex items-center gap-2">
+                              <div class="flex gap-1.5">
+                                <button><i class="ti ti-star-filled text-lg text-yellow-400"></i></button>
+                                <button><i class="ti ti-star-filled text-lg text-yellow-400"></i></button>
+                                <button><i class="ti ti-star-filled text-lg text-yellow-400"></i></button>
+                                <button><i class="ti ti-star-filled text-lg text-yellow-400"></i></button>
+                                <button><i class="ti ti-star-filled text-lg text-yellow-400"></i></button>
+                              </div>
+                              <h6 class="text-xs text-default-500 mt-1">(54)</h6>
+                            </div> -->
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4">
+                        <span class="px-3 py-1 text-xs font-medium rounded-md text-yellow-500">
+                          <!-- Refund -->
+                        </span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-default-700">{{item.fPrice}}</td>
+                    </tr><!-- end table-row -->
+                  </tbody><!-- end t-body -->
+                </table><!-- end table -->
+              </div><!-- end overflow-hidden -->
+            </div><!-- end table-responsive -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

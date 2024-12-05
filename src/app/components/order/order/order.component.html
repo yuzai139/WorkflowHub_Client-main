@@ -1,0 +1,111 @@
+<!-- 未登入提示 -->
+<div *ngIf="!memberId" class="container mx-auto px-4 mb-4">
+  <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4" role="alert">
+    <p>請先登入會員才能查看訂單</p>
+  </div>
+</div>
+
+<body>
+
+<section class="lg:py-8 py-6">
+  <div class="container mx-auto max-w-7xl px-4">
+    <!-- 訂單列表 -->
+    <div class="grid lg:grid-cols-1 gap-6" *ngIf="!selectedOrder">
+      <div class="col-span-1">
+        <div class="border border-default-200 rounded-lg">
+          <div class="px-6 py-4 flex justify-between items-center">
+            <!-- 訂單列表標題 -->
+            <h5 class="text-4xl font-bold border-gray-800">訂單列表</h5>
+
+            <!-- 搜尋表單 -->
+            <form (ngSubmit)="searchOrder(orderIdInput.value, $event)" class="flex">
+              <div class="flex space-x-2">
+                <input
+                  #orderIdInput
+                  type="text"
+                  id="order_id"
+                  class="py-2 text-sm block w-64 rounded-md border-gray-300 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  placeholder="請輸入訂單編號（例如：1000）"
+                  [disabled]="!memberId" />
+                <button
+                  type="submit"
+                  [disabled]="loading || !memberId"
+                  class="px-4 py-2 rounded-md border border-blue-600 bg-blue-600 text-sm font-medium text-white shadow-sm transition-all hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap">
+                  {{ loading ? '搜尋中...' : '搜尋' }}
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="min-w-full border-y border-dashed border-default-200 divide-y divide-dashed divide-default-200">
+              <thead>
+                <tr class="text-start bg-default-100">
+                  <th class="px-6 py-3 text-start text-base font-semibold text-default-800">訂單編號</th>
+                  <th class="px-6 py-3 text-start text-base font-semibold text-default-800">會員編號</th>
+                  <th class="px-6 py-3 text-start text-base font-semibold text-default-800">訂單金額</th>
+                  <th class="px-6 py-3 text-start text-base font-semibold text-default-800">訂單日期</th>
+                  <th class="px-6 py-3 text-start text-base font-semibold text-default-800">訂單狀態</th>
+                  <th class="px-6 py-3 text-start text-base font-semibold text-default-800">付款方式</th>
+                  <th colspan="2" class="px-6 py-3 text-start text-base font-semibold text-default-800"></th>
+
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-dashed divide-default-200">
+                <tr *ngFor="let order of filteredOrders">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-default-800">#{{order.fOrderId}}</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-default-800">{{order.fMemberId}}</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-default-800">{{order.fTotalPrice}}</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-default-800">{{order.orderDateDisplay}}</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-default-800">{{order.fOrderStatus}}</td>
+                  <td class="px-6 py-4">
+                    <span [ngClass]="{
+                      'inline-flex items-center gap-1 py-1 px-3 rounded-lg text-xs font-medium': true,
+                      'bg-yellow-500/20 text-yellow-500': order.fPayment === '處理中',
+                      'bg-sky-500/20 text-sky-500': order.fPayment === '完成',
+                      'bg-red-500/20 text-red-500': order.fPayment === '取消'
+                    }">{{order.fPayment}}</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary text-end">
+                    <a [routerLink]="['/order/detail', order.fOrderId]" class="text-primary hover:underline">檢視明細</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 訂單詳情 -->
+    <div class="grid xl:grid-cols-3 gap-10" *ngIf="selectedOrder">
+      <div class="xl:col-span-2">
+        <div class="border border-default-200 p-10 rounded-2xl">
+          <!-- 返回按鈕 -->
+          <button (click)="selectedOrder = null" class="mb-6 text-primary hover:underline">
+            <i class="ti ti-arrow-left mr-2"></i>返回訂單列表
+          </button>
+
+          <!-- 個人資料表單 -->
+          <div id="personal-detail-item" role="tabpanel" aria-labelledby="personal-detail">
+            <!-- ... 個人資料表單內容 ... -->
+          </div>
+
+          <!-- 運送資料表單 -->
+          <div id="shipping-detail-item" role="tabpanel" aria-labelledby="shipping-detail">
+            <!-- ... 運送資料表單內容 ... -->
+          </div>
+
+          <!-- 付款資料表單 -->
+          <div id="payment-detail-item" role="tabpanel" aria-labelledby="payment-detail">
+            <!-- ... 付款資料表單內容 ... -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+
+

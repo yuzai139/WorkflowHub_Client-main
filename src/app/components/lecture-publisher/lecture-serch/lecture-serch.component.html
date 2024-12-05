@@ -1,0 +1,818 @@
+<p>lecture-serch works!</p>
+<form class="relative mx-auto flex min-w-80">
+  <input id="data-input" type="search" placeholder="Search for items..."
+    class="w-full rounded-lg border-none bg-default-100 py-3 pe-6 ps-12 text-sm text-default-900 transition placeholder:text-default-600 focus:outline-none focus:ring-transparent">
+  <button type="button" aria-label="Click here to search input data"
+    class="absolute inset-y-0 start-2 z-10 flex h-full w-10 shrink-0 cursor-default items-center justify-center focus:outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="search"
+      class="lucide lucide-search h-5 w-5">
+      <circle cx="11" cy="11" r="8"></circle>
+      <path d="m21 21-4.3-4.3"></path>
+    </svg>
+  </button>
+</form>
+<!-- 頁面路徑 開始 -->
+<!--<section class="hidden bg-default-100 lg:block">
+  <div class="container">
+    <div class="relative flex py-4">
+      <ol aria-label="Breadcrumb" class="flex min-w-0 items-center gap-2 whitespace-nowrap">
+        <li class="text-sm/loose">
+          <a class="flex items-center gap-2 align-middle text-base leading-none text-default-800 transition-all hover:text-primary"
+            href="#">
+            <i class="ti ti-brand-google-home text-lg"></i>
+            Home
+            <i class="ti ti-chevron-right text-base"></i>
+          </a>
+        </li>
+        <li class="text-sm/loose">
+          <a class="flex items-center gap-2 align-middle text-base leading-none text-default-800 transition-all hover:text-primary"
+            href="#">
+            Product
+            <i class="ti ti-chevron-right text-base"></i>
+          </a>
+        </li>
+
+        <li aria-current="page" class="text-base/loose font-medium leading-none text-primary hover:text-primary">
+          Products Grid
+        </li>
+      </ol>
+    </div>
+  </div>
+</section> -->
+<!-- 頁面路徑 結束 -->
+
+<!-- 側邊篩選欄 開始 -->
+<section class="py-6">
+  <div class="container">
+    <div class="">
+      <!--排序 start-->
+      <!--<div class="flex lg:flex-row flex-row-reverse items-center justify-between mb-6">
+        <div class="flex items-center justify-center gap-2">
+          <span class="text-base text-default-950 me-3 hidden md:block">Sort By :</span>
+          <div class="relative">
+            <select id="all-select-categories" data-hs-select='{
+                              "placeholder": "Select Category",
+                              "toggleTag": "<button type=\"button\"></button>",
+                              "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 block w-full rounded-md py-2 ps-4 pe-10 text-default-900 text-sm focus:ring-transparent border border-default-200 transition-all duration-300 hover:bg-default-100 before:absolute before:inset-0 before:z-[1]",
+                              "dropdownClasses": "mt-2 z-50 min-w-[200px] max-h-[300px] p-1.5 space-y-0.5 bg-white border border-default-200 rounded-lg overflow-hidden overflow-y-auto end-0 dark:bg-default-50",
+                              "optionClasses": "py-2 px-3 w-full text-sm text-default-800 cursor-pointer rounded-md hover:bg-default-100 focus:outline-none focus:bg-default-100",
+                              "optionTemplate": "<div class=\"flex justify-between items-center w-full\"><span data-title></span><span class=\"hidden hs-selected:block\"><i class=\"ti ti-checks text-lg flex-shrink-0 text-primary\" /></i></span></div>"
+                              }' class="hidden">
+              <option></option>
+              <option>Latest</option>
+              <option>Featured</option>
+              <option>Release Date</option>
+              <option>Avg. Rating</option>
+            </select>
+
+            <div class="absolute -inset-y-0 start-auto end-3 flex items-center">
+              <i class="ti ti-chevron-down shrink text-base/none"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button data-hs-overlay="#filterSidebar"
+            class="xl:hidden relative flex items-center gap-2 font-medium text-default-950 text-sm py-2.5 px-4 xl:px-5 rounded-md border border-default-200 transition-all"
+            type="button">
+            <i class="ti ti-adjustments-horizontal text-xl"></i> Filter <span
+              class="px-2 py-0.5 ms-2 text-xs rounded bg-primary/30 text-primary-400">0</span>
+          </button>
+
+          <div class="2xl:flex relative menu-item hidden">
+            <input
+              class="ps-10 pe-4 py-2.5 block w-64 border border-default-200 rounded-md text-sm text-default-800 bg-transparent focus:ring-transparent"
+              placeholder="Search Here.." type="search">
+            <span class="absolute start-4 top-3">
+              <i class="ti ti-search"></i>
+            </span>
+          </div>
+        </div>
+      </div>-->
+      <!--排序 end-->
+    </div>
+    <!--商品區大外框 -->
+    <div class="flex justify-center">
+      <!-- 加入外層容器並居中： 可以在這一層的上層增加一個 div，並設定 flex 和 justify-center 屬性來居中。 -->
+      <div class="relative lg:flex gap-6">
+        <!--設置了一個相對定位、並在特定螢幕尺寸時切換為彈性布局的 <div> 元素。以下是各個部分的作用：
+        relative：
+        作用：將此 <div> 設置為相對定位，使其位置相對於原始位置可以稍微調整（例如可以用 top, left, right, bottom 調整位置）。
+        效果：這樣設置可以讓內部子元素根據此相對定位的 <div> 作為基準進行絕對定位，通常適合有浮動元素或需要特殊排版的情況。
+        lg:flex：
+        作用：這是 Tailwind CSS 的響應式類別，當螢幕尺寸到達 lg（1024px 或更大）時，將此 <div> 設為 彈性布局。
+        效果：在較大的螢幕上，該 <div> 會改為彈性容器，使內部元素自動排列為橫向或縱向（預設是橫向）。在更小螢幕時則不受影響，依然保持塊級元素的布局方式。
+        gap-6：
+        作用：設置內部子元素之間的間距為 6 單位（通常是 6 x 4px = 24px）。
+        效果：在彈性容器內的項目之間增加間距，讓內部項目之間不會緊密排列，更整齊且更具可讀性。 -->
+        <!--側邊篩選欄 start-->
+        <!-- <div
+        class="hs-overlay hs-overlay-open:translate-x-0 hidden max-w-sm xl:max-w-full xl:w-1/5 w-full -translate-x-full fixed top-0 start-0 transition-all transform h-full z-[60] xl:z-auto bg-white xl:!bg-transparent xl:translate-x-0 xl:block xl:static xl:start-auto dark:bg-default-50"
+        id="filterSidebar" tabindex="-1">
+      </div> -->
+        <!--側邊篩選欄 end-->
+
+        <div class="xl:max-w-4/5">
+          <!--在螢幕尺寸達到 xl（通常是 1280px 或更大）時，寬度設為 80%，即相對於父容器的 4/5 寬度。
+        當視窗變大到 xl 尺寸時，內容會有 20% 的邊距，適合顯示更多內容的寬螢幕配置。
+        確保 xl:w-4/5 和 lg:flex 不會造成元素偏移。如果還是偏左，可以將 xl:w-4/5 改為 xl:max-w-4/5 mx-auto，確保內容在 xl 螢幕尺寸上也會居中。-->
+          <div class="sticky top-20">
+            <!--sticky 將這個 <div> 設置為「黏性定位」，讓它在滾動時保持固定位置，直到超出其父容器範圍。
+               top-20：設定距頂部 20 單位的偏移量（通常是 20 x 4px = 80px）。當使用者向下滾動時，此 <div> 會在 80px 的位置「黏著」，直到父容器的滾動範圍結束。
+               適合用於側邊欄或導航欄，讓使用者滾動時可以保持視野內。 -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
+              <div
+                class="border border-default-200 rounded-xl overflow-hidden duration-500 hover:border-primary relative">
+                <div class="p-4">
+                  <div class="relative">
+                    <div class="absolute top-0 start-0">
+                      <span
+                        class="inline-flex items-center gap-1.5 py-1 px-4 rounded-lg text-sm font-medium bg-primary/10 text-primary">Sale</span>
+                    </div>
+                    <div class="absolute top-0 end-0">
+                      <span
+                        class="inline-flex items-center gap-1.5 py-1 px-4 rounded-lg text-sm font-medium bg-red-500/10 text-red-500">Hot</span>
+                    </div>
+                    <img src="assets/1-2ca96552.png" alt="" class="w-full h-full">
+                  </div>
+                </div>
+
+                <div class="border-t border-dashed border-default-200 p-4">
+                  <div class="mb-4">
+                    <a href="product-details.html"
+                      class="text-default-600 text-xl font-semibold line-clamp-1 after:absolute after:inset-0 after:z-0">Banana</a>
+                  </div>
+
+                  <div class="flex items-center justify-between gap-2 mb-4">
+                    <span class="flex items-center gap-2">
+                      <span
+                        class="h-5 w-5 inline-flex items-center justify-center bg-primary text-white rounded-full"><i
+                          class="ti ti-star-filled text-sm"></i></span>
+                      <span class="text-sm text-default-950 from-inherit">4.5</span>
+                    </span>
+
+                    <div class="relative z-10 inline-flex justify-between border border-default-200 p-1 rounded-full"
+                      data-hs-input-number="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-decrement="">
+                        <i class="ti ti-minus"></i>
+                      </button>
+                      <input type="number"
+                        class="w-8 border-0 text-sm text-center text-default-800 focus:ring-0 p-0 bg-transparent"
+                        value="1" data-hs-input-number-input="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-increment="">
+                        <i class="ti ti-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between gap-2">
+                    <h4 class="font-semibold text-xl text-primary">$15 <span
+                        class="text-default-400 text-base line-through">$25</span> </h4>
+                    <a href="pages-cart.html"
+                      class="shrink flex items-center justify-center rounded-lg bg-primary/20 text-primary px-6 py-2.5 text-center text-sm font-medium shadow-sm transition-all duration-200 hover:bg-primary hover:text-white relative z-10">
+                      <i class="ti ti-shopping-bag text-xl me-2"></i>
+                      <span>Add to cart</span>
+                    </a><!-- end btn -->
+                  </div>
+                </div>
+              </div><!-- end card -->
+
+              <div
+                class="border border-default-200 rounded-xl overflow-hidden duration-500 hover:border-primary relative">
+                <div class="p-4">
+                  <div class="relative">
+                    <div class="absolute top-0 end-0">
+                      <span
+                        class="inline-flex items-center gap-1.5 py-1 px-4 rounded-lg text-sm font-medium bg-red-500/10 text-red-500">Hot</span>
+                    </div>
+                    <img src="assets/2-423cfe2a.png" alt="" class="w-full h-full">
+                  </div>
+                </div>
+
+                <div class="border-t border-dashed border-default-200 p-4">
+                  <div class="mb-4">
+                    <a href="product-details.html"
+                      class="text-default-600 text-xl font-semibold line-clamp-1 after:absolute after:inset-0 after:z-0">Shale
+                      Snacks</a>
+                  </div>
+
+                  <div class="flex items-center justify-between gap-2 mb-4">
+                    <span class="flex items-center gap-2">
+                      <span
+                        class="h-5 w-5 inline-flex items-center justify-center bg-primary text-white rounded-full"><i
+                          class="ti ti-star-filled text-sm"></i></span>
+                      <span class="text-sm text-default-950 from-inherit">3.9</span>
+                    </span>
+
+                    <div class="relative z-10 inline-flex justify-between border border-default-200 p-1 rounded-full"
+                      data-hs-input-number="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-decrement="">
+                        <i class="ti ti-minus"></i>
+                      </button>
+                      <input type="number"
+                        class="w-8 border-0 text-sm text-center text-default-800 focus:ring-0 p-0 bg-transparent"
+                        value="1" data-hs-input-number-input="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-increment="">
+                        <i class="ti ti-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between gap-2">
+                    <h4 class="font-semibold text-xl text-primary">$18</h4>
+                    <a href="pages-cart.html"
+                      class="shrink flex items-center justify-center rounded-lg bg-primary/20 text-primary px-6 py-2.5 text-center text-sm font-medium shadow-sm transition-all duration-200 hover:bg-primary hover:text-white relative z-10">
+                      <i class="ti ti-shopping-bag text-xl me-2"></i>
+                      <span>Add to cart</span>
+                    </a><!-- end btn -->
+                  </div>
+                </div>
+              </div><!-- end card -->
+
+              <div
+                class="border border-default-200 rounded-xl overflow-hidden duration-500 hover:border-primary relative">
+                <div class="p-4">
+                  <div class="relative">
+                    <div class="absolute top-0 start-0">
+                      <span
+                        class="inline-flex items-center gap-1.5 py-1 px-4 rounded-lg text-sm font-medium bg-primary/10 text-primary">Sale</span>
+                    </div>
+                    <img src="assets/3-eb4bb056.png" alt="" class="w-full h-full">
+                  </div>
+                </div>
+
+                <div class="border-t border-dashed border-default-200 p-4">
+                  <div class="mb-4">
+                    <a href="product-details.html"
+                      class="text-default-600 text-xl font-semibold line-clamp-1 after:absolute after:inset-0 after:z-0">Grapes</a>
+                  </div>
+
+                  <div class="flex items-center justify-between gap-2 mb-4">
+                    <span class="flex items-center gap-2">
+                      <span
+                        class="h-5 w-5 inline-flex items-center justify-center bg-primary text-white rounded-full"><i
+                          class="ti ti-star-filled text-sm"></i></span>
+                      <span class="text-sm text-default-950 from-inherit">4.2</span>
+                    </span>
+
+                    <div class="relative z-10 inline-flex justify-between border border-default-200 p-1 rounded-full"
+                      data-hs-input-number="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-decrement="">
+                        <i class="ti ti-minus"></i>
+                      </button>
+                      <input type="number"
+                        class="w-8 border-0 text-sm text-center text-default-800 focus:ring-0 p-0 bg-transparent"
+                        value="1" data-hs-input-number-input="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-increment="">
+                        <i class="ti ti-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between gap-2">
+                    <h4 class="font-semibold text-xl text-primary">$22 <span
+                        class="text-default-400 text-base line-through">$32</span> </h4>
+                    <a href="pages-cart.html"
+                      class="shrink flex items-center justify-center rounded-lg bg-primary/20 text-primary px-6 py-2.5 text-center text-sm font-medium shadow-sm transition-all duration-200 hover:bg-primary hover:text-white relative z-10">
+                      <i class="ti ti-shopping-bag text-xl me-2"></i>
+                      <span>Add to cart</span>
+                    </a><!-- end btn -->
+                  </div>
+                </div>
+              </div><!-- end card -->
+
+              <div
+                class="border border-default-200 rounded-xl overflow-hidden duration-500 hover:border-primary relative">
+                <div class="p-4">
+                  <div class="relative">
+                    <img src="assets/4-84c13641.png" alt="" class="w-full h-full">
+                  </div>
+                </div>
+
+                <div class="border-t border-dashed border-default-200 p-4">
+                  <div class="mb-4">
+                    <a href="product-details.html"
+                      class="text-default-600 text-xl font-semibold line-clamp-1 after:absolute after:inset-0 after:z-0">Banana
+                      Chips</a>
+                  </div>
+
+                  <div class="flex items-center justify-between gap-2 mb-4">
+                    <span class="flex items-center gap-2">
+                      <span
+                        class="h-5 w-5 inline-flex items-center justify-center bg-primary text-white rounded-full"><i
+                          class="ti ti-star-filled text-sm"></i></span>
+                      <span class="text-sm text-default-950 from-inherit">3.7</span>
+                    </span>
+
+                    <div class="relative z-10 inline-flex justify-between border border-default-200 p-1 rounded-full"
+                      data-hs-input-number="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-decrement="">
+                        <i class="ti ti-minus"></i>
+                      </button>
+                      <input type="number"
+                        class="w-8 border-0 text-sm text-center text-default-800 focus:ring-0 p-0 bg-transparent"
+                        value="1" data-hs-input-number-input="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-increment="">
+                        <i class="ti ti-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between gap-2">
+                    <h4 class="font-semibold text-xl text-primary">$8</h4>
+                    <a href="pages-cart.html"
+                      class="shrink flex items-center justify-center rounded-lg bg-primary/20 text-primary px-6 py-2.5 text-center text-sm font-medium shadow-sm transition-all duration-200 hover:bg-primary hover:text-white relative z-10">
+                      <i class="ti ti-shopping-bag text-xl me-2"></i>
+                      <span>Add to cart</span>
+                    </a><!-- end btn -->
+                  </div>
+                </div>
+              </div><!-- end card -->
+
+              <div
+                class="border border-default-200 rounded-xl overflow-hidden duration-500 hover:border-primary relative">
+                <div class="p-4">
+                  <div class="relative">
+                    <img src="assets/5-6588f4cc.png" alt="" class="w-full h-full">
+                    <div class="absolute top-0 end-0">
+                      <span
+                        class="inline-flex items-center gap-1.5 py-1 px-4 rounded-lg text-sm font-medium bg-red-500/10 text-red-500">Hot</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="border-t border-dashed border-default-200 p-4">
+                  <div class="mb-4">
+                    <a href="product-details.html"
+                      class="text-default-600 text-xl font-semibold line-clamp-1 after:absolute after:inset-0 after:z-0">ProtinX</a>
+                  </div>
+
+                  <div class="flex items-center justify-between gap-2 mb-4">
+                    <span class="flex items-center gap-2">
+                      <span
+                        class="h-5 w-5 inline-flex items-center justify-center bg-primary text-white rounded-full"><i
+                          class="ti ti-star-filled text-sm"></i></span>
+                      <span class="text-sm text-default-950 from-inherit">4.7</span>
+                    </span>
+
+                    <div class="relative z-10 inline-flex justify-between border border-default-200 p-1 rounded-full"
+                      data-hs-input-number="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-decrement="">
+                        <i class="ti ti-minus"></i>
+                      </button>
+                      <input type="number"
+                        class="w-8 border-0 text-sm text-center text-default-800 focus:ring-0 p-0 bg-transparent"
+                        value="1" data-hs-input-number-input="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-increment="">
+                        <i class="ti ti-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between gap-2">
+                    <h4 class="font-semibold text-xl text-primary">$66 </h4>
+                    <a href="pages-cart.html"
+                      class="shrink flex items-center justify-center rounded-lg bg-primary/20 text-primary px-6 py-2.5 text-center text-sm font-medium shadow-sm transition-all duration-200 hover:bg-primary hover:text-white relative z-10">
+                      <i class="ti ti-shopping-bag text-xl me-2"></i>
+                      <span>Add to cart</span>
+                    </a><!-- end btn -->
+                  </div>
+                </div>
+              </div><!-- end card -->
+
+              <div
+                class="border border-default-200 rounded-xl overflow-hidden duration-500 hover:border-primary relative">
+                <div class="p-4">
+                  <div class="relative">
+                    <img src="assets/6-fc45c68a.png" alt="" class="w-full h-full">
+                    <div class="absolute top-0 start-0">
+                      <span
+                        class="inline-flex items-center gap-1.5 py-1 px-4 rounded-lg text-sm font-medium bg-primary/10 text-primary">Sale</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="border-t border-dashed border-default-200 p-4">
+                  <div class="mb-4">
+                    <a href="product-details.html"
+                      class="text-default-600 text-xl font-semibold line-clamp-1 after:absolute after:inset-0 after:z-0">Nuts
+                      &amp; Berries</a>
+                  </div>
+
+                  <div class="flex items-center justify-between gap-2 mb-4">
+                    <span class="flex items-center gap-2">
+                      <span
+                        class="h-5 w-5 inline-flex items-center justify-center bg-primary text-white rounded-full"><i
+                          class="ti ti-star-filled text-sm"></i></span>
+                      <span class="text-sm text-default-950 from-inherit">4.9</span>
+                    </span>
+
+                    <div class="relative z-10 inline-flex justify-between border border-default-200 p-1 rounded-full"
+                      data-hs-input-number="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-decrement="">
+                        <i class="ti ti-minus"></i>
+                      </button>
+                      <input type="number"
+                        class="w-8 border-0 text-sm text-center text-default-800 focus:ring-0 p-0 bg-transparent"
+                        value="1" data-hs-input-number-input="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-increment="">
+                        <i class="ti ti-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between gap-2">
+                    <h4 class="font-semibold text-xl text-primary">$74 <span
+                        class="text-default-400 text-base line-through">$89</span> </h4>
+                    <a href="pages-cart.html"
+                      class="shrink flex items-center justify-center rounded-lg bg-primary/20 text-primary px-6 py-2.5 text-center text-sm font-medium shadow-sm transition-all duration-200 hover:bg-primary hover:text-white relative z-10">
+                      <i class="ti ti-shopping-bag text-xl me-2"></i>
+                      <span>Add to cart</span>
+                    </a><!-- end btn -->
+                  </div>
+                </div>
+              </div><!-- end card -->
+
+              <div
+                class="border border-default-200 rounded-xl overflow-hidden duration-500 hover:border-primary relative">
+                <div class="p-4">
+                  <div class="relative">
+                    <img src="assets/7-e9f364dd.png" alt="" class="w-full h-full">
+                    <div class="absolute top-0 start-0">
+                      <span
+                        class="inline-flex items-center gap-1.5 py-1 px-4 rounded-lg text-sm font-medium bg-primary/10 text-primary">Sale</span>
+                    </div>
+                    <div class="absolute top-0 end-0">
+                      <span
+                        class="inline-flex items-center gap-1.5 py-1 px-4 rounded-lg text-sm font-medium bg-red-500/10 text-red-500">Hot</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="border-t border-dashed border-default-200 p-4">
+                  <div class="mb-4">
+                    <a href="product-details.html"
+                      class="text-default-600 text-xl font-semibold line-clamp-1 after:absolute after:inset-0 after:z-0">Avocado</a>
+                  </div>
+
+                  <div class="flex items-center justify-between gap-2 mb-4">
+                    <span class="flex items-center gap-2">
+                      <span
+                        class="h-5 w-5 inline-flex items-center justify-center bg-primary text-white rounded-full"><i
+                          class="ti ti-star-filled text-sm"></i></span>
+                      <span class="text-sm text-default-950 from-inherit">4.6</span>
+                    </span>
+
+                    <div class="relative z-10 inline-flex justify-between border border-default-200 p-1 rounded-full"
+                      data-hs-input-number="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-decrement="">
+                        <i class="ti ti-minus"></i>
+                      </button>
+                      <input type="number"
+                        class="w-8 border-0 text-sm text-center text-default-800 focus:ring-0 p-0 bg-transparent"
+                        value="1" data-hs-input-number-input="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-increment="">
+                        <i class="ti ti-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between gap-2">
+                    <h4 class="font-semibold text-xl text-primary">$46 <span
+                        class="text-default-400 text-base line-through">$89</span> </h4>
+                    <a href="pages-cart.html"
+                      class="shrink flex items-center justify-center rounded-lg bg-primary/20 text-primary px-6 py-2.5 text-center text-sm font-medium shadow-sm transition-all duration-200 hover:bg-primary hover:text-white relative z-10">
+                      <i class="ti ti-shopping-bag text-xl me-2"></i>
+                      <span>Add to cart</span>
+                    </a><!-- end btn -->
+                  </div>
+                </div>
+              </div><!-- end card -->
+
+              <div
+                class="border border-default-200 rounded-xl overflow-hidden duration-500 hover:border-primary relative">
+                <div class="p-4">
+                  <div class="relative">
+                    <img src="assets/8-f4839df5.png" alt="" class="w-full h-full">
+                    <div class="absolute top-0 end-0">
+                      <span
+                        class="inline-flex items-center gap-1.5 py-1 px-4 rounded-lg text-sm font-medium bg-red-500/10 text-red-500">Hot</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="border-t border-dashed border-default-200 p-4">
+                  <div class="mb-4">
+                    <a href="product-details.html"
+                      class="text-default-600 text-xl font-semibold line-clamp-1 after:absolute after:inset-0 after:z-0">Chicken
+                      Meat</a>
+                  </div>
+
+                  <div class="flex items-center justify-between gap-2 mb-4">
+                    <span class="flex items-center gap-2">
+                      <span
+                        class="h-5 w-5 inline-flex items-center justify-center bg-primary text-white rounded-full"><i
+                          class="ti ti-star-filled text-sm"></i></span>
+                      <span class="text-sm text-default-950 from-inherit">4.3</span>
+                    </span>
+
+                    <div class="relative z-10 inline-flex justify-between border border-default-200 p-1 rounded-full"
+                      data-hs-input-number="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-decrement="">
+                        <i class="ti ti-minus"></i>
+                      </button>
+                      <input type="number"
+                        class="w-8 border-0 text-sm text-center text-default-800 focus:ring-0 p-0 bg-transparent"
+                        value="1" data-hs-input-number-input="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-increment="">
+                        <i class="ti ti-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between gap-2">
+                    <h4 class="font-semibold text-xl text-primary">$59</h4>
+                    <a href="pages-cart.html"
+                      class="shrink flex items-center justify-center rounded-lg bg-primary/20 text-primary px-6 py-2.5 text-center text-sm font-medium shadow-sm transition-all duration-200 hover:bg-primary hover:text-white relative z-10">
+                      <i class="ti ti-shopping-bag text-xl me-2"></i>
+                      <span>Add to cart</span>
+                    </a><!-- end btn -->
+                  </div>
+                </div>
+              </div><!-- end card -->
+
+              <div
+                class="border border-default-200 rounded-xl overflow-hidden duration-500 hover:border-primary relative">
+                <div class="p-4">
+                  <div class="relative">
+                    <img src="assets/9-c7fc9593.png" alt="" class="w-full h-full">
+                  </div>
+                </div>
+
+                <div class="border-t border-dashed border-default-200 p-4">
+                  <div class="mb-4">
+                    <a href="product-details.html"
+                      class="text-default-600 text-xl font-semibold line-clamp-1 after:absolute after:inset-0 after:z-0">Watermelon</a>
+                  </div>
+
+                  <div class="flex items-center justify-between gap-2 mb-4">
+                    <span class="flex items-center gap-2">
+                      <span
+                        class="h-5 w-5 inline-flex items-center justify-center bg-primary text-white rounded-full"><i
+                          class="ti ti-star-filled text-sm"></i></span>
+                      <span class="text-sm text-default-950 from-inherit">4.3</span>
+                    </span>
+
+                    <div class="relative z-10 inline-flex justify-between border border-default-200 p-1 rounded-full"
+                      data-hs-input-number="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-decrement="">
+                        <i class="ti ti-minus"></i>
+                      </button>
+                      <input type="number"
+                        class="w-8 border-0 text-sm text-center text-default-800 focus:ring-0 p-0 bg-transparent"
+                        value="1" data-hs-input-number-input="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-increment="">
+                        <i class="ti ti-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between gap-2">
+                    <h4 class="font-semibold text-xl text-primary">$42</h4>
+                    <a href="pages-cart.html"
+                      class="shrink flex items-center justify-center rounded-lg bg-primary/20 text-primary px-6 py-2.5 text-center text-sm font-medium shadow-sm transition-all duration-200 hover:bg-primary hover:text-white relative z-10">
+                      <i class="ti ti-shopping-bag text-xl me-2"></i>
+                      <span>Add to cart</span>
+                    </a><!-- end btn -->
+                  </div>
+                </div>
+              </div><!-- end card -->
+
+              <div
+                class="border border-default-200 rounded-xl overflow-hidden duration-500 hover:border-primary relative">
+                <div class="p-4">
+                  <div class="relative">
+                    <img src="assets/11-59ae3153.png" alt="" class="w-full h-full">
+                    <div class="absolute top-0 start-0">
+                      <span
+                        class="inline-flex items-center gap-1.5 py-1 px-4 rounded-lg text-sm font-medium bg-primary/10 text-primary">Sale</span>
+                    </div>
+                    <div class="absolute top-0 end-0">
+                      <span
+                        class="inline-flex items-center gap-1.5 py-1 px-4 rounded-lg text-sm font-medium bg-red-500/10 text-red-500">Hot</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="border-t border-dashed border-default-200 p-4">
+                  <div class="mb-4">
+                    <a href="product-details.html"
+                      class="text-default-600 text-xl font-semibold line-clamp-1 after:absolute after:inset-0 after:z-0">Kiwi</a>
+                  </div>
+
+                  <div class="flex items-center justify-between gap-2 mb-4">
+                    <span class="flex items-center gap-2">
+                      <span
+                        class="h-5 w-5 inline-flex items-center justify-center bg-primary text-white rounded-full"><i
+                          class="ti ti-star-filled text-sm"></i></span>
+                      <span class="text-sm text-default-950 from-inherit">4.3</span>
+                    </span>
+
+                    <div class="relative z-10 inline-flex justify-between border border-default-200 p-1 rounded-full"
+                      data-hs-input-number="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-decrement="">
+                        <i class="ti ti-minus"></i>
+                      </button>
+                      <input type="number"
+                        class="w-8 border-0 text-sm text-center text-default-800 focus:ring-0 p-0 bg-transparent"
+                        value="1" data-hs-input-number-input="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-increment="">
+                        <i class="ti ti-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between gap-2">
+                    <h4 class="font-semibold text-xl text-primary">$68 <span
+                        class="text-default-400 text-base line-through">$77</span> </h4>
+                    <a href="pages-cart.html"
+                      class="shrink flex items-center justify-center rounded-lg bg-primary/20 text-primary px-6 py-2.5 text-center text-sm font-medium shadow-sm transition-all duration-200 hover:bg-primary hover:text-white relative z-10">
+                      <i class="ti ti-shopping-bag text-xl me-2"></i>
+                      <span>Add to cart</span>
+                    </a><!-- end btn -->
+                  </div>
+                </div>
+              </div><!-- end card -->
+
+              <div
+                class="border border-default-200 rounded-xl overflow-hidden duration-500 hover:border-primary relative">
+                <div class="p-4">
+                  <div class="relative">
+                    <img src="assets/12-690a6c94.png" alt="" class="w-full h-full">
+                    <div class="absolute top-0 end-0">
+                      <span
+                        class="inline-flex items-center gap-1.5 py-1 px-4 rounded-lg text-sm font-medium bg-red-500/10 text-red-500">Hot</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="border-t border-dashed border-default-200 p-4">
+                  <div class="mb-4">
+                    <a href="product-details.html"
+                      class="text-default-600 text-xl font-semibold line-clamp-1 after:absolute after:inset-0 after:z-0">Peppermint</a>
+                  </div>
+
+                  <div class="flex items-center justify-between gap-2 mb-4">
+                    <span class="flex items-center gap-2">
+                      <span
+                        class="h-5 w-5 inline-flex items-center justify-center bg-primary text-white rounded-full"><i
+                          class="ti ti-star-filled text-sm"></i></span>
+                      <span class="text-sm text-default-950 from-inherit">4.9</span>
+                    </span>
+
+                    <div class="relative z-10 inline-flex justify-between border border-default-200 p-1 rounded-full"
+                      data-hs-input-number="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-decrement="">
+                        <i class="ti ti-minus"></i>
+                      </button>
+                      <input type="number"
+                        class="w-8 border-0 text-sm text-center text-default-800 focus:ring-0 p-0 bg-transparent"
+                        value="1" data-hs-input-number-input="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-increment="">
+                        <i class="ti ti-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between gap-2">
+                    <h4 class="font-semibold text-xl text-primary">$88</h4>
+                    <a href="pages-cart.html"
+                      class="shrink flex items-center justify-center rounded-lg bg-primary/20 text-primary px-6 py-2.5 text-center text-sm font-medium shadow-sm transition-all duration-200 hover:bg-primary hover:text-white relative z-10">
+                      <i class="ti ti-shopping-bag text-xl me-2"></i>
+                      <span>Add to cart</span>
+                    </a><!-- end btn -->
+                  </div>
+                </div>
+              </div><!-- end card -->
+
+              <div
+                class="border border-default-200 rounded-xl overflow-hidden duration-500 hover:border-primary relative">
+                <div class="p-4">
+                  <div class="relative">
+                    <img src="assets/13-845dd9b4.png" alt="" class="w-full h-full">
+                  </div>
+                </div>
+
+                <div class="border-t border-dashed border-default-200 p-4">
+                  <div class="mb-4">
+                    <a href="product-details.html"
+                      class="text-default-600 text-xl font-semibold line-clamp-1 after:absolute after:inset-0 after:z-0">Eggs</a>
+                  </div>
+
+                  <div class="flex items-center justify-between gap-2 mb-4">
+                    <span class="flex items-center gap-2">
+                      <span
+                        class="h-5 w-5 inline-flex items-center justify-center bg-primary text-white rounded-full"><i
+                          class="ti ti-star-filled text-sm"></i></span>
+                      <span class="text-sm text-default-950 from-inherit">4.4</span>
+                    </span>
+
+                    <div class="relative z-10 inline-flex justify-between border border-default-200 p-1 rounded-full"
+                      data-hs-input-number="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-decrement="">
+                        <i class="ti ti-minus"></i>
+                      </button>
+                      <input type="number"
+                        class="w-8 border-0 text-sm text-center text-default-800 focus:ring-0 p-0 bg-transparent"
+                        value="1" data-hs-input-number-input="">
+                      <button
+                        class="shrink bg-default-200 text-default-800 rounded-full h-6 w-6 text-sm inline-flex items-center justify-center"
+                        type="button" data-hs-input-number-increment="">
+                        <i class="ti ti-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between gap-2">
+                    <h4 class="font-semibold text-xl text-primary">$46</h4>
+                    <a href="pages-cart.html"
+                      class="shrink flex items-center justify-center rounded-lg bg-primary/20 text-primary px-6 py-2.5 text-center text-sm font-medium shadow-sm transition-all duration-200 hover:bg-primary hover:text-white relative z-10">
+                      <i class="ti ti-shopping-bag text-xl me-2"></i>
+                      <span>Add to cart</span>
+                    </a><!-- end btn -->
+                  </div>
+                </div>
+              </div><!-- end card -->
+            </div>
+            <!--這個 <div> 使用 grid 布局，根據螢幕大小改變顯示的列數。
+          md:grid-cols-2：在 md 尺寸（768px 或更大）時，設置為 2 列。
+          lg:grid-cols-3：在 lg 尺寸（1024px 或更大）時，設置為 3 列。
+          2xl:grid-cols-4：在 2xl 尺寸（1536px 或更大）時，設置為 4 列。
+          gap-6：網格項之間設置 6 單位的間距（通常是 6 x 4px = 24px），增強布局的可讀性。
+          效果：根據螢幕寬度動態調整顯示列數，使內容在不同裝置上都能獲得良好的呈現效果。 -->
+
+            <!--下面的空格 & 換頁 start-->
+            <div class="flex gap-x-2 justify-end items-center mt-6">
+              <a href="#"
+                class="w-10 h-10 flex justify-center items-center bg-primary/20 text-primary text-base font-semibold rounded-full hover:bg-primary hover:text-white">
+                <i class="ti ti-chevron-left"></i>
+              </a>
+              <a href="#"
+                class="w-10 h-10 flex justify-center items-center bg-primary text-white text-base font-semibold rounded-full">1</a>
+
+              <a href="#"
+                class="w-10 h-10 flex justify-center items-center bg-primary/20 text-primary text-base font-semibold rounded-full hover:bg-primary hover:text-white">2</a>
+
+              <a href="#"
+                class="w-10 h-10 flex justify-center items-center bg-primary/20 text-primary text-base font-semibold rounded-full hover:bg-primary hover:text-white">...</a>
+
+              <a href="#"
+                class="w-10 h-10 flex justify-center items-center bg-primary/20 text-primary text-base font-semibold rounded-full hover:bg-primary hover:text-white">16</a>
+
+              <a href="#"
+                class="w-10 h-10 flex justify-center items-center bg-primary/20 text-primary text-base font-semibold rounded-full hover:bg-primary hover:text-white">
+                <i class="ti ti-chevron-right"></i>
+              </a>
+            </div><!--下面的空格 & 換頁 end flex -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--商品區大外框 end -->
+  </div>
+</section>

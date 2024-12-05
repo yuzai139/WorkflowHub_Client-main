@@ -1,0 +1,93 @@
+<!-- 在最上方加入返回按鈕 -->
+<div class="mb-4 px-6">
+  <button
+    (click)="goBack()"
+    class="inline-flex items-center justify-center rounded border border-default-300 bg-white px-4 py-2 text-sm font-medium text-default-700 shadow-sm hover:bg-default-50"
+  >
+    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+    </svg>
+    返回上一頁
+  </button>
+</div>
+
+
+<div class="container"></div>
+
+  <!-- 錯誤訊息 -->
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+<!-- 訂單內容 -->
+<!-- <ng-container *ngIf="OrderDetails"> -->
+  <!-- 訂單產品列表 -->
+  <div class="order-details">
+  <div class="grid grid-cols-1">
+    <div class="overflow-hidden border border-default-200 rounded-md">
+      <div class="relative overflow-x-auto">
+        <table class="min-w-full">
+          <thead class="bg-default-100 border-b border-dashed border-default-200">
+            <tr>
+              <th scope="col" class="px-6 py-3 text-start text-sm font-semibold text-default-800 uppercase">訂單編號</th>
+              <th scope="col" class="px-6 py-3 text-start text-sm font-semibold text-default-800 uppercase">工作流程編號</th>
+              <th scope="col" class="px-6 py-3 text-start text-sm font-semibold text-default-800 uppercase">小計</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-dashed divide-default-200">
+            <tr *ngFor="let det of getUniqueOrderDetails()">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-default-800">{{ det.fOrderId }}</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-default-800">{{ det.fSopid }}</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-default-800">${{ det.fSubtotal }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 訂單總計區塊 -->
+  <div class="pt-10">
+    <div class="grid lg:grid-cols-12 grid-cols-1 gap-4">
+      <!-- 帳單資訊 -->
+      <div class="lg:col-span-8 col-span-1">
+        <div class="flex flex-wrap border border-default-200 rounded-lg divide-y md:divide-y-0 md:divide-x divide-default-200">
+          <div class="md:w-1/2 w-auto grow">
+            <div class="px-4 py-3 border-b border-default-200">
+              <h1 class="text-lg font-medium text-default-800">訂單資訊</h1>
+            </div>
+            <div class="px-4 py-4">
+              <div class="mb-4">
+                <p class="text-base text-default-700 uppercase">訂單狀態</p>
+                <p class="text-base text-default-800">
+                  <!-- <span [class]="selectedOrderDetails[0].fOrderStatus ?
+                    'px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800' :
+                    'px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800'">
+                    {{ selectedOrderDetails[0].fOrderStatus ? '已完成' : '處理中' }}
+                  </span> -->
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 訂單總計 -->
+      <!-- <div class="lg:col-span-4 col-span-1">
+        <div class="border border-default-200 rounded-lg">
+          <div class="border-b border-default-200 flex divide-x divide-default-200">
+            <div class="px-6 py-4 w-1/2">
+              <p class="text-default-700 uppercase mb-2">訂單編號:</p>
+              <p class="text-default-800">#{{ selectedOrderDetails[0].fOrderId }}</p>
+            </div>
+          </div>
+          <div class="divide-y divide-default-200">
+            <div class="p-4 flex justify-between">
+              <p class="text-default-700 w-1/2">總計金額:</p>
+              <p class="text-default-800 w-1/2 text-end">${{ selectedOrderDetails[0].fSubtotal }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container> -->
